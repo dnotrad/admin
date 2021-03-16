@@ -1,0 +1,101 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    padding: 15px 50px;
+}
+
+/* clock */
+
+.clock {
+    display: flex;
+    align-items: center;
+}
+
+.clock_img, .walletImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--grey-main);
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.clock_info {}
+
+.clock_time {
+    font-size: 14px;
+    color: var(--black);
+    margin-bottom: 6px;
+}
+
+.clock_city {
+    font-size: 13px;
+    color: var(--grey);
+}
+
+/* right */
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.language {
+    color: var(--black);
+    font-size: 14px;
+    /* убрать маргин сделать флекс */
+    margin-right: 40px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.user_img {
+    width: 48px;
+    height: 48px;
+    margin-right: 15px;
+}
+
+.user_img img {
+    max-width: 100%;
+}
+
+.user_name {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--black);
+    margin-bottom: 5px;
+}
+
+.user_status {
+    display: inline-block;
+    padding: 4px 4px;
+    background-color: var(--user-status);
+    border-radius: 10px;
+    color: #fff;
+}
+
+.wallet {
+    display: flex;
+    align-items: center;
+}
+
+.wallet_title {
+    color: rgba(95, 97, 117, 0.75);
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.wallet_money {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--black);
+}

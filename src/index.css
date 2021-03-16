@@ -83,6 +83,10 @@ h1, h2, h3, h4, h5, h6 {
 
 :root {
   --bg-color: #F0F1F6;
+  --grey-main: #F8F9FC;
+  --black: #1D2038;
+  --grey: rgba(95, 97, 117, 0.75);
+  --user-status: #8C93D6;
 }
 
 body {
