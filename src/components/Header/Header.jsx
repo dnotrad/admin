@@ -1,7 +1,7 @@
 import React from 'react';
 import s from "./Header.module.css";
-import clockImg from "../../assets/img/icons/clock.svg";
-import walletImg from "../../assets/img/icons/wallet.svg";
+import clockImg from "../../assets/icons/clock.svg";
+import walletImg from "../../assets/icons/wallet.svg";
 import userImg from "../../assets/img/user.jpg";
 // propsExaple
 
