@@ -1,0 +1,25 @@
+.button {
+    cursor: pointer;
+    padding: 12px 20px;
+    background-color: #fff;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+    border: 2px solid #C5C9EA;
+    border-radius: 8px;
+    margin-right: 10px;
+    min-width: 105px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button.fill{
+    background-color: #8C93D6;
+    border: 2px solid #8C93D6;
+    color: #fefefe;
+}
+.button:last-child{
+    margin-right: 0;
+}
