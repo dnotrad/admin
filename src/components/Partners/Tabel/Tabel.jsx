@@ -19,8 +19,8 @@ const Row = (props) => {
         <div className={`${s[`row_${props.row}`]}`}>
             <div className={`${s.row_cell} ${s.first}`}>
                 <s className={s.row_rang}></s>
-                <span>Ранг {props.row}</span> 
-           </div>
+                <span>Ранг {props.row}</span>
+            </div>
             <div className={s.row_cell}>{props.rowProps.deposit}</div>
             <div className={s.row_cell}>{props.rowProps.left_branch}</div>
             <div className={s.row_cell}>{props.rowProps.right_branch}</div>
@@ -31,12 +31,11 @@ const Row = (props) => {
             <div className={s.row_cell}>{props.rowProps.fifth_line}</div>
             <div className={s.row_cell}>{props.rowProps.dd_structure}</div>
             <div className={s.row_cell}>{props.rowProps.bonus}</div>
-
         </div>
     )
 }
 
-const Tabel = () => {
+const Tabel = (props) => {
     return (
         <div className={s.tabel}>
             <div className={s.inner}>
@@ -51,21 +50,32 @@ const Tabel = () => {
                 <div className={`${s.fifth_line} ${s.cell}`}>5 линия</div>
                 <div className={`${s.dd_structure} ${s.cell}`}>Д от д структуры</div>
                 <div className={`${s.bonus} ${s.cell}`}>Бонус за закрытие</div>
-
-                {/* ранги */}
-                {/* <div className={`${s.rang_0} ${s.rang}`}>Ранг</div>
-                <div className={`${s.rang_1} ${s.rang}`}>Ранг</div>
-                <div className={`${s.rang_2} ${s.rang}`}>Ранг</div>
-                <div className={`${s.rang_3} ${s.rang}`}>Ранг</div> */}
-
                 {/* rows */}
                 <Row row={0} rowProps={rowProps} />
-                <Row row={1} rowProps={rowProps}/>
-                <Row row={2} rowProps={rowProps}/>
-                <Row row={3} rowProps={rowProps}/>
+                <Row row={1} rowProps={rowProps} />
+                <Row row={2} rowProps={rowProps} />
+                <Row row={3} rowProps={rowProps} />
+            </div>
+            <div className={s.texts}>
+                <div className={s.text}>
+                    {props.text}
+                </div>
+                <div className={s.text}>
+                    {props.text2}
+                </div>
             </div>
         </div>
     );
 };
 
-export default Tabel;
+const Tabels = () => {
+    return (
+        <>
+            <Tabel text="По достижению статуса 5, максимальное количество открытых линий - 3, бонус за доход от структуры - 2% и бонус за закрытие -500 токенов." />
+            <Tabel text="Обратите внимание, что после закрытия 5 статуса для получения бонусов за закрытие статусов Manger и Top Manager вам необходимо иметь в структуре не менее двух активных партнеров c указанными в таблице структурными оборотами, которые будут отображены как Левая и Правая ветка." text2="К Левой ветке относится структура активного партнера с меньшим оборотом, а к Правой с большим. По достижению статуса M1 открывается - 4 реферальная линия, бонус за доход от структуры равняется - 3% и максимальный бонус за закрытие статуса M5 - 5000 токенов."/>
+            <Tabel text="По достижению статуса TM1 открывается  - 5 реферальная линия, бонус за доход от структуры равняется - 4%, начиная с TM5 - 5% и максимальный бонус за закрытие статуса TM7 - 20000 токенов." />
+        </>
+    )
+}
+
+export default Tabels;

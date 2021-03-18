@@ -4,6 +4,7 @@
     background: #FFFFFF;
     border-radius: 10px;
     padding: 30px;
+    margin-bottom: 25px;
 }
 
 .inner {
@@ -13,6 +14,7 @@
     grid-template-rows: repeat(5, 1fr);
     grid-template-areas: "status deposit left right line_1 line_2 line_3 line_4 line_5 struct bonus" "row_0 row_0 row_0 row_0 row_0 row_0 row_0 row_0 row_0 row_0 row_0 " "row_1 row_1 row_1 row_1 row_1 row_1 row_1 row_1 row_1 row_1 row_1 " "row_2 row_2 row_2 row_2 row_2 row_2 row_2 row_2 row_2 row_2 row_2 " "row_3 row_3 row_3 row_3 row_3 row_3 row_3 row_3 row_3 row_3 row_3 ";
     row-gap: 10px;
+    margin-bottom: 20px;
 }
 
 .cell {
@@ -28,7 +30,17 @@
     color: rgba(29, 32, 56, 0.75);
     line-height: 1.2;
 }
-
+.texts{
+    display: flex;
+    justify-content: center;
+}
+.text {
+    font-weight: 300;
+    padding: 0 12.5px;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+}
 /* row */
 
 .row_0, .row_1, .row_2, .row_3 {
