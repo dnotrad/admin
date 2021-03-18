@@ -1,0 +1,82 @@
+/* table 11*5    */
+
+.tabel {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.inner {
+    min-height: 300px;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: "status deposit left right line_1 line_2 line_3 line_4 line_5 struct bonus" "row_0 row_0 row_0 row_0 row_0 row_0 row_0 row_0 row_0 row_0 row_0 " "row_1 row_1 row_1 row_1 row_1 row_1 row_1 row_1 row_1 row_1 row_1 " "row_2 row_2 row_2 row_2 row_2 row_2 row_2 row_2 row_2 row_2 row_2 " "row_3 row_3 row_3 row_3 row_3 row_3 row_3 row_3 row_3 row_3 row_3 ";
+    row-gap: 10px;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+    border-right: 0.7px solid #EAECF7;
+    border-bottom: 0.7px solid #EAECF7;
+    font-weight: 500;
+    font-size: 13px;
+    color: rgba(29, 32, 56, 0.75);
+    line-height: 1.2;
+}
+
+/* row */
+
+.row_0, .row_1, .row_2, .row_3 {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: 1fr;
+    min-width: 100%;
+}
+
+.row_0 {
+    grid-area: row_0;
+}
+
+.row_1 {
+    grid-area: row_1;
+}
+
+.row_2 {
+    grid-area: row_2;
+}
+
+.row_3 {
+    grid-area: row_3;
+}
+
+.row_cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 0.7px solid #EAECF7;
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0.428571px;
+    color: rgba(95, 97, 117, 0.75);
+}
+
+.row_cell.first {
+    padding-left: 10px;
+    justify-content: flex-start;
+    font-size: 13px;
+    letter-spacing: 0.428571px;
+    color: #5F6175;
+}
+
+.row_rang {
+    width: 8px;
+    height: 8px;
+    background: #F5A623;
+    border-radius: 50%;
+    margin-right: 10px;
+}
