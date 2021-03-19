@@ -88,36 +88,38 @@ h1, h2, h3, h4, h5, h6 {
   --grey: rgba(95, 97, 117, 0.75);
   --user-status: #8C93D6;
   --main-color: #fff;
-
   --transition: 1s ease;
+  --green: #84BDB3;
+  --red: #E16767;
 }
 
 body {
-  background: linear-gradient(0deg, rgba(197, 201, 234, 0.12), rgba(197, 201, 234, 0.12)), #FFFFFF; 
+   background: linear-gradient(0deg, rgba(197, 201, 234, 0.12), rgba(197, 201, 234, 0.12)), #FFFFFF; 
+/*   background: #111; */
   font-family: 'Roboto', sans-serif;
 }
 
-.App{
+.App {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns: minmax(0,2fr) minmax(0,12fr);
-  grid-template-rows: minmax(0,1fr) minmax(0,9fr);
+  grid-template-columns: 2fr 12fr;
+  grid-template-rows: 1fr minmax(0,20fr);
   grid-template-areas: "nav header" "nav main";
 }
 
-.App-header{
+.App-header {
   grid-area: header;
   height: 100%;
 }
 
-.App-main{
+.App-main {
   grid-area: main;
   height: 100%;
 }
 
-.App-nav{
+.App-nav {
   grid-area: nav;
   height: 100%;
 }

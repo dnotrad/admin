@@ -1,0 +1,783 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.body {
+    height: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: 18% 70% 15%;
+    grid-template-areas: "balanceInfo" "statistics" "currency";
+}
+
+.balance_wrapper {
+    grid-area: balanceInfo;
+    width: 100%;
+    height: 100%;
+}
+
+.balance_body {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: 3fr 12fr;
+    grid-template-areas: "card profit";
+}
+
+.card_wrapper {
+    grid-area: card;
+    width: 100%;
+    height: 100%;
+}
+
+.card_body {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(102.33% 198.71% at 102.33% 35.1%, rgba(140, 147, 214, 0.63) 0%, rgba(140, 147, 214, 0) 100%), #6F6C99;
+    box-shadow: 0px 4px 15px rgba(111, 108, 153, 0.15), 0 1px 5px rgba(95, 97, 117, 0.75);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.card_decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.35;
+}
+
+.card_info_body {
+    width: 85%;
+    height: 60%;
+    display: grid;
+    grid-template-columns: 63fr 37fr;
+    grid-template-areas: "info symbole";
+    position: relative;
+    z-index: 2;
+}
+
+.card_info_balance_body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.card_title {
+    flex: 0 0 30%;
+}
+
+.card_title span {
+    font-weight: bold;
+    line-height: 113.19%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.card_money_body {
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.card_money {
+    font-weight: 900;
+    line-height: 28px;
+    letter-spacing: 0.428571px;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.card_transfer {
+    font-size: 12px;
+    line-height: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    padding-left: 15px;
+    position: relative;
+}
+
+.card_transfer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #F5A623;
+}
+
+.card_symbol_wrapper {
+    grid-area: symbole;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_symbol_body {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: rgb(114, 114, 164);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.card_symbol_body::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110%;
+    height: 110%;
+    border-radius: 50%;
+    z-index: -1;
+    background: linear-gradient(45deg, rgba(123, 123, 177, 1) 0%, rgba(123, 123, 177, 1) 25%, rgba(157, 141, 205, 1) 50%, rgba(123, 123, 177, 1) 75%, rgba(123, 123, 177, 1) 100%);
+}
+
+.card_symbol_body img {
+    max-width: 2em
+}
+
+.profit_wrapper {
+    grid-area: profit;
+    width: 100%;
+    height: 100%;
+    background: var(--main-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+}
+
+.profit_body {
+    width: 95%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: 10fr 2fr;
+    grid-template-rows: 2fr 9fr;
+    grid-template-areas: "profit-title profit-income" "profit-info profit-income";
+}
+
+.profit_title span {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 113.19%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.profit_info {
+    grid-area: profit-info;
+    display: flex;
+}
+
+.profit_item_wrapper {
+    flex: 0 0 33.3%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profit_item_body {
+    width: 90%;
+    height: 70%;
+    display: grid;
+    grid-column-gap: 7px;
+    grid-template-columns: 3fr 10fr;
+    grid-template-rows: 2fr 5fr;
+    grid-template-areas: "item-icon item-title" "item-icon item-money";
+}
+
+.profit_item_icon {
+    grid-area: item-icon;
+    background: var(--grey-main);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.profit_item_title {
+    grid-area: item-title;
+    display: flex;
+    align-items: center;
+}
+
+.profit_item_title span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.43px;
+    color: rgba(95, 97, 117, 0.75);
+}
+
+.profit_item_money {
+    grid-area: item-money;
+    display: flex;
+    align-items: center;
+}
+
+.profit_item_money span {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-feature-settings: 'tnum' on, 'lnum' on, 'cpsp' on;
+}
+
+.profit_progress {
+    grid-area: profit-income;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.item_progress_wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.item_progress_wrapper>* {
+    width: 100%;
+    height: 100%;
+}
+
+.item_progress_back {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.item_progress_load_scale {
+    width: 100%;
+    height: 100%;
+}
+
+.profit_progress_body {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profit_progress_percents {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    letter-spacing: 0.43px;
+    color: #1D2038;
+}
+
+.profit_progress_symbol {
+    font-size: 24px;
+    line-height: 28px;
+    opacity: 0.2;
+}
+
+.profit_progress_time {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: rgba(95, 97, 117, 0.75);
+}
+
+.statistics_wrapper {
+    grid-area: statistics;
+    width: 100%;
+    height: 100%;
+}
+
+.statistics_body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.statistics_grid {
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-gap: 26px;
+    grid-template-columns: 11fr 3fr;
+    grid-template-rows: 6fr 5fr;
+    grid-template-areas: "statistics_graph statistics_divers" "statistics_actives statistics_profit";
+}
+
+.statistics_graph_wrapper {
+    grid-area: statistics_graph;
+    height: 100%;
+}
+
+.statistics_graph_body {
+    width: 100%;
+    height: 100%;
+    background: var(--main-color);
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.statistics_graph_row {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.statistics_graph_title_body {
+    flex: 0 0 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.statistics_graph_title {
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 113.19%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.statistics_graph_dropdown {
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.statistics_graph_dropdown_arrow {
+    min-width: 0.5em;
+    margin-left: 5px;
+    transition: var(--transition);
+}
+
+.statistics_graph_dropdown_options {
+    overflow: hidden;
+    width: 86px;
+    position: absolute;
+    bottom: -110px;
+    left: -15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+    padding: 0px 5px 5px 5px;
+    background: var(--main-color);
+    box-shadow: 5px 5px 95px rgba(126, 123, 160, 0.4);
+    border-radius: 5px;
+    transition: var(--transition);
+    transform: scale(0);
+}
+
+.statistics_graph_dropdown_options span {
+    text-align: center;
+    padding-top: 5px;
+    font-weight: normal;
+    font-size: 10px;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+}
+
+.statistics_graph_legend {
+    flex: 0 0 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.statistics_graph_legend>* {
+    flex: 0 0 10%;
+}
+
+.legend_wrapper {
+    width: 100%;
+}
+
+.legend_body {
+    display: flex;
+    align-items: center;
+}
+
+.legend_title {
+    margin-left: 5px;
+}
+
+/* open */
+
+.statistics_graph_dropdown_arrow.graph_dropdown_active {
+    transform: rotate(540deg);
+}
+
+.statistics_graph_dropdown_options.graph_dropdown_active {
+    transform: scale(1);
+}
+
+.statistics_graph {
+    flex: 0 0 80%;
+    width: 100%;
+}
+
+.statistics_divers_wrapper {
+    grid-area: statistics_divers;
+}
+
+.statistics_divers_body {
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.statistics_divers_row {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.statistics_divers_title {
+    flex: 0 0 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.statistics_divers_title span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 113.19%;
+    text-align: center;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.statistics_divers_pie {
+    flex: 0 0 50%;
+    width: 100%;
+    position: relative;
+}
+
+.statistics_divers_pie_info {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: var(--grey-main);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.statistics_divers_legend {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.statistics_actives_column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statistics_actives_title {
+    flex: 0 0 10%;
+    padding-bottom: 15px;
+    width: 100%;
+    align-self: flex-start;
+    border-bottom: 1px solid rgba(234, 236, 247, 0.8);
+}
+
+.statistics_actives_title span {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 113.19%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.statistics_actives_wrapper {
+    grid-area: statistics_actives;
+}
+
+.statistics_actives_body {
+    background: var(--main-color);
+    padding: 20px;
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    border-radius: 10px;
+}
+
+.statistics_actives_table {
+    width: 100%;
+}
+
+.row_wrapper {
+    width: 100%;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+}
+
+.row_tb1, .row_tb2, .row_tb3, .row_tb4 {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.row_tb1 {
+    grid-area: tb1;
+}
+
+.row_tb2 {
+    grid-area: tb2;
+}
+
+.row_tb3 {
+    grid-area: tb3;
+}
+
+.row_tb4 {
+    grid-area: tb4;
+}
+
+.green {
+    color: var(--green);
+}
+
+.red {
+    color: var(--red);
+}
+
+.statistics_actives_table_header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "tb1 tb2 tb3 tb4";
+}
+
+.tb_row {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tb_row span {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: rgba(29, 32, 56, 0.75);
+}
+
+.tb_row svg {
+    cursor: pointer;
+    opacity: 0.44;
+}
+
+.tb_row.active svg {
+    opacity: 0.9;
+}
+
+.statistics_profit_wrapper {
+    grid-area: statistics_profit;
+}
+
+.statistics_profit_body {
+    padding: 20px;
+    height: 100%;
+    background: var(--main-color);
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    border-radius: 10px;
+}
+
+.statistics_profit_column {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.statistics_profit_column_title {
+    flex: 0 0 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.statistics_profit_column_title span {
+    flex: 0 0 70%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 113.19%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.statistics_profit {
+    flex: 0 0 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress_wrapper {
+    flex: 0 0 30%;
+    width: 100%;
+    border-bottom: 1px solid rgba(80, 77, 133, 0.14);
+}
+
+.progress_column {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bar {
+    width: 100%;
+    flex: 0 0 40%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.back_bar {
+    width: 100%;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--grey-main);
+}
+
+.progress_data {
+    flex: 0 0 60%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress_data_title {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+}
+
+.progress_data_pers {
+    flex: 0 0 25%;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+}
+
+.statistics_profit:last-child{
+    border-radius: 0;
+}
+
+@media(min-width: 1024px) {
+    .card_wrapper:hover .card_body {
+        transform: translate(0, -5px) scale(1.05);
+        box-shadow: 0px 4px 15px rgba(111, 108, 153, 0.15), 0 10px 10px rgba(95, 97, 117, 0.75);
+    }
+    .statistics_graph_dropdown_options span:hover {
+        border-bottom: 1px solid var(--black)
+    }
+}
+
+@media(max-width: 1367px) {
+    .card_title span {
+        font-size: 10px;
+        font-weight: 500;
+    }
+    .card_money {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .card_transfer {
+        font-size: 10px;
+        line-height: 10px;
+    }
+    .profit_item_title span {
+        font-size: 11px;
+        line-height: 13px;
+    }
+    .profit_item_money span {
+        font-size: 16px;
+        line-height: 19px;
+    }
+    .profit_progress_percents {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 26px;
+        letter-spacing: 0.43px;
+    }
+    .profit_progress_symbol {
+        font-size: 18px;
+        line-height: 20px;
+        opacity: 0.2;
+    }
+    .profit_progress_time {
+        font-size: 11px;
+        line-height: 13px;
+    }
+}

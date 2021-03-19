@@ -1,4 +1,6 @@
 import React from "react";
+import { Route, Switch } from "react-router";
+import Dashboard from "./components/Dashboard/Dashboard";
 import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
 
@@ -9,7 +11,9 @@ function App() {
         <Header />
       </header>
       <main className="App-main">
-
+        <Switch>
+          <Route path='/Dashboard' component={Dashboard} />
+        </Switch>
       </main>
       <nav className="App-nav">
         <Navigation />
