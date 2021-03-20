@@ -13,6 +13,12 @@ import down from '../../assets/icons/option-down.svg';
 import up from '../../assets/icons/option-up.svg';
 import star_up from '../../assets/icons/star-up.svg';
 import { NavLink } from 'react-router-dom';
+import BIT from '../../assets/icons/BIT-icon.svg';
+import USD from '../../assets/icons/USD-icon.svg';
+import DTN from '../../assets/icons/DTN-icon.svg';
+import EUR from '../../assets/icons/EUR-icon.svg';
+import LIT from '../../assets/icons/LIT-icon.svg';
+import ETH from '../../assets/icons/ETH-icon.svg';
 
 const StyledProgress = styled.div`
     position: absolute;
@@ -63,6 +69,14 @@ const StyledProgressProfit = styled.div`
     opacity: ${props => props.active ? 1 : 0.8};
 `
 
+function graphCube() {
+    return (
+        <div style="backround: #F8F9FC; width:10px; heigth:4px">
+
+        </div>
+    )
+}
+
 function ProgressBarProfit(props) {
     return (
         <div className={s.progress_wrapper}>
@@ -80,6 +94,54 @@ function ProgressBarProfit(props) {
     )
 }
 
+const renderActiveShape = (props) => {
+    const RADIAN = Math.PI / 180;
+    const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
+    const sin = Math.sin(-RADIAN * midAngle);
+    const cos = Math.cos(-RADIAN * midAngle);
+    const sx = cx + (outerRadius + 10) * cos;
+    const sy = cy + (outerRadius + 10) * sin;
+    const mx = cx + (outerRadius + 30) * cos;
+    const my = cy + (outerRadius + 30) * sin;
+    const ex = mx + (cos >= 0 ? 1 : -1) * 22;
+    const ey = my;
+    const textAnchor = cos >= 0 ? 'start' : 'end';
+
+    return (
+        <g>
+            <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
+
+            </text>
+            <Sector
+                cx={cx}
+                cy={cy}
+                innerRadius={innerRadius - 10}
+                outerRadius={outerRadius}
+                startAngle={startAngle}
+                endAngle={endAngle}
+                fill={fill}
+                animationDuration
+            />
+            <Sector
+                cx={cx}
+                cy={cy}
+                startAngle={startAngle}
+                endAngle={endAngle}
+                innerRadius={outerRadius}
+                outerRadius={outerRadius}
+                fill={fill}
+                animationDuration
+            />
+            {/* <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
+            <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
+            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`PV ${value}`}</text>
+            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
+                {`(Rate ${(percent * 100).toFixed(2)}%)`}
+            </text> */}
+        </g>
+    );
+};
+
 function TableRowHeader(props) {
     const [isActive, setIsActive] = useState(false);
     return (
@@ -92,24 +154,32 @@ function TableRowHeader(props) {
     )
 }
 
-function CurrencyItem(props){
-    return(
-        <div className={s.currency_item_body}> 
+const currencies = [
+    { icon: DTN, name: "DTN", fullname: "Dayton", cost: 10940.01, isToken: true },
+    { icon: USD, name: "USD", fullname: "Dollar", cost: 79.87, isToken: false },
+    { icon: EUR, name: "EUR", fullname: "Euro", cost: 89.87, isToken: false },
+    { icon: BIT, name: "BTC", fullname: "Bitcoin", cost: 10940.01, isToken: false },
+    { icon: LIT, name: "LIT", fullname: "Lightcoin", cost: 140.91, isToken: false },
+    { icon: ETH, name: "ETH", fullname: "Ethirium", cost: 440.11, isToken: false }
+]
+
+function CurrencyItem(props) {
+    return (
+        <div className={s.currency_item_body}>
             <div className={s.currency_item_row}>
                 <div className={s.currency_item_left}>
-                    <img src="" alt=""/>
+                    <img src={props.data.icon} alt="" />
                     <div className={s.currency_item_title}>
-                        <span className={s.wallet}></span>
-                        <span className={s.wallet}></span>
+                        <span className={s.wallet_name}>{props.data.name}</span>
+                        <span className={s.wallet_fullname}>{props.data.fullname}</span>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                <div className={s.currency_item_right}>
+                    <div className={s.currency_item_right_row}>
+                        <span className={s.currency_item_right_money}>{props.data.isToken ? "T " : "$ "}{props.data.cost}</span>
+                        <span className={s.currency_item_right_buy}> Can buy: {Math.floor(props.money / props.data.cost)}</span>
                     </div>
-                    <NavLink to={`/Wallets`}>
+                    <NavLink to={`/Wallets`} className={s.navlink}>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -188,6 +258,11 @@ function ProfitItem(props) {
     )
 }
 
+function showPer(data, activeIndex) {
+    let all = data.data_divers.reduce(function (sum, item, index, array) { return sum + item.value }, 0);
+    return ((data.data_divers[activeIndex].value / all) * 100).toFixed(1)
+}
+
 function creatData(stack, timeline) {
     let obj = [];
     let new_obj = {};
@@ -218,6 +293,8 @@ function creatData(stack, timeline) {
 
 export default function Dashboard(props) {
 
+    const [showPercent, setShowPercent] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(-1);
     const [currentData, setCurrentData] = useState(0);
     const [timeIsOpen, setTimeIsOpen] = useState(false);
     const data = useSelector(state => state.profile);
@@ -287,7 +364,7 @@ export default function Dashboard(props) {
                                             <div className={s.statistics_graph_title}>
                                                 <span>График прибыли за </span>
                                                 <div className={s.statistics_graph_dropdown} onClick={() => setTimeIsOpen(!timeIsOpen)}>
-                                                    <span> {data.show_statistic}</span>
+                                                    <span> {data.show_statistic === 'daily' ? "день" : data.show_statistic === 'weekly' ? 'неделю' : data.show_statistic === 'monthly' ? 'месяц' : data.show_statistic === 'three_months' ? '3 месяца' : data.show_statistic === 'year' ? 'год' : 'день'}</span>
                                                     <div className={`${s.statistics_graph_dropdown_arrow} ${timeIsOpen && s.graph_dropdown_active}`}>
                                                         <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" /></svg>
                                                     </div>
@@ -307,6 +384,13 @@ export default function Dashboard(props) {
                                             </div>
                                         </div>
                                         <div className={s.statistics_graph}>
+                                            <div className={s.background}>
+                                                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,].map((item) => (
+                                                    <div key={item}>
+
+                                                    </div>
+                                                ))}
+                                            </div>
                                             <ResponsiveContainer width="100%" height="100%" minHeight="300px">
                                                 <AreaChart width={800} height={344} margin={{ top: 20, right: 0, left: -35, bottom: 0 }} data={creatData(data.data_statistic, data.show_statistic)}>
                                                     <defs>
@@ -318,15 +402,18 @@ export default function Dashboard(props) {
                                                             <stop offset="5%" stopColor="#8C93D6" stopOpacity={0.8} />
                                                             <stop offset="95%" stopColor="#8C93D6" stopOpacity={0} />
                                                         </linearGradient>
-
+                                                        <linearGradient id="LTC" x1="0" y1="0" x2="0" y2="1">
+                                                            <stop offset="5%" stopColor="#84BDB3" stopOpacity={0.8} />
+                                                            <stop offset="95%" stopColor="#84BDB3" stopOpacity={0} />
+                                                        </linearGradient>
                                                     </defs>
-                                                    <CartesianGrid strokeDasharray="3 3" />
-                                                    <XAxis dataKey="name" />
-                                                    <YAxis />
+                                                    <CartesianGrid horizontal={false} vertical={false} />
+                                                    <XAxis axisLine={false} dataKey="name" />
+                                                    <YAxis axisLine={false} />
                                                     <Tooltip />
-                                                    <Area type="monotone" dataKey="BTC" stroke="#F5A623" fillOpacity={1} fill="url(#BTC)" strokeWidth={currentData === 0 ? 6 : 4} />
-                                                    <Area type="monotone" dataKey="ETF" stroke="#8C93D6" fillOpacity={1} fill="url(#ETF)" strokeWidth={currentData === 1 ? 6 : 4} />
-                                                    <Area type="monotone" dataKey="LTC" stroke="#84BDB3" fillOpacity={1} fill="url(#LTC)" strokeWidth={currentData === 2 ? 6 : 4} />
+                                                    <Area type="monotone" dataKey="BTC" stroke="#F5A623" fillOpacity={1} fill="url(#BTC)" strokeWidth={4} />
+                                                    <Area type="monotone" dataKey="ETF" stroke="#8C93D6" fillOpacity={1} fill="url(#ETF)" strokeWidth={4} />
+                                                    <Area type="monotone" dataKey="LTC" stroke="#84BDB3" fillOpacity={1} fill="url(#LTC)" strokeWidth={4} />
                                                 </AreaChart>
                                             </ResponsiveContainer>
                                         </div>
@@ -341,30 +428,66 @@ export default function Dashboard(props) {
                                         </div>
                                         <div className={s.statistics_divers_pie}>
                                             <ResponsiveContainer width="100%" height="100%">
-                                                <PieChart width={150} height={150}>
+                                                <PieChart width={100} height={100}>
+                                                    <defs>
+                                                        <linearGradient id="BTC1" x1="5%" y1="0%" x2="95%" y2="100%">
+                                                            <stop offset="0%" stopColor="#D9D9D9" stopOpacity="0.75" />
+                                                            <stop offset="11%" stopColor="#fad393" stopOpacity="0.97" />
+                                                            <stop offset="100%" stopColor="#f5a623" stopOpacity="1" />
+                                                        </linearGradient>
+                                                        <linearGradient id="ETF1" x1="0" y1="0" x2="0" y2="1">
+                                                            <stop offset="0%" stopColor="#D9D9D9" stopOpacity="0.75" />
+                                                            <stop offset="11%" stopColor="#8C93D6" stopOpacity="0.97" />
+                                                            <stop offset="100%" stopColor="#8C93D6" stopOpacity="1" />
+                                                        </linearGradient>
+                                                        <linearGradient id="LTC1" x1="100%" y1="92%" x2="0" y2="8%">
+                                                            <stop offset="0%" stop-color="#dbdbdb" stopOpacity="1" />
+                                                            <stop offset="43%" stop-color="#a1c7c0" stopOpacity="1" />
+                                                            <stop offset="65%" stop-color="#84bdb3" stopOpacity="1" />
+                                                        </linearGradient>
+                                                    </defs>
                                                     <Pie
                                                         data={data.data_divers}
                                                         cx="50%"
                                                         cy="50%"
-                                                        innerRadius={50}
-                                                        outerRadius={75}
+                                                        innerRadius={60}
+                                                        outerRadius={70}
                                                         fill="#8884d8"
-                                                        paddingAngle={5}
+                                                        paddingAngle={2}
                                                         dataKey="value"
+                                                        activeIndex={activeIndex}
+                                                        activeShape={renderActiveShape}
+                                                        animationDuration={1500}
+                                                        onMouseLeave={() => {
+                                                            setActiveIndex(-1)
+                                                            setShowPercent(false)
+                                                        }}
                                                     >
-
-                                                        <Cell onClick={() => setCurrentData(0)} key={`cell-1`} fill={currentData === 0 ? "#ffdb3d" : "#F5A623"} />
-                                                        <Cell onClick={() => setCurrentData(1)} key={`cell-2`} fill={currentData === 1 ? "#aeb0f5" : "#8C93D6"} />
-                                                        <Cell onClick={() => setCurrentData(2)} key={`cell-3`} fill={currentData === 2 ? "#b0f7ea" : "#84BDB3"} />
+                                                        <Cell onMouseOver={() => {
+                                                            setActiveIndex(0)
+                                                            setShowPercent(true)
+                                                        }} key={`cell-1`} fill="url(#BTC1)" fillOpacity={1} />
+                                                        <Cell onMouseOver={() => {
+                                                            setActiveIndex(1)
+                                                            setShowPercent(true)
+                                                        }} key={`cell-2`} fill="url(#ETF1)" fillOpacity={1} />
+                                                        <Cell onMouseOver={() => {
+                                                            setActiveIndex(2)
+                                                            setShowPercent(true)
+                                                        }} key={`cell-3`} fill="url(#LTC1)" fillOpacity={1} />
 
                                                     </Pie>
                                                 </PieChart>
                                             </ResponsiveContainer>
-                                            <div className={s.statistics_divers_pie_info}>
-                                                <span>Доход</span>
-                                                <span className={s.profit_progress_percents}>{data.percent} <span className={s.profit_progress_symbol}>%</span></span>
-                                                <span className={s.profit_progress_time}>за месяц</span>
-                                            </div>
+                                            {showPercent &&
+                                                <div className={s.statistics_divers_pie_info}>
+                                                    <span>Доход</span>
+                                                    <span className={s.profit_progress_percents}>{
+                                                        activeIndex !== -1 && showPer(data, activeIndex)
+                                                    } <span className={s.profit_progress_symbol}>%</span></span>
+                                                    <span className={s.profit_progress_time}>за месяц</span>
+                                                </div>
+                                            }
                                         </div>
                                         <div className={s.statistics_divers_legend}>
                                             <Legend colour={"#F5A623"} name={"Крипторынок"} />
@@ -419,7 +542,7 @@ export default function Dashboard(props) {
                 <section className={s.currency_wrapper}>
                     <div className={s.currency_body}>
                         <div className={s.currency_row}>
-                            
+                            {currencies.map((item) => <CurrencyItem data={item} money={data.money} />)}
                         </div>
                     </div>
                 </section>
