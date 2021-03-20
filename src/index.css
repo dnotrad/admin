@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6 {
   --grey: rgba(95, 97, 117, 0.75);
   --user-status: #8C93D6;
   --main-color: #fff;
-  --transition: 1s ease;
+  --transition: .4s ease;
   --green: #84BDB3;
   --red: #E16767;
 }
@@ -115,7 +115,8 @@ body {
 }
 
 .App-main{
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   grid-area: main;
   height: 100%;
   padding: 10px;

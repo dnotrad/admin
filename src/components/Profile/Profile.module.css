@@ -1,4 +1,6 @@
-.profile {}
+.profile {
+    padding: 20px;
+}
 
 .card {
     background-color: #fff;
