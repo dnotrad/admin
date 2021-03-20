@@ -1,3 +1,7 @@
+.partners {
+    padding: 20px;
+}
+
 .header {
     background: #FFFFFF;
     border-radius: 0px 0px 10px 10px;
@@ -22,7 +26,8 @@
     letter-spacing: 0.01em;
     text-transform: uppercase;
 }
-.nav_link::after{
+
+.nav_link::after {
     content: "";
     position: absolute;
     width: 0%;
@@ -33,7 +38,8 @@
     opacity: 0;
     transition: .4s ease;
 }
-.nav_link.active::after{
+
+.nav_link.active::after {
     width: 100%;
     opacity: 1;
 }
@@ -48,12 +54,99 @@
     color: #5F6175;
     line-height: 1.5;
 }
-.img{
+
+.img {
     width: 100%;
     display: flex;
     justify-content: center;
     background-color: #8C93D6;
 }
-.img img{
+
+.img img {
     max-width: 100%;
+}
+
+/* refs */
+
+.referals_info {
+    display: flex;
+    align-items: center;
+}
+
+.referals_card {
+    min-height: 177px;
+    padding: 30px;
+    background: #FFFFFF;
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+.next_rang {
+    display: flex;
+    margin-right: 25px;
+    align-items: center;
+    /* height: 178px;    */
+}
+
+.next_rang_info {
+    padding-left: 15px;
+}
+
+.next_rang_title {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 15px;
+}
+
+.referals_info_main {
+    flex-grow: 1;
+}
+
+.circles_wrapper {
+    position: relative;
+    transform: rotate(-90deg);
+}
+
+.circles_info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.circles_number {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.circles_number_info {
+    font-size: 13px;
+    line-height: 1.1;
+    text-align: center;
+    letter-spacing: 0.428571px;
+    color: rgba(95, 97, 117, 0.75);
+}
+
+.next_rang_subtitle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.next_rang_subtitle span {
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.428571px;
+    color: #6F6C99;
+}
+.referals_info_main{
+    display: flex;
+    flex-wrap: wrap;
 }

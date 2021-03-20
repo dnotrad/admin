@@ -1,0 +1,22 @@
+.header {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid #D6D9F0;
+}
+
+.header_id, .header_line, .header_refs, .header_info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.428571px;
+    color: rgba(29, 32, 56, 0.75);
+}
+
+.header_id {
+    justify-content: flex-start;
+}

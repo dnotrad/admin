@@ -118,7 +118,7 @@ body {
   overflow: auto;
   grid-area: main;
   height: 100%;
-  padding: 37px 58px;
+  padding: 10px;
 }
 
 .App-nav {

@@ -1,0 +1,31 @@
+.wrapper {
+    width: 33%;
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    width: 50px;
+    height: 50px;
+    background: #F8F9FC;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 13px;
+    color: rgba(95, 97, 117, 0.75);
+    letter-spacing: 0.43px;
+    margin-bottom: 5px;
+}
+
+.content {
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #1D2038;
+}

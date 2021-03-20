@@ -170,7 +170,7 @@ function TableRow(props) {
     )
 }
 
-function ProfitItem(props) {
+export function ProfitItem(props) {
     return (
         <section className={s.profit_item_wrapper}>
             <div className={s.profit_item_body}>
