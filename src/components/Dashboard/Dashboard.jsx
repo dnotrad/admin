@@ -81,7 +81,7 @@ function ProgressBarProfit(props) {
                     <StyledProgressProfit iter={props.iter} data={props.data} />
                 </div>
                 <div className={s.progress_data}>
-                    <span className={s.progress_data_title}>{props.iter === 1 ? "Daily company profite" : props.iter === 1 ? "Weekly company profit" : "Monthly company profit"}</span>
+                    <span className={s.progress_data_title}>{props.iter === 1 ? t("dashboard.Daily_profit") : props.iter === 1 ?  t("dashboard.Weakly_profit") :  t("dashboard.Monthly_profit")}</span>
                     <span className={s.progress_data_pers}>{props.data.value} %</span>
                 </div>
             </div>
@@ -162,8 +162,8 @@ function CurrencyItem(props) {
                 </div>
                 <div className={s.currency_item_right}>
                     <div className={s.currency_item_right_row}>
-                        <span className={s.currency_item_right_money}>{props.data.isToken ? "T " : "$ "}{props.data.cost}</span>
-                        <span className={s.currency_item_right_buy}> Can buy: {Math.floor(props.money / props.data.cost)}</span>
+                        <span className={s.currency_item_right_money}>{props.data.isToken ? "T " : "$ "}{(props.data.cost).toFixed(2)}</span>
+                        <span className={s.currency_item_right_buy}> Can buy: {Math.floor(props.money / props.data.cost).toFixed(2)}</span>
                     </div>
                     <NavLink to={`/Wallets`} className={s.navlink}>
                         <span></span>
@@ -514,7 +514,7 @@ export default function Dashboard(props) {
                                 <div className={s.statistics_profit_body}>
                                     <div className={s.statistics_profit_column}>
                                         <div className={s.statistics_profit_column_title}>
-                                            <span>Total company profit</span>
+                                            <span>{t("dashboard.Total_profit")}</span>
                                             <img src={star_up} alt="" />
                                         </div>
                                         <div className={s.statistics_profit}>

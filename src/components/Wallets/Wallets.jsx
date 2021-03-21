@@ -6,7 +6,7 @@ import down from '../../assets/icons/option-down.svg';
 import up from '../../assets/icons/option-up.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { genData } from '../../redux/WalletsReducer';
-
+import { useTranslation } from "react-i18next";
 function CurrencyItem(props) {
     return (
         <div className={s.currency_item_body}>
@@ -37,8 +37,8 @@ function CurrencyItem(props) {
                             </AreaChart>
                         </ResponsiveContainer>
                         <div className={s.currency_item_center_status}>
-                            <img src={props.item?.status ? up : down} alt=""/>
-                            <span className={props.item?.status ? s.green : s.red}>{props.item?.status ? `+`:`-`}{props.item.quote.toFixed(2)}%</span>
+                            <img src={props.item?.status ? up : down} alt="" />
+                            <span className={props.item?.status ? s.green : s.red}>{props.item?.status ? `+` : `-`}{props.item.quote.toFixed(2)}%</span>
                         </div>
                     </div>
                     <div className={s.currency_item_right}>
@@ -49,35 +49,35 @@ function CurrencyItem(props) {
                     </div>
                 </div>
                 <div className={s.currency_item_buy}>
-                    {props.data.canBuy ? 
-                    <div className={s.canBuy_wrapper}>
-                        <div className={s.buy}>
-                            <div className={s.btn}>
-                                <span>Купить</span>
+                    {props.data.canBuy ?
+                        <div className={s.canBuy_wrapper}>
+                            <div className={s.buy}>
+                                <div className={s.btn}>
+                                    <span>Купить</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className={s.share}>
-                            <div className={`${s.btn} ${s.with_border}`}>
-                                <span>Поделиться</span>
+                            <div className={s.share}>
+                                <div className={`${s.btn} ${s.with_border}`}>
+                                    <span>Поделиться</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className={s.sell}>
-                            <div className={s.btn}>
-                                <span>Продать</span>
+                            <div className={s.sell}>
+                                <div className={s.btn}>
+                                    <span>Продать</span>
+                                </div>
                             </div>
-                        </div>
-                    </div>: 
-                    <div className={s.canNotBuy_wrapper}>
-                        <div className={s.in}>
-                            <div className={`${s.btn} ${s.with_right_border}`}>
-                                <span>Пополнить</span>
+                        </div> :
+                        <div className={s.canNotBuy_wrapper}>
+                            <div className={s.in}>
+                                <div className={`${s.btn} ${s.with_right_border}`}>
+                                    <span>Пополнить</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className={s.out}>
-                            <div className={s.btn}>
-                                <span>Вывести</span>
+                            <div className={s.out}>
+                                <div className={s.btn}>
+                                    <span>Вывести</span>
+                                </div>
                             </div>
-                        </div>
                         </div>}
                 </div>
             </div>
@@ -95,10 +95,10 @@ function createData(data) {
 
 function CurrencyWrapper(props) {
     const data = useSelector(state => state.wallets);
-      const dispatch = useDispatch();
-      useEffect(()=>{
-          dispatch(genData(data))   
-      }, [data.quotes])
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(genData(data))
+    }, [data.quotes])
     return (
         <div className={s.wallets_currency_body}>
             {createData(data.quotes).map((item, iter) =>
@@ -108,23 +108,23 @@ function CurrencyWrapper(props) {
     )
 }
 
-export function Wallets(props) {
+function Wallets(props) {
     const [selectTable, setSelectTable] = useState(0);
-    
+
     const data = useSelector(state => state.wallets);
     const profile = useSelector(state => state.profile);
+    const { t, i18n } = useTranslation(); //хук для смены языка
     return (
         <section className={s.wallets_wrapper}>
             <div className={s.wallets_body}>
                 <div className={s.wallets_title_body}>
                     <div className={s.wallets_title}>
                         <span>
-                            Wallets
+                            {t("wallets.title")}
                         </span>
                     </div>
                     <div className={s.wallets_title_subscription}>
-                        <span><p>Кошельки отображают актуальную информацию о состоянии баланса ваших счетов и историю операций.</p>
-Здесь вы можете совершать пополнение и вывод любой из представленных валют, совершать покупку и продажу токена, а так же осуществлять внутренний перевод на любой из существующих кабинетов зарегистрированных в системе.</span>
+                        <span>{t("wallets.content")}</span>
                     </div>
                 </div>
                 <div className={s.wallets_currency_wrapper}>
@@ -132,24 +132,26 @@ export function Wallets(props) {
                 </div>
                 <div className={s.currency_item_table}>
                     <div className={s.select_table}>
-                        <div className={`${s.select_item} ${selectTable === 0 && s.active_table}`} onClick={()=>setSelectTable(0)}>
+                        <div className={`${s.select_item} ${selectTable === 0 && s.active_table}`} onClick={() => setSelectTable(0)}>
                             <span>Пополнение вывод</span>
                         </div>
-                        <div className={`${s.select_item} ${selectTable === 1 && s.active_table}`} onClick={()=>setSelectTable(1)}>
+                        <div className={`${s.select_item} ${selectTable === 1 && s.active_table}`} onClick={() => setSelectTable(1)}>
                             <span>Внутренние переводы</span>
                         </div>
-                        <div className={`${s.select_item} ${selectTable === 2 && s.active_table}`} onClick={()=>setSelectTable(2)}>
+                        <div className={`${s.select_item} ${selectTable === 2 && s.active_table}`} onClick={() => setSelectTable(2)}>
                             <span>Вознаграждения</span>
                         </div>
-                        <div className={`${s.select_item} ${selectTable === 3 && s.active_table}`} onClick={()=>setSelectTable(3)}>
+                        <div className={`${s.select_item} ${selectTable === 3 && s.active_table}`} onClick={() => setSelectTable(3)}>
                             <span>Покупка продажа токенов</span>
                         </div>
                     </div>
                     <div className={s.history_table}>
-                        <Table rows={3} columns={5} data={selectTable === 0 ? data.history.buy : data.history.buy}/>
+                        <Table rows={3} columns={5} data={selectTable === 0 ? data.history.buy : data.history.buy} />
                     </div>
                 </div>
             </div>
         </section>
     )
 }
+
+export default Wallets;

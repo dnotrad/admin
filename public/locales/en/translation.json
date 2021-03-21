@@ -31,7 +31,6 @@
     "cryptocurrency": "Cryptocurrency",
     "commodity_market": "Commodity market",
     "stock_market": "Stock market",
-
     "investment_diagram": "Investment diversification diagram",
     "asset_statistics": "Asset statistics",
     "Name": "Name",
@@ -39,11 +38,19 @@
     "Daily_profit": "Daily profit",
     "Date": "Date",
     "Earn": "Income",
-
     "Total_profit": "Total company profit",
     "Daily_profit": "Daily company profit",
-    "Weekly_profit": "Weekly сompany profit"
-
+    "Weekly_profit": "Weekly сompany profit",
+    "Monthly_profit": "Monthly сompany profit"
+  },
+  "wallets": {
+    "title": "Wallets",
+    "content": "Wallets display relevant information about your account balance status and transaction history. Here you can make replenishments and withdrawals of any of the presented currencies, buy and sell tokens, as well as make internal transfers to any of the existing accounts registered in the system.",
+    "buy": "Buy",
+    "share": "Share",
+    "sell": "Sell",
+    "replenish": "Replenish",
+    "Withdrawal": "Withdrawal"
   },
   "faq": {
     "title": "Frequently Asked Questions",

@@ -5,7 +5,7 @@ import Navigation from "./components/Navigation/Navigation";
 import Profile from "./components/Profile/Profile";
 import FAQ from "./components/FAQ/Faq";
 import Partners from "./components/Partners/Partners";
-import { Wallets } from "./components/Wallets/Wallets";
+import Wallets from "./components/Wallets/Wallets";
 import { Switch, Route } from "react-router-dom";
 import Documents from "./components/Documents/Documents";
 import Garant from "./components/Garant/Garant";
