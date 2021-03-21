@@ -25,7 +25,10 @@ let initialState = {
         ETHUSD: { quote: 6, data: [{ name: 'day', value: 10 }, { name: 'day', value: 2 }, { name: 'day', value: 4 }, { name: 'day', value: 5 }, { name: 'day', value: 2 }, { name: 'day', value: 6 }, { name: 'day', value: 8 }, { name: 'day', value: 5 }, { name: 'day', value: 1 }, { name: 'day', value: 9 }] },
     },
     history: {
-        buy: [{ "Операция": true, "Сумма": 56000.56, "Валюта": "BTC", "Дата": "16/04/2020", "Статус": true }, { "Операция": true, "Сумма": 56000.56, "Валюта": "BTC", "Дата": "16/04/2020", "Статус": true }, { "Операция": false, "Сумма": 57000.56, "Валюта": "BTC", "Дата": "16/04/2020", "Статус": false }]
+        buy: [{ "Операция": true, "Сумма": 56000.56, "Валюта": "BTC", "Дата": "16/04/2020", "Статус": true }, { "Операция": true, "Сумма": 89.56, "Валюта": "EUR", "Дата": "16/04/2020", "Статус": true }, { "Операция": false, "Сумма": 57000.56, "Валюта": "BTC", "Дата": "16/04/2020", "Статус": false }],
+        internal: [{ "Операция": true, "Сумма": 56000.56, "ID":  3214336, "Дата": "16/04/2020", "Статус": 1 }, { "Операция": true, "Сумма": 89.56, "ID": 3214336, "Дата": "16/04/2020", "Статус": -1 }, { "Операция": false, "Сумма": 57.56, "ID": 3214546, "Дата": "16/04/2020", "Статус": 0 }, { "Операция": false, "Сумма": 57000.56, "ID": 3214546, "Дата": "16/04/2020", "Статус": 1 }],
+        rewards: [{"Тип вознаграждения": true, "Сумма": 56000.56, "ID":  3214336, "Линия": "1 линия" , "Дата": "16/04/2020" }, {"Тип вознаграждения": false, "Сумма": 560.56, "ID":  3214336, "Линия": "1 линия" , "Дата": "16/04/2020" }, {"Тип вознаграждения": true, "Сумма": 560.56, "ID":  3214336, "Линия": "2 линия" , "Дата": "16/04/2020" }, ],
+        selling: [{ "Операция": true, "Сумма": 56000.56, "Валюта": "BTC", "Дата": "16/04/2020", "Статус": 1 }, { "Операция": true, "Сумма": 89.56, "Валюта": "EUR", "Дата": "16/04/2020", "Статус": 0 }, { "Операция": false, "Сумма": 57000.56, "Валюта": "BTC", "Дата": "16/04/2020", "Статус": -1 }, { "Операция": false, "Сумма": 57000.56, "Валюта": "BTC", "Дата": "16/04/2020", "Статус": 1 }],
     }
 }
 
@@ -58,7 +61,7 @@ export const genData = (datas) => (dispatch) => {
     for (let item in datas["quotes"]) {
         let old_qoutes = new_quotes[item].quote;
         new_quotes[item].data.shift();
-        new_quotes[item].data.push({ name: 'day', value: Math.random() * (10 - 0) + 0 });
+        new_quotes[item].data.push({ name: 'day', value: Math.random() * (2 - 0) + 0 });
         let now_quotes = new_quotes[item].data.reduce((accumulator, currentValue) => accumulator + currentValue.value, 0);
         new_quotes[item].quote = now_quotes - old_qoutes;
         new_quotes[item].status = now_quotes > old_qoutes;

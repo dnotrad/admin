@@ -8,7 +8,7 @@
     padding: 20px;
     display: grid;
     grid-template-columns: minmax(0,1fr);
-    grid-template-rows: 10fr 70fr 25fr;
+    grid-template-rows: 12fr 60fr 25fr;
     grid-template-areas: "balanceInfo" "statistics" "currency";
 }
 
@@ -780,6 +780,7 @@
     flex: 28%;
     height: 100px;
     padding: 0 13px;
+    cursor: pointer;
 }
 
 .currency_item_row {
@@ -888,6 +889,10 @@
 }
 
 @media(max-width: 1367px) {
+    .body {
+        grid-template-rows: 10fr 65fr 25fr;
+
+    }
     .card_title span {
         font-size: 10px;
         font-weight: 500;

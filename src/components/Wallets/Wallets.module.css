@@ -9,7 +9,7 @@
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr;
-    grid-template-rows: 5fr 20fr 20fr;
+    grid-template-rows: 5fr 30fr 40fr;
     grid-template-areas: "title" "currencies" "history";
     padding: 20px;
 }
@@ -157,6 +157,10 @@
     color: var(--red);
 }
 
+.yellow {
+    color: var(--yellow);
+}
+
 .currency_item_right {
     height: 100%;
     flex: 0 0 25%;
@@ -292,22 +296,57 @@
     background: var(--main-color);
     box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
     border-radius: 10px;
+    display: grid;
+    grid-template-rows: minmax(0,3fr) 8fr 1fr;
+    grid-template-areas: "select" "table" "some";
+}
+
+.row_tb1 {
     display: flex;
-    flex-direction: column;
+    gap: 5px;
+    align-items: center;
 }
 
 .select_table {
-    flex: 0 0 40%;
-    width: 100%;
+    grid-area: select;
     display: flex;
     padding: 10px;
 }
 
 .history_table {
     position: relative;
-    padding: 10px;
-    flex: 0 0 60%;
-    width: 100%;
+    padding: 10px 20px;
+    grid-area: table;
+}
+
+.struct_profit {
+    border-top: 1px solid rgba(197, 201, 234, 0.6);
+    
+    grid-area: some;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: "cl1 cl2 cl3 cl4 cl5";
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+}
+
+.cl1, .cl2, .cl5 {
+    padding: 15px;
+}
+
+.cl1 {
+    grid-area: cl1;
+}
+
+.cl2 {
+    grid-area: cl2;
+}
+
+.cl5 {
+    grid-area: cl5;
 }
 
 .select_item {
@@ -329,19 +368,16 @@
 
 .select_item.active_table {
     border-bottom: 2px solid#F5A623;
-
 }
 
 @media(min-width:1025px) {
     .btn span:hover {
-        background: var(--grey);
-        box-shadow: 0 10px rgba(95, 97, 117, 1);
-        transform: translate(0, -10px);
+        background: var(--user-status);
         color: #fff;
     }
     .currency_item_grid:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 10px rgba(64, 66, 78, 0.6);
+        transform: scale(1.02);
+        box-shadow: 0 5px 10px rgba(163, 176, 247, 0.5);
     }
 }
 

@@ -6,6 +6,7 @@ import down from '../../assets/icons/option-down.svg';
 import up from '../../assets/icons/option-up.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { genData } from '../../redux/WalletsReducer';
+import { StyledDot } from '../Dashboard/Dashboard';
 
 function CurrencyItem(props) {
     return (
@@ -37,8 +38,8 @@ function CurrencyItem(props) {
                             </AreaChart>
                         </ResponsiveContainer>
                         <div className={s.currency_item_center_status}>
-                            <img src={props.item?.status ? up : down} alt=""/>
-                            <span className={props.item?.status ? s.green : s.red}>{props.item?.status ? `+`:`-`}{props.item.quote.toFixed(2)}%</span>
+                            <img src={props.item?.status ? up : down} alt="" />
+                            <span className={props.item?.status ? s.green : s.red}>{props.item?.status ? `+` : `-`}{props.item.quote.toFixed(2)}%</span>
                         </div>
                     </div>
                     <div className={s.currency_item_right}>
@@ -49,35 +50,35 @@ function CurrencyItem(props) {
                     </div>
                 </div>
                 <div className={s.currency_item_buy}>
-                    {props.data.canBuy ? 
-                    <div className={s.canBuy_wrapper}>
-                        <div className={s.buy}>
-                            <div className={s.btn}>
-                                <span>Купить</span>
+                    {props.data.canBuy ?
+                        <div className={s.canBuy_wrapper}>
+                            <div className={s.buy}>
+                                <div className={s.btn}>
+                                    <span>Купить</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className={s.share}>
-                            <div className={`${s.btn} ${s.with_border}`}>
-                                <span>Поделиться</span>
+                            <div className={s.share}>
+                                <div className={`${s.btn} ${s.with_border}`}>
+                                    <span>Поделиться</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className={s.sell}>
-                            <div className={s.btn}>
-                                <span>Продать</span>
+                            <div className={s.sell}>
+                                <div className={s.btn}>
+                                    <span>Продать</span>
+                                </div>
                             </div>
-                        </div>
-                    </div>: 
-                    <div className={s.canNotBuy_wrapper}>
-                        <div className={s.in}>
-                            <div className={`${s.btn} ${s.with_right_border}`}>
-                                <span>Пополнить</span>
+                        </div> :
+                        <div className={s.canNotBuy_wrapper}>
+                            <div className={s.in}>
+                                <div className={`${s.btn} ${s.with_right_border}`}>
+                                    <span>Пополнить</span>
+                                </div>
                             </div>
-                        </div>
-                        <div className={s.out}>
-                            <div className={s.btn}>
-                                <span>Вывести</span>
+                            <div className={s.out}>
+                                <div className={s.btn}>
+                                    <span>Вывести</span>
+                                </div>
                             </div>
-                        </div>
                         </div>}
                 </div>
             </div>
@@ -108,9 +109,87 @@ function CurrencyWrapper(props) {
     )
 }
 
+function createDataBuy(data) {
+    let new_data = [];
+    let new_item = {};
+    new_data = data.map((item, key) => {
+        new_item = {};
+        new_item["Операция"] =
+            <div className={s.row_tb1}>
+                <StyledDot colour={data[key]["Операция"] ? "var(--green)" : "var(--red)"} />
+                <span>{data[key]["Операция"] ? "Пополнение" : "Вывод"}</span>
+            </div>;
+        new_item["Сумма"] = data[key]["Валюта"] === ("BTC" || "LIT" || "ETH" || "DTN") ? data[key]["Сумма"].toFixed(5) : data[key]["Сумма"].toFixed(2);
+        new_item["Валюта"] = data[key]["Валюта"];
+        new_item["Дата"] = data[key]["Дата"];
+        new_item["Статус"] = <span style={{ color: data[key]["Статус"] ? "var(--green)" : "var(--red)" }}>{data[key]["Статус"] ? "Выполнено" : "Отклонено"}</span>;
+        return new_item;
+    })
+    return new_data;
+}
+
+function createDataSell(data) {
+    let new_data = [];
+    let new_item = {};
+    new_data = data.map((item, key) => {
+        new_item = {};
+        new_item["Операция"] =
+            <div className={s.row_tb1}>
+                <StyledDot colour={data[key]["Операция"] ? "var(--green)" : "var(--red)"} />
+                <span>{data[key]["Операция"] ? "Пополнение" : "Вывод"}</span>
+            </div>;
+        new_item["Сумма"] = data[key]["Сумма"].toFixed(5) + " TKN";
+        new_item["Валюта"] = data[key]["Валюта"] === ("BTC" || "LIT" || "ETH" || "DTN") ? data[key]["Сумма"].toFixed(5) + " " + data[key]["Валюта"] : data[key]["Сумма"].toFixed(2) + " " + data[key]["Валюта"];
+        new_item["Дата"] = data[key]["Дата"];
+        new_item["Статус"] =  <span style={{ color: data[key]["Статус"] === 1 ? "var(--green)" : data[key]["Статус"] === -1 ? "var(--red)" : "var(--yellow)" }}>{data[key]["Статус"] === 1 ? "Выполнено" : data[key]["Статус"] === -1 ? "Отклонено" : "В обработке"}</span>;
+        return new_item;
+    })
+    return new_data;
+}
+
+
+function createDataInternal(data) {
+    let new_data = [];
+    let new_item = {};
+    new_data = data.map((item, key) => {
+        new_item = {};
+        new_item["Операция"] =
+            <div className={s.row_tb1}>
+                <StyledDot colour={data[key]["Операция"] ? "var(--green)" : "var(--yellow)"} />
+                <span>{data[key]["Операция"] ? "Получение" : "Отправление"}</span>
+            </div>;
+        new_item["Сумма"] = data[key]["Сумма"].toFixed(5) + " DTN";
+        new_item["ID"] = "ID " + data[key]["ID"];
+        new_item["Дата"] = data[key]["Дата"];
+        new_item["Статус"] = <span style={{ color: data[key]["Статус"] === 1 ? "var(--green)" : data[key]["Статус"] === -1 ? "var(--red)" : "var(--yellow)" }}>{data[key]["Статус"] === 1 ? "Выполнено" : data[key]["Статус"] === -1 ? "Отклонено" : "В обработке"}</span>;
+        return new_item;
+    })
+    return new_data;
+}
+
+function createDataRewards(data) {
+    let new_data = [];
+    let new_item = {};
+    new_data = data.map((item, key) => {
+        new_item = {};
+        new_item["Тип вознаграждения"] =
+            <div className={s.row_tb1}>
+                <StyledDot colour={data[key]["Тип вознаграждения"] ? "var(--green)" : "var(--yellow)"} />
+                <span>{data[key]["Тип вознаграждения"] ? "Реферальные" : "Достижение ранга"}</span>
+            </div>;
+        new_item["Сумма"] = data[key]["Сумма"].toFixed(5) + " DTN";
+        new_item["ID"] = "ID " + data[key]["ID"];
+        new_item["Линия"] = data[key]["Линия"];
+        new_item["Дата"] = data[key]["Дата"];
+        return new_item;
+    })
+    return new_data;
+}
+
+
 export function Wallets(props) {
     const [selectTable, setSelectTable] = useState(0);
-    
+
     const data = useSelector(state => state.wallets);
     const profile = useSelector(state => state.profile);
     return (
@@ -132,24 +211,37 @@ export function Wallets(props) {
                 </div>
                 <div className={s.currency_item_table}>
                     <div className={s.select_table}>
-                        <div className={`${s.select_item} ${selectTable === 0 && s.active_table}`} onClick={()=>setSelectTable(0)}>
-                            <span>Пополнение вывод</span>
+                        <div className={`${s.select_item} ${selectTable === 0 && s.active_table}`} onClick={() => setSelectTable(0)}>
+                            <span>Пополнение\вывод</span>
                         </div>
-                        <div className={`${s.select_item} ${selectTable === 1 && s.active_table}`} onClick={()=>setSelectTable(1)}>
+                        <div className={`${s.select_item} ${selectTable === 1 && s.active_table}`} onClick={() => setSelectTable(1)}>
                             <span>Внутренние переводы</span>
                         </div>
-                        <div className={`${s.select_item} ${selectTable === 2 && s.active_table}`} onClick={()=>setSelectTable(2)}>
+                        <div className={`${s.select_item} ${selectTable === 2 && s.active_table}`} onClick={() => setSelectTable(2)}>
                             <span>Вознаграждения</span>
                         </div>
-                        <div className={`${s.select_item} ${selectTable === 3 && s.active_table}`} onClick={()=>setSelectTable(3)}>
-                            <span>Покупка продажа токенов</span>
+                        <div className={`${s.select_item} ${selectTable === 3 && s.active_table}`} onClick={() => setSelectTable(3)}>
+                            <span>Покупка\продажа токенов</span>
                         </div>
                     </div>
                     <div className={s.history_table}>
-                        <Table rows={3} columns={5} data={selectTable === 0 ? data.history.buy : data.history.buy}/>
+                        <Table rows={selectTable === 0 ? data.history.buy.length : selectTable === 1 ? data.history.internal.length : selectTable === 2 ? data.history.rewards.length : data.history.selling.length} columns={5} data={selectTable === 0 ? createDataBuy(data.history.buy) : selectTable === 1 ? createDataInternal(data.history.internal) : selectTable === 2 ? createDataRewards(data.history.rewards) : createDataSell(data.history.selling)} />
+                        {selectTable === 2 &&
+                            <div className={s.struct_profit}>
+                                <div className={`${s.cl1} ${s.row_tb1}`}>
+                                    <StyledDot colour={"#8C93D6"}/>
+                                    <span> Структурный доход </span>
+                                </div>
+                                <div className={s.cl2}>
+                                    {data.history.rewards.reduce((sum,item)=>sum+item["Сумма"],0).toFixed(5)}
+                                    </div>
+                                    <div className={s.cl5}>
+                                    {data.history.rewards[data.history.rewards.length-1]["Дата"]}
+                                    </div>
+                                </div>}
                     </div>
                 </div>
-            </div>
+                </div>
         </section>
     )
 }

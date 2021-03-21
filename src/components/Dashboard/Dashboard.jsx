@@ -23,7 +23,7 @@ const StyledProgress = styled.div`
     transform: rotate(-${props => 180 - props.deg}deg) scale(-1, 1);
 `
 
-const StyledDot = styled.span`
+export const StyledDot = styled.span`
     width: 9px;
     height: 9px;
     border-radius: 50%;
@@ -161,7 +161,7 @@ function CurrencyItem(props) {
                 </div>
                 <div className={s.currency_item_right}>
                     <div className={s.currency_item_right_row}>
-                        <span className={s.currency_item_right_money}>{props.data.isToken ? "T " : "$ "}{props.data.cost}</span>
+                        <span className={s.currency_item_right_money}>{props.data.isToken ? "T " : "$ "}{props.data.cost.toFixed(2)}</span>
                         <span className={s.currency_item_right_buy}> Can buy: {Math.floor(props.money / props.data.cost)}</span>
                     </div>
                     <NavLink to={`/Wallets`} className={s.navlink}>

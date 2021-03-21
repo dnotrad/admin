@@ -1,0 +1,195 @@
+img {
+    margin-right: 5px;
+}
+
+.Invest_wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.Invest_body {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 2fr 8fr;
+    grid-gap: 20px;
+    grid-template-areas: "header" "options";
+}
+
+.Invest_header {
+    grid-area: header;
+    display: grid;
+    grid-template-rows: 2fr 3fr;
+    grid-template-areas: "btns" "text";
+    background: var(--grey-main);
+    border-radius: 10px;
+}
+
+.Invest_header_btns {
+    grid-area: btns;
+    display: flex;
+}
+
+.Invest_header_btns_btn {
+    flex: 0 0 33.3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 113.19%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #504D85;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.Invest_header_btns_btn.active {
+    border-radius: 10px 10px 0 0;
+    background: var(--main-color);
+    color: var(--dark);
+    font-size: 16px;
+}
+
+.Invest_header_text {
+    grid-area: text;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--main-color);
+    border-radius: 0px 0px 10px 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: rgba(95, 97, 117, 0.75);
+}
+
+.Invest_options {
+    grid-area: options;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.item_wrapper {
+    flex: 0 0 10%;
+    width: 100%;
+}
+
+.item_body {
+    background: var(--main-color);
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr repeat(4, 1fr) 2fr;
+    grid-template-areas: "icons plan date profit percent pay btns";
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: rgba(95, 97, 117, 0.75);
+}
+
+.item_icon {
+    grid-area: icons;
+}
+
+.item_plan {
+    grid-area: plan;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item_title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 113.19%;
+    letter-spacing: 0.45px;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.item_subtitle {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.428571px;
+    color: #B9C1D9;
+}
+
+.item_date {
+    grid-area: date;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item_profit {
+    grid-area: profit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item_percent {
+    grid-area: percent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item_pay {
+    grid-area: pay;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item_btns {
+    grid-area: btns;
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+.btn {
+    flex: 0 0 48%;
+    padding: 5px;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.invest_btn {
+    background: #8C93D6;
+    color: #FFFFFF;
+}
+
+.show_btn {
+    border: 2px solid #C5C9EA;
+    border-radius: 8px;
+    color: #504D85;
+}
+
+.invest_btn:hover {
+    filter: hue-rotate(45deg);
+    color: #FFFFFF;
+}
+
+.show_btn:hover {
+    color: #FFFFFF;
+    background: #8C93D6;
+    filter: hue-rotate(45deg);
+}
+
+.btn:disabled {
+    filter: grayscale(0.8);
+}
