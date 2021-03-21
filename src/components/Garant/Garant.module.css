@@ -1,0 +1,129 @@
+.garant {
+    padding: 20px;
+}
+
+.block {
+    background: #FFFFFF;
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.block.top {
+    margin-bottom: 25px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #1D2038;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #77798A;
+}
+
+.blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* user */
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user_img {
+    margin-right: 10px;
+}
+
+.user_img img {
+    max-width: 100%;
+}
+
+.user_name {
+    font-weight: 500;
+    font-size: 14px;
+    color: #1D2038;
+    margin-bottom: 5px;
+}
+
+.user_id {
+    font-size: 12px;
+    align-items: center;
+    letter-spacing: 0.428571px;
+    color: #5F6175;
+}
+
+/* deal */
+
+.deal {
+    display: flex;
+    align-items: center;
+}
+
+.deal_img {
+    width: 40px;
+    height: 40px;
+    background: #F8F9FC;
+    border-radius: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deal_title {
+    font-size: 13px;
+    letter-spacing: 0.43px;
+    color: rgba(95, 97, 117, 0.75);
+    margin-bottom: 5px;
+}
+
+.deal_count {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #1D2038;
+}
+
+/* inputs */
+
+.input {
+    display: flex;
+    align-items: center;
+}
+
+.input input {
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+}
+
+.input_title {
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.428571px;
+    color: rgba(29, 32, 56, 0.75);
+    margin-right: 15px;
+}

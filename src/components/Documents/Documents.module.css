@@ -147,7 +147,7 @@
 {
   0% {transform: translateY(0px) scale(1);}
   50% {transform: scale(1.25);}
-  100% {transform: translateY(-50px) scale(1.5);}
+  100% {transform: translate(100px, -50px) scale(2);}
 }
 .bottom {
     position: absolute;

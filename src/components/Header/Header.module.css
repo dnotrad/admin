@@ -53,6 +53,7 @@
     font-size: 14px;
     /* убрать маргин сделать флекс */
     margin-right: 40px;
+    cursor: pointer;
 }
 
 .user {
