@@ -1,4 +1,355 @@
-.wrapper{
+.wallets_wrapper {
     width: 100%;
-    height: 50%;
+    height: 100%;
+}
+
+.wallets_body {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5fr 20fr 20fr;
+    grid-template-areas: "title" "currencies" "history";
+    padding: 20px;
+}
+
+.wallets_title_body {
+    grid-area: title;
+    background: var(--main-color);
+    padding: 20px;
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wallets_title {
+    flex: 0 0 20%;
+    align-self: flex-start;
+    padding: 0 0 10px 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 113.19%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.wallets_title_subscription {
+    flex: 0 0 80%;
+    align-self: flex-start;
+    padding: 10px 0 0 0;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 23px;
+    color: #5F6175;
+}
+
+.wallets_currency_wrapper {
+    grid-area: currencies;
+    width: 100%;
+    height: 100%;
+}
+
+.wallets_currency_body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.currency_item_body {
+    flex: 0 0 32%;
+    max-height: 140px;
+}
+
+.currency_item_grid {
+    transition: var(--transition);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 3fr 2fr;
+    grid-template-areas: "up" "bottom";
+    background: var(--main-color);
+    box-shadow: 0px 4px 15px rgba(111, 108, 153, 0.15), 0 0px 0px rgba(64, 66, 78, 0.6);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.currency_item_row {
+    grid-area: up;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid rgba(197, 201, 234, 0.6);
+}
+
+.currency_item_left {
+    flex: 0 0 25%;
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.currency_item_left img {
+    transform: scale(0.8);
+}
+
+.currency_item_title {
+    flex: 0 0 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wallet_name {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 113.19%;
+    letter-spacing: 0.45px;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.wallet_fullname {
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.428571px;
+    color: #B9C1D9;
+}
+
+.currency_item_center {
+    height: 100%;
+    flex: 0 0 40%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.currency_item_center_status {
+    position: absolute;
+    display: flex;
+    top: 30%;
+    left: 30%;
+    transform: translate(-30%, -30%);
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.428571px;
+}
+
+.currency_item_center_status img {
+    margin-right: 5px;
+}
+
+.green {
+    color: var(--green);
+}
+
+.red {
+    color: var(--red);
+}
+
+.currency_item_right {
+    height: 100%;
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.currency_item_right_row {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    width: 100%;
+    text-align: end;
+}
+
+.currency_item_right_money {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 113.19%;
+    letter-spacing: 0.45px;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.currency_item_right_money span {
+    width: 100%;
+}
+
+.currency_item_right_buy {
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.428571px;
+    color: #B9C1D9;
+}
+
+.currency_item_buy {
+    width: 100%;
+    height: 100%;
+}
+
+.canBuy_wrapper {
+    height: 100%;
+    grid-area: up;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "buy share sell";
+}
+
+.buy {
+    grid-area: buy;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.share {
+    grid-area: share;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.sell {
+    grid-area: sell;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.btn {
+    width: 100%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn span {
+    padding: 10px;
+    border-radius: 7px;
+    transition: var(--transition);
+}
+
+.btn.with_right_border::after, .btn.with_border::before, .btn.with_border::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 70%;
+    top: 50%;
+    transform: translate(0, -50%);
+    background: rgba(197, 201, 234, 0.6);
+}
+
+.btn.with_right_border::after, .btn.with_border::after {
+    right: 0;
+}
+
+.btn.with_border::before {
+    left: 0;
+}
+
+.canNotBuy_wrapper {
+    height: 100%;
+    grid-area: up;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "in out";
+}
+
+.in {
+    grid-area: in;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.out {
+    grid-area: out;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.currency_item_table {
+    grid-area: history;
+    background: var(--main-color);
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.select_table {
+    flex: 0 0 40%;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+}
+
+.history_table {
+    position: relative;
+    padding: 10px;
+    flex: 0 0 60%;
+    width: 100%;
+}
+
+.select_item {
+    cursor: pointer;
+    transition: var(--transition);
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 113.19%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(-dark);
+    border-bottom: 2px solid rgba(171, 176, 225, 0.25);
+}
+
+.select_item.active_table {
+    border-bottom: 2px solid#F5A623;
+
+}
+
+@media(min-width:1025px) {
+    .btn span:hover {
+        background: var(--grey);
+        box-shadow: 0 10px rgba(95, 97, 117, 1);
+        transform: translate(0, -10px);
+        color: #fff;
+    }
+    .currency_item_grid:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 10px rgba(64, 66, 78, 0.6);
+    }
+}
+
+@media(max-width: 1367px) {
+    .currency_item_row {
+        padding-bottom: 10px
+    }
+    .currency_item_body {
+        flex: 0 0 49.5%;
+    }
 }
