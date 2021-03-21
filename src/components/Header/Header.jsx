@@ -3,18 +3,31 @@ import s from "./Header.module.css";
 import clockImg from "../../assets/icons/clock.svg";
 import walletImg from "../../assets/icons/wallet.svg";
 import userImg from "../../assets/img/user.jpg";
+import { useTranslation } from "react-i18next";
 // propsExaple
 
 const propsEx = {
     time: "21:35:59",
     city: "Washington",
-    currentLang: "ENG",
+    currentLang: "rus",
     otherLangs: ["RUS", "UKR"],
     userName: "Username",
     userStatus: "Expert",
     userBalance: "T 5 438.00",
 }
 const Header = (props) => {
+
+    const { t, i18n } = useTranslation(); //хук для смены языка
+    const changeLanguage = (language) => { // меняет язык, принимает "ru" или "en"
+        i18n.changeLanguage(language);
+    };
+    const [currentLang, setCurrentLang] = React.useState(i18n.language);
+    
+    // смена языка в шапке
+    React.useEffect(() => {
+        setCurrentLang(i18n.language);
+    }, [i18n.language]);
+    
     return (
         <div className={s.header}>
             <div className={s.left}>
@@ -33,7 +46,7 @@ const Header = (props) => {
                 </div>
             </div>
             <div className={s.right}>
-                <div className={s.language}>{propsEx.currentLang}</div>
+                <div className={s.language} onClick={() => changeLanguage("en")}>{currentLang}</div>
                 <div className={s.user}>
                     <div className={s.user_img}>
                         <img src={userImg} alt="userImg" />
