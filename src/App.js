@@ -12,6 +12,7 @@ import Garant from "./components/Garant/Garant";
 import Calc from "./components/Calc/Calc";
 
 import { useTranslation } from "react-i18next";
+import News from "./components/News/News";
 
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
       </header>
       <main className="App-main">
         <Switch>
-          <Route path="/Dashboard" component={Dashboard} />
+          <Route exact path="/" component={Dashboard} />
           <Route path="/Wallets" component={Wallets} />
           <Route path="/settings" component={Profile} />
           <Route path="/faq" component={FAQ} />
@@ -37,6 +38,7 @@ function App() {
           <Route path="/Documents" component={Documents} />
           <Route path="/Garant" component={Garant} />
           <Route path="/Profit" component={Calc} />
+          <Route path="/News" component={News} />
         </Switch>
       </main>
       <nav className="App-nav">

@@ -1,4 +1,50 @@
 {
+  "header": {
+    "balance": "Your balance"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "wallets": "Wallets",
+    "investments": "Investments",
+    "portfolio": "Portfolio",
+    "calculator": "Profit calculation",
+    "garant": "Garant service",
+    "partners": "Partners",
+    "settings": "Settings",
+    "docs": "Documetns",
+    "news": "News",
+    "faq": "FAQ"
+  },
+  "dashboard": {
+    "avilable_balance": "AVAILABLE BALANCE",
+    "finance_stat": "FINANCIAL STATISTICS",
+    "invested": "Invested:",
+    "montly": "Monthly profit:",
+    "total": "Total profit:",
+    "per_month": "Per month",
+    "profit_chart": "Profit chart for",
+    "day": "day",
+    "week": "week",
+    "month": "month",
+    "monthes": "monthes",
+    "year": "year",
+    "cryptocurrency": "Cryptocurrency",
+    "commodity_market": "Commodity market",
+    "stock_market": "Stock market",
+
+    "investment_diagram": "Investment diversification diagram",
+    "asset_statistics": "Asset statistics",
+    "Name": "Name",
+    "Capital": "Capital",
+    "Daily_profit": "Daily profit",
+    "Date": "Date",
+    "Earn": "Income",
+
+    "Total_profit": "Total company profit",
+    "Daily_profit": "Daily company profit",
+    "Weekly_profit": "Weekly сompany profit"
+
+  },
   "faq": {
     "title": "Frequently Asked Questions",
     "1": {

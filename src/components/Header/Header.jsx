@@ -46,7 +46,7 @@ const Header = (props) => {
                 </div>
             </div>
             <div className={s.right}>
-                <div className={s.language} onClick={() => changeLanguage("en")}>{currentLang}</div>
+                <div className={s.language} onClick={() => changeLanguage("ru")}>{currentLang}</div>
                 <div className={s.user}>
                     <div className={s.user_img}>
                         <img src={userImg} alt="userImg" />
@@ -61,7 +61,7 @@ const Header = (props) => {
                         <img src={walletImg} alt="walletImg" />
                     </div>
                     <div className={s.wallet_info}>
-                        <div className={s.wallet_title}>Ваш баланс</div>
+                        <div className={s.wallet_title}>{t("header.balance")}</div>
                         <div className={s.wallet_money}>{propsEx.userBalance}</div>
                     </div>
                 </div>

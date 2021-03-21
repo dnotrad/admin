@@ -13,7 +13,7 @@ import down from '../../assets/icons/option-down.svg';
 import up from '../../assets/icons/option-up.svg';
 import star_up from '../../assets/icons/star-up.svg';
 import { NavLink } from 'react-router-dom';
-
+import { useTranslation } from "react-i18next";
 const StyledProgress = styled.div`
     position: absolute;
     top: 0;
@@ -72,6 +72,7 @@ function graphCube() {
 }
 
 function ProgressBarProfit(props) {
+    const { t, i18n } = useTranslation(); //хук для смены языка
     return (
         <div className={s.progress_wrapper}>
             <div className={s.progress_column}>
@@ -277,7 +278,7 @@ function creatData(stack, timeline) {
 
 
 export default function Dashboard(props) {
-
+    const { t, i18n } = useTranslation(); //хук для смены языка
     const [showPercent, setShowPercent] = useState(false);
     const [activeIndex, setActiveIndex] = useState(-1);
     const [currentData, setCurrentData] = useState(0);
@@ -304,7 +305,7 @@ export default function Dashboard(props) {
                                 <div className={s.card_info_body}>
                                     <div className={s.card_info_balance_body}>
                                         <div className={s.card_title}>
-                                            <span>Доступный баланс</span>
+                                            <span>{t("dashboard.avilable_balance")}</span>
                                         </div>
                                         <div className={s.card_money_body}>
                                             <span className={s.card_money}>{data.money.toFixed(2)} T</span>
@@ -322,18 +323,18 @@ export default function Dashboard(props) {
                         <div className={s.profit_wrapper}>
                             <div className={s.profit_body}>
                                 <div className={s.profit_title}>
-                                    <span>Финансовая статистика</span>
+                                    <span>{t("dashboard.finance_stat")}</span>
                                 </div>
                                 <div className={s.profit_info}>
-                                    <ProfitItem img={invest} title={'Инвестированно'} money={data.invest} />
-                                    <ProfitItem img={calendare} title={'Доход за месяц:'} money={data.profit} />
-                                    <ProfitItem img={bank} title={'Всего заработано:'} money={data.all_income} />
+                                    <ProfitItem img={invest} title={t("dashboard.invested")} money={data.invest} />
+                                    <ProfitItem img={calendare} title={t("dashboard.montly")} money={data.profit} />
+                                    <ProfitItem img={bank} title={t("dashboard.total")} money={data.all_income} />
                                 </div>
                                 <div className={s.profit_progress}>
                                     <ProgressBar percent={data.percent} />
                                     <div className={s.profit_progress_body}>
                                         <span className={s.profit_progress_percents}>{data.percent} <span className={s.profit_progress_symbol}>%</span></span>
-                                        <span className={s.profit_progress_time}>за месяц</span>
+                                        <span className={s.profit_progress_time}>{t("dashboard.per_month")}</span>
                                     </div>
                                 </div>
                             </div>
@@ -348,25 +349,25 @@ export default function Dashboard(props) {
                                     <div className={s.statistics_graph_row}>
                                         <div className={s.statistics_graph_title_body}>
                                             <div className={s.statistics_graph_title}>
-                                                <span>График прибыли за </span>
+                                                <span>{t("dashboard.profit_chart")}</span>
                                                 <div className={s.statistics_graph_dropdown} onClick={() => setTimeIsOpen(!timeIsOpen)}>
-                                                    <span> {data.show_statistic === 'daily' ? "день" : data.show_statistic === 'weekly' ? 'неделю' : data.show_statistic === 'monthly' ? 'месяц' : data.show_statistic === 'three_months' ? '3 месяца' : data.show_statistic === 'year' ? 'год' : 'день'}</span>
+                                                    <span> {data.show_statistic === 'daily' ? t("dashboard.day") : data.show_statistic === 'weekly' ? t("dashboard.week") : data.show_statistic === 'monthly' ? t("dashboard.month"): data.show_statistic === 'three_months' ? `3 ${t("dashboard.profit_chart")}` : data.show_statistic === 'year' ? t("dashboard.year") : t("dashboard.day")}</span>
                                                     <div className={`${s.statistics_graph_dropdown_arrow} ${timeIsOpen && s.graph_dropdown_active}`}>
                                                         <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-down" class="svg-inline--fa fa-angle-down fa-w-10" role="img" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z" /></svg>
                                                     </div>
                                                     <div className={`${s.statistics_graph_dropdown_options} ${timeIsOpen && s.graph_dropdown_active}`}>
-                                                        <span onClick={() => setStatistic("daily")}>День</span>
-                                                        <span onClick={() => setStatistic("weekly")}>Неделю</span>
-                                                        <span onClick={() => setStatistic("monthly")}>Месяц</span>
-                                                        <span onClick={() => setStatistic("three_months")}>3 Месяца</span>
-                                                        <span onClick={() => setStatistic("year")}>Год</span>
+                                                        <span onClick={() => setStatistic("daily")}>{t("dashboard.day")}</span>
+                                                        <span onClick={() => setStatistic("weekly")}>{t("dashboard.week")}</span>
+                                                        <span onClick={() => setStatistic("monthly")}>{t("dashboard.month")}</span>
+                                                        <span onClick={() => setStatistic("three_months")}>3 {t("dashboard.monthes")}</span>
+                                                        <span onClick={() => setStatistic("year")}>{t("dashboard.year")}</span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className={s.statistics_graph_legend}>
-                                                <Legend colour={"#F5A623"} name={"BTC"} />
-                                                <Legend colour={"#8C93D6"} name={"ETF"} />
-                                                <Legend colour={"#84BDB3"} name={"LTC"} />
+                                                <Legend colour={"#F5A623"} name={t("dashboard.cryptocurrency")} />
+                                                <Legend colour={"#8C93D6"} name={t("dashboard.commodity_market")} />
+                                                <Legend colour={"#84BDB3"} name={t("dashboard.stock_market")} />
                                             </div>
                                         </div>
                                         <div className={s.statistics_graph}>
@@ -410,7 +411,7 @@ export default function Dashboard(props) {
                                 <div className={s.statistics_divers_body}>
                                     <div className={s.statistics_divers_row}>
                                         <div className={s.statistics_divers_title}>
-                                            <span>Диаграма Диверсиикации инвестиций</span>
+                                            <span>{t("dashboard.investment_diagram")}</span>
                                         </div>
                                         <div className={s.statistics_divers_pie}>
                                             <ResponsiveContainer width="100%" height="100%">
@@ -467,18 +468,18 @@ export default function Dashboard(props) {
                                             </ResponsiveContainer>
                                             {showPercent &&
                                                 <div className={s.statistics_divers_pie_info}>
-                                                    <span>Доход</span>
+                                                    <span>{t("dashboard.Earn")}</span>
                                                     <span className={s.profit_progress_percents}>{
                                                         activeIndex !== -1 && showPer(data, activeIndex)
                                                     } <span className={s.profit_progress_symbol}>%</span></span>
-                                                    <span className={s.profit_progress_time}>за месяц</span>
+                                                    <span className={s.profit_progress_time}>{t("dashboard.month")}</span>
                                                 </div>
                                             }
                                         </div>
                                         <div className={s.statistics_divers_legend}>
-                                            <Legend colour={"#F5A623"} name={"Крипторынок"} />
-                                            <Legend colour={"#8C93D6"} name={"Товарносырьевой рынок"} />
-                                            <Legend colour={"#84BDB3"} name={"Фондовый рынок"} />
+                                            <Legend colour={"#F5A623"} name={t("dashboard.cryptocurrency")} />
+                                            <Legend colour={"#8C93D6"} name={t("dashboard.commodity_market")} />
+                                            <Legend colour={"#84BDB3"} name={t("dashboard.stock_market")} />
                                         </div>
                                     </div>
                                 </div>
@@ -487,21 +488,21 @@ export default function Dashboard(props) {
                                 <div className={s.statistics_actives_body}>
                                     <div className={s.statistics_actives_column}>
                                         <div className={s.statistics_actives_title}>
-                                            <span>Статистика активов</span>
+                                            <span>{t("dashboard.asset_statistics")}</span>
                                         </div>
                                         <div className={s.statistics_actives_table}>
                                             <div className={s.statistics_actives_table_header}>
                                                 <div className={s.row_tb1}>
-                                                    <TableRowHeader title={"Name"} />
+                                                    <TableRowHeader title={t("dashboard.Name")}/>
                                                 </div>
                                                 <div className={s.row_tb2}>
-                                                    <TableRowHeader title={"Cap"} />
+                                                    <TableRowHeader title={t("dashboard.Capital")} />
                                                 </div>
                                                 <div className={s.row_tb3}>
-                                                    <TableRowHeader title={"Daily profit"} />
+                                                    <TableRowHeader title={t("dashboard.Daily_profit")} />
                                                 </div>
                                                 <div className={s.row_tb4}>
-                                                    <TableRowHeader title={"Data"} />
+                                                    <TableRowHeader title={t("dashboard.Date")} />
                                                 </div>
                                             </div>
                                             {data.actives[currentData].map((item, iter) => <TableRow key={iter} data={item} colour={iter % 2 ? "var(--main-color)" : "var(--grey-main)"} />)}

@@ -153,8 +153,8 @@ const Calc = () => {
                 +reInvest,
                 marketsInfo[branch].period
             ).toFixed(2))
-            setMin((+invest / 100 * marketsInfo[branch][plan].min).toFixed(2))
-            setMax((+invest / 100 * marketsInfo[branch][plan].max).toFixed(2))
+            setMin(!+reInvest ? (+invest / 100 * marketsInfo[branch][plan].min).toFixed(2) : "-")
+            setMax(!+reInvest ? (+invest / 100 * marketsInfo[branch][plan].max).toFixed(2) : "-")
         }
     }, [branch, plan, invest, reInvest])
     return (
