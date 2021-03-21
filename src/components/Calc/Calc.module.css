@@ -1,0 +1,205 @@
+.calc {
+    padding: 20px;
+}
+
+.block {
+    background: #FFFFFF;
+    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.block.top {
+    margin-bottom: 25px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #1D2038;
+    margin-bottom: 20px;
+}
+
+.text {
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #77798A;
+}
+
+/* blocks */
+
+.money {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    letter-spacing: 0.43px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 13px;
+    text-align: center;
+    letter-spacing: 0.428571px;
+    color: rgba(95, 97, 117, 0.75);
+}
+
+.min, .max, .min_year, .max_year {
+    padding: 50px;
+}
+
+/* main */
+
+.main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "calc min max" "calc min-year max-year";
+    gap: 25px;
+}
+
+.calcul {
+    grid-area: calc;
+}
+
+.min {
+    grid-area: min;
+    color: #8C93D6;
+}
+
+.max {
+    grid-area: max;
+    color: #F5A623;
+}
+
+.min_year {
+    grid-area: min-year;
+    color: #E16767;
+}
+
+.max_year {
+    color: #84BDB3;
+    grid-area: max-year;
+}
+
+/* calculator-main */
+
+.calc_main {}
+
+.selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid #D6D9F0;
+    margin-bottom: 10px;
+}
+
+.selector_title {
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.428571px;
+    color: rgba(29, 32, 56, 0.75);
+    margin-right: 20px;
+}
+
+.selector_active {
+    cursor: pointer;
+    flex-grow: 1;
+    justify-self: flex-end;
+    padding: 16px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+    background: #fbfbfd;
+    max-width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.selectors {
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #EEEEF5;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 65;
+}
+
+.selector_item {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+    margin-bottom: 10px;
+}
+
+.selector_item:last-child {
+    margin-bottom: 0;
+}
+
+.input_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: default !important;
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid #D6D9F0;
+    margin-bottom: 10px;
+}
+
+.input_wrap input {
+    font-weight: 500;
+    font-size: 13px;
+    width: 80%;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+}
+
+/* reinvest */
+
+.reinvest {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reinvest_buttons {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.radio {
+    visibility: hidden;
+    position: absolute;
+}
+
+.radio_button {
+    cursor: pointer;
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+    border: 2px solid #C5C9EA;
+    border-radius: 8px;
+    margin-right: 10px;
+    transition: .4s ease;
+}
+input[type="radio"]:checked+.radio_button { 
+    background: #8C93D6;
+    border: 2px solid #8C93D6;
+    color: #fefefe;
+}
+.radio_button:last-child{
+    margin-right: 0;
+}

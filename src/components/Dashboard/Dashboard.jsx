@@ -13,12 +13,6 @@ import down from '../../assets/icons/option-down.svg';
 import up from '../../assets/icons/option-up.svg';
 import star_up from '../../assets/icons/star-up.svg';
 import { NavLink } from 'react-router-dom';
-import BIT from '../../assets/icons/BIT-icon.svg';
-import USD from '../../assets/icons/USD-icon.svg';
-import DTN from '../../assets/icons/DTN-icon.svg';
-import EUR from '../../assets/icons/EUR-icon.svg';
-import LIT from '../../assets/icons/LIT-icon.svg';
-import ETH from '../../assets/icons/ETH-icon.svg';
 
 const StyledProgress = styled.div`
     position: absolute;
@@ -153,15 +147,6 @@ function TableRowHeader(props) {
         </div>
     )
 }
-
-const currencies = [
-    { icon: DTN, name: "DTN", fullname: "Dayton", cost: 10940.01, isToken: true },
-    { icon: USD, name: "USD", fullname: "Dollar", cost: 79.87, isToken: false },
-    { icon: EUR, name: "EUR", fullname: "Euro", cost: 89.87, isToken: false },
-    { icon: BIT, name: "BTC", fullname: "Bitcoin", cost: 10940.01, isToken: false },
-    { icon: LIT, name: "LIT", fullname: "Lightcoin", cost: 140.91, isToken: false },
-    { icon: ETH, name: "ETH", fullname: "Ethirium", cost: 440.11, isToken: false }
-]
 
 function CurrencyItem(props) {
     return (
@@ -299,6 +284,7 @@ export default function Dashboard(props) {
     const [timeIsOpen, setTimeIsOpen] = useState(false);
     const data = useSelector(state => state.profile);
     const dispatch = useDispatch();
+    const moneyData = useSelector(state => state.wallets)
 
     const setStatistic = (data) => {
         dispatch(setShowStatistic(data));
@@ -542,7 +528,7 @@ export default function Dashboard(props) {
                 <section className={s.currency_wrapper}>
                     <div className={s.currency_body}>
                         <div className={s.currency_row}>
-                            {currencies.map((item) => <CurrencyItem data={item} money={data.money} />)}
+                            {moneyData.currencies.map((item) => <CurrencyItem data={item} money={data.money} />)}
                         </div>
                     </div>
                 </section>

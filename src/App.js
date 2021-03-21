@@ -9,6 +9,7 @@ import { Wallets } from "./components/Wallets/Wallets";
 import { Switch, Route } from "react-router-dom";
 import Documents from "./components/Documents/Documents";
 import Garant from "./components/Garant/Garant";
+import Calc from "./components/Calc/Calc";
 
 import { useTranslation } from "react-i18next";
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/Partners" component={Partners} />
           <Route path="/Documents" component={Documents} />
           <Route path="/Garant" component={Garant} />
+          <Route path="/Profit" component={Calc} />
         </Switch>
       </main>
       <nav className="App-nav">

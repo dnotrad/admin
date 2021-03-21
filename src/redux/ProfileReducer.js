@@ -51,7 +51,7 @@ let initialState = {
     {name: "LT", cap: "80.0722", profit: 8.8, date: "21.04.2020", up: false},
     {name: "LT", cap: "90.0732", profit: 34.46, date: "21.04.2020", up: false},
     {name: "LT", cap: "201.0832", profit: 3.46, date: "21.04.2020", up: true},] 
-    ],
+    ],  
     profit_total: [
         {min: 4, max: 10, value: 7.63},
         {min: 28, max: 70, value: 34.46},
