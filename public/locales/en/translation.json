@@ -77,7 +77,6 @@
     "Cryptocurrency_market": "Cryptocurrency market",
     "Commodity_market": "Commodity market",
     "Stock_market": "Stock market",
-
     "days": "days",
     "Tariff_plan": "Tariff plan",
     "in_day": "per day",
@@ -89,6 +88,13 @@
     "once_a_day": "Accruals once a day",
     "once_a_month": "Accruals once a month",
     "withdrawal": "Withdrawal after the termination of this tariff plan."
+  },
+  "portfolio": {
+    "title": "PORTFOLIO",
+    "content": "In the Portfolio, you can view all the information you are interested in about your working tariff plans, as well as view the history of accruals and replenishments, set the desired Autoreinvest value, use the Rebalancing and Reinvestment function.",
+    "open_report": "Open a report",
+    "dnya": "days",
+    "den": "days"
   },
   "faq": {
     "title": "Frequently Asked Questions",
