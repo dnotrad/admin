@@ -5,7 +5,7 @@ import minus from "../../../../assets/icons/minus.svg";
 import Circle from "./../../Circle";
 import userImg from "./../../../../assets/img/user.jpg";
 import styled from 'styled-components';
-
+import { useTranslation } from "react-i18next";
 
 const Wrapper = styled.div`
     padding-left: ${props => (props.padd) * 20}px;
@@ -13,8 +13,8 @@ const Wrapper = styled.div`
 `
 
 const Referal = (props) => {
+    const { t, i18n } = useTranslation(); //хук для смены языка
     const [isOpen, setIsOpen] = React.useState(false);
-    console.log("first" + isOpen)
     return (
         <div className={`${s.referal} ${props.isFirst ? s.first : ""}`} >
             <div className={`${s.inner} ${props.isFirst ? s.first : ""}`}>
@@ -38,15 +38,13 @@ const Referal = (props) => {
                         </div>
                     </div>
                 </Wrapper>
-                <div className={s.line}><Circle color="#E16767" /><span>{props.line} линия</span></div>
-                <div className={s.line}>134 рефералов</div>
+                <div className={s.line}><Circle color="#E16767" /><span>{props.line} {t("partners.Line")}</span></div>
+                <div className={s.line}>134 {t("partners.Partners")}</div>
                 <div className={s.line}>{props.padd* 20}</div>
             </div>
 
             {isOpen && (props.refs.length > 0) ? props.refs.map((ref) =>
                 <Referal fn={setIsOpen}
-                    // padd={props.line > 4 ? (props.line + 1 % 5) : props.line + 1}
-                    // padd={props.line > 4 ? (((props.line + 2) % 5) ? (props.line + 2) % 5 : 5 ) : props.line}
                     padd={props.line > 4 ? props.line % 5 : props.line}
                     line={props.line + 1}
                     name={ref.userName}

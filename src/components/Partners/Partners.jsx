@@ -13,8 +13,10 @@ import partners from "./../../assets/icons/partners.svg";
 import left from "./../../assets/icons/left-branch.svg";
 import right from "./../../assets/icons/right-branch.svg";
 import ReferalTable from './ReferalTable/ReferalTable';
+import { useTranslation } from "react-i18next";
 
 const Partners = () => {
+    const { t, i18n } = useTranslation(); //хук для смены языка
     const [isInfo, setIsInfo] = React.useState(false);
 
     const data = [
@@ -36,8 +38,8 @@ const Partners = () => {
         <div className={s.partners}>
             <div className={s.header}>
                 <div className={s.nav}>
-                    <div className={`${s.nav_link} ${isInfo ? "" : s.active}`} onClick={() => setIsInfo(false)}>My career</div>
-                    <div className={`${s.nav_link} ${isInfo ? s.active : ""}`} onClick={() => setIsInfo(true)}>Information</div>
+                    <div className={`${s.nav_link} ${isInfo ? "" : s.active}`} onClick={() => setIsInfo(false)}>{t("partners.my_career")}</div>
+                    <div className={`${s.nav_link} ${isInfo ? s.active : ""}`} onClick={() => setIsInfo(true)}>{t("partners.info")}</div>
                 </div>
                 {isInfo &&
                     <div className={s.img}>
@@ -45,10 +47,8 @@ const Partners = () => {
                     </div>}
                 <div className={s.header_main}>
                     <div className={s.text}>
-                        Для наших партнеров предусмотрена партнерская программа с возможностью получения токенов за приглашение новых пользователей, вознаграждения за закрытие партнерских рангов и фиксированный процентный ежемесячный платеж зависящий от ранга и общего структурного оборота. <br />
-                        Всего представлено 17 рангов для закрытия которых необходим определенный компанией личный депозит и общий оборот партнерской структуры. Каждый ранг начиная с первого открывает новые реферальные линии, новый бонус за закрытие партнерского ранга и повышенный фиксированный процентный ежемесячный платеж.
-                        Ниже представлена таблица с более подробной информацией
-                </div>
+                        {t("partners.content")}
+                    </div>
                 </div>
             </div>
             {isInfo && <div className={s.tables}>
@@ -91,11 +91,11 @@ const Partners = () => {
                                 </PieChart>
                                 <div className={s.circles_info}>
                                     <div className={s.circles_number}>{propsEx.currentRang}</div>
-                                    <div className={s.circles_number_info}>Текущий ранг </div>
+                                    <div className={s.circles_number_info}>{t("partners.Current_rank")} </div>
                                 </div>
                             </div>
                             <div className={s.next_rang_info}>
-                                <div className={s.next_rang_title}>Next Rang {propsEx.currentRang + 1}</div>
+                                <div className={s.next_rang_title}>{t("partners.Next_rank")} {propsEx.currentRang + 1}</div>
                                 <div className={s.next_rang_subtitle}>
                                     <Circle color="#F5A623" opacity=".35" />
                                     <span>7 500 TKN</span>
@@ -106,16 +106,16 @@ const Partners = () => {
                                 </div>
                                 <div className={s.next_rang_subtitle}>
                                     <Circle color="#F5A623" opacity="1" />
-                                    <span>Ранг {propsEx.currentRang + 1}</span>
+                                    <span>{t("partners.Rang")} {propsEx.currentRang + 1}</span>
                                 </div>
                             </div>
                         </div>
                         <div className={`${s.referals_info_main} ${s.referals_card}`}>
-                            <ProfitItem img={invest} title="Инвестировано:" content={"6 957.00 TKN"}/>
-                            <ProfitItem img={oborot} title="Оборот" content={"6 957.00 TKN"}/>
-                            <ProfitItem img={partners} title="Партнеров:" content={"147"}/>
-                            <ProfitItem img={left} title="Оборот Правой" content={"467 957.49 TKN"}/>
-                            <ProfitItem img={right} title="Оборот Левой" content={"467 957.49 TKN"}/>
+                            <ProfitItem img={invest} title={`${t("partners.Invested")}:`} content={"6 957.00 TKN"} />
+                            <ProfitItem img={oborot} title={`${t("partners.Total_turnover")}:`} content={"6 957.00 TKN"} />
+                            <ProfitItem img={partners} title={`${t("partners.Partners")}:`} content={"147"} />
+                            <ProfitItem img={left} title={`${t("partners.Right_turnover")}:`} content={"467 957.49 TKN"} />
+                            <ProfitItem img={right} title={`${t("partners.Left_turnover")}:`} content={"467 957.49 TKN"} />
                         </div>
                     </div>
                     <div className={`${s.referals_table} ${s.referals_card}`}>

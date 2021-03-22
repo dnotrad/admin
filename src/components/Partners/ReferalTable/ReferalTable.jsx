@@ -1,7 +1,9 @@
 import React from 'react';
 import Referal from './Referal/Referal';
 import s from "./ReferalTable.module.css";
+import { useTranslation } from "react-i18next";
 const ReferalTable = () => {
+    const { t, i18n } = useTranslation(); //хук для смены языка
     const user14 = {
         userName: "Рефер 4",
         userId: "575798",
@@ -85,10 +87,10 @@ const ReferalTable = () => {
     return (
         <div className={s.table}>
             <div className={s.header}>
-                <div className={s.header_id}>ID реферала</div>
-                <div className={s.header_line}>Линия</div>
-                <div className={s.header_refs}>Кол-во рефералов</div>
-                <div className={s.header_info}>Информация</div>
+                <div className={s.header_id}>{t("partners.Partner_ID")}</div>
+                <div className={s.header_line}>{t("partners.Line")}</div>
+                <div className={s.header_refs}>{t("partners.Number_partners")}</div>
+                <div className={s.header_info}>{t("partners.info")}</div>
             </div>
             <div className={s.referals}>
                 {currentUser.referals.map((ref) => <Referal isFirst={true} line={1} padd={0} name={ref.userName} id={ref.userId} refs={ref.referals} />)}

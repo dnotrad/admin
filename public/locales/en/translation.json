@@ -127,6 +127,23 @@
     "Amount _deposited": "Amount deposited",
     "Earned": "Earned"
   },
+  "partners": {
+    "my_career": "My career",
+    "info": "Information",
+    "content": "Here you can learn more about your structure, follow the development of your structural branches and partners.",
+    "Current_rank": "Current rank",
+    "Next_rank": "Next rank",
+    "Rang": "Rang",
+    "Invested": "Invested",
+    "Total_turnover": "Total turnover",
+    "Partners": "partners",
+    "Right_turnover": "Right branch turnover",
+    "Left_turnover": "Left branch turnover",
+    "Ref_link": "Ref. link",
+    "Partner_ID": "Partner ID",
+    "Line": "line",
+    "Number_partners": "Number of partners"
+  },
   "faq": {
     "title": "Frequently Asked Questions",
     "1": {
