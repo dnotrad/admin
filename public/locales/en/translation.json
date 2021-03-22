@@ -131,6 +131,7 @@
     "my_career": "My career",
     "info": "Information",
     "content": "Here you can learn more about your structure, follow the development of your structural branches and partners.",
+    "content2": "For our partners, there is an affiliate program with the ability to receive tokens for inviting new partners, rewards for closing partner ranks and a fixed percentage daily payment depending on the rank and total structural profit. In total, there are 17 statuses that require a personal deposit determined by the company and the total turnover of the partner structure to be closed.",
     "Current_rank": "Current rank",
     "Next_rank": "Next rank",
     "Rang": "Rang",
@@ -143,6 +144,27 @@
     "Partner_ID": "Partner ID",
     "Line": "line",
     "Number_partners": "Number of partners"
+  },
+  "settings": {
+    "Profile_photo": "Profile photo",
+    "Download": "Download",
+    "Delete": "Delete",
+    "Personal_data": "Personal data",
+    "First_name": "First name",
+    "Last_name": "Last name",
+    "Phone": "Phone",
+    "E_mail": "E-mail",
+    "Payment_data": "Payment data",
+    "Verification": "Verification",
+    "Passport_photo": "Passport photo",
+    "Residence_permit": "Residence permit photo",
+    "Selfie": "Selfie with passport",
+    "Send": "Send"
+  },
+  "docs": {
+    "title": "DOCUMENTS",
+    "content": "Below are all the documents that the company provides.",
+    "More_detailed": "More detailed"
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -157,6 +179,42 @@
     "3": {
       "title": "How do I verify my profile?",
       "content": "In your Personal Account, open the 'SETTINGS'. Find the 'VERIFICATION' section and upload all the necessary documents."
+    },
+    "4": {
+      "title": "What is the minimum amount to open a tariff plan?",
+      "content": "The minimum amount for opening a deposit is 50 DTN tokens ($ 50 US)."
+    },
+    "5": {
+      "title": "How do I replenish my wallet?",
+      "content": "In your personal account open 'WALLETS'. Choose a wallet depending on the currency or cryptocurrency that will be used for the replenishment. Specify the amount and the payment service. Follow the instructions of the selected payment service."
+    },
+    "6": {
+      "title": "How do I buy/sell an DTN token ?",
+      "content": "In your Personal Account open 'WALLETS'. Find an DTN wallet or another currency or cryptocurrency. Click 'BUY' and specify the amount and your other wallet from which the purchase will be made."
+    },
+    "7": {
+      "title": "What is the minimum withdrawal amount?",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum felis eu quam accumsan eleifend et non eros. Donec finibus eros et tortor ultrices, sed interdum orci maximus. Vivamus eget pretium velit. Donec quis imperdiet lectus. Maecenas et nibh quis lacus euismod molestie id et lorem. Vestibulum ac commodo felis. Sed pharetra dignissim convallis. Quisque rhoncus, ante ac venenatis ultrices, sem massa pellentesque magna, nec porta mi lacus eget augue. Duis eget rutrum eros. Pellentesque fermentum, arcu id congue lacinia, est nibh ultricies orci, eu efficitur leo libero eget dolor. Pellentesque dignissim, nibh a ornare tristique, justo tortor ornare risus, eu cursus ex mi nec ex. Aenean commodo id leo eu pretium."
+    },
+    "8": {
+      "title": "What are the commission fees in .......?",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum felis eu quam accumsan eleifend et non eros. Donec finibus eros et tortor ultrices, sed interdum orci maximus. Vivamus eget pretium velit. Donec quis imperdiet lectus. Maecenas et nibh quis lacus euismod molestie id et lorem. Vestibulum ac commodo felis. Sed pharetra dignissim convallis. Quisque rhoncus, ante ac venenatis ultrices, sem massa pellentesque magna, nec porta mi lacus eget augue. Duis eget rutrum eros. Pellentesque fermentum, arcu id congue lacinia, est nibh ultricies orci, eu efficitur leo libero eget dolor. Pellentesque dignissim, nibh a ornare tristique, justo tortor ornare risus, eu cursus ex mi nec ex. Aenean commodo id leo eu pretium."
+    },
+    "9": {
+      "title": "What payment systems are available for replenishment and withdrawal of funds?",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum felis eu quam accumsan eleifend et non eros. Donec finibus eros et tortor ultrices, sed interdum orci maximus. Vivamus eget pretium velit. Donec quis imperdiet lectus. Maecenas et nibh quis lacus euismod molestie id et lorem. Vestibulum ac commodo felis. Sed pharetra dignissim convallis. Quisque rhoncus, ante ac venenatis ultrices, sem massa pellentesque magna, nec porta mi lacus eget augue. Duis eget rutrum eros. Pellentesque fermentum, arcu id congue lacinia, est nibh ultricies orci, eu efficitur leo libero eget dolor. Pellentesque dignissim, nibh a ornare tristique, justo tortor ornare risus, eu cursus ex mi nec ex. Aenean commodo id leo eu pretium.F"
+    },
+    "10": {
+      "title": "How long does it take to process replenishment and withdrawal requests?",
+      "content": "In your personal account open 'WALLETS'. Exchange the DTN token for a currency or cryptocurrency that will be used to withdraw funds. Click on the 'WITHDRAW' button in the selected wallet. Specify the amount and the payment system."
+    },
+    "11": {
+      "title": "How do I withdraw funds from my wallet?",
+      "content": "In your personal account open 'WALLETS'. Exchange the DTN token for a currency or cryptocurrency that will be used to withdraw funds. Click on the 'WITHDRAW' button in the selected wallet. Specify the amount and the payment system."
+    },
+    "12": {
+      "title": "Where can I change my account information?",
+      "content": "In your personal account in the 'SETTINGS' section."
     }
   }
 }

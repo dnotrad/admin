@@ -34,6 +34,15 @@ const Faq = () => {
         { title: t("faq.1.title"), content: t("faq.1.content") },
         { title: t("faq.2.title"), content: t("faq.2.content") },
         { title: t("faq.3.title"), content: t("faq.3.content") },
+        { title: t("faq.4.title"), content: t("faq.4.content") },
+        { title: t("faq.5.title"), content: t("faq.5.content") },
+        { title: t("faq.6.title"), content: t("faq.6.content") },
+        { title: t("faq.7.title"), content: t("faq.7.content") },
+        { title: t("faq.8.title"), content: t("faq.8.content") },
+        { title: t("faq.9.title"), content: t("faq.9.content") },
+        { title: t("faq.10.title"), content: t("faq.10.content") },
+        { title: t("faq.11.title"), content: t("faq.11.content") },
+        { title: t("faq.12.title"), content: t("faq.12.content") },
     ]
     return (
         <div className={s.faq}>

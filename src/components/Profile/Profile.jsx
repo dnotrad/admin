@@ -1,38 +1,39 @@
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import s from "./Profile.module.css";
 import Input from "./Input/Input";
 import userImg from "./../../assets/img/userBig.jpg";
 import downloadImg from "./../../assets/icons/download.svg";
 import BlueButton from "./../btns/BlueButton";
-
+import { useTranslation } from "react-i18next";
 const Profile = () => {
-    const [isPassport, setIsPassport] =useState(false);
-    const [isPropiska, setisPropiska] =useState(false);
-    const [isSelfie, setisSelfie] =useState(false);
+    const { t, i18n } = useTranslation(); //хук для смены языка
+    const [isPassport, setIsPassport] = useState(false);
+    const [isPropiska, setisPropiska] = useState(false);
+    const [isSelfie, setisSelfie] = useState(false);
     return (
         <div className={s.profile}>
             <div className={s.card}>
                 <div className={s.card_main}>
                     <div className={s.card_user}>
-                        <div className={s.card_user_title}>Фото профиля</div>
+                        <div className={s.card_user_title}>{t("settings.Profile_photo")}</div>
                         <div className={s.card_user_img}>
                             <img src={userImg} alt="" />
                         </div>
                         <div className={s.card_user_buttons}>
-                            <BlueButton isFill="true" title="Загрузить" />
-                            <BlueButton title="Удалить" />
+                            <BlueButton isFill="true" title={t("settings.Download")} />
+                            <BlueButton title={t("settings.Delete")} />
                         </div>
                     </div>
                     <div className={s.inputs_wrap}>
                         <div className={s.card_title}>
-                            Персональные данные
+                            {t("settings.Personal_data")}
                         </div>
                         <div className={s.inputs}>
-                            <Input title="First name" value="Alexandr" />
+                            <Input title={t("settings.First_name")} value="Alexandr" />
                             <Input title="E-mail" value="sitename@gmail.com" />
-                            <Input title="Last name" value="Gudik" />
+                            <Input title={t("settings.Last_name")} value="Gudik" />
                             <Input title="Telegram" value="@blablablauf" />
-                            <Input title="Phone" value="+79663834844" />
+                            <Input title={t("settings.Phone")} value="+79663834844" />
                             <Input title="Whatsapp" value="+79663834844" />
                         </div>
                     </div>
@@ -41,7 +42,7 @@ const Profile = () => {
             </div>
             <div className={s.card}>
                 <div className={s.card_title}>
-                    Платежные данные
+                    {t("settings.Payment_data")}
                 </div>
                 <div className={s.card_main}>
                     <div className={s.inputs}>
@@ -54,12 +55,12 @@ const Profile = () => {
             </div>
             <div className={s.card}>
                 <div className={s.card_title} >
-                    Верификация
+                    {t("settings.Verification")}
                 </div>
                 <div className={s.card_main}>
                     <div className={s.downloaders}>
                         <div className={s.downloader}>
-                            <input type="file" id="passport" className={s.downloader_button} onChange={()=>setIsPassport(true)}/>
+                            <input type="file" id="passport" className={s.downloader_button} onChange={() => setIsPassport(true)} />
                             <label for="passport" className={s.downloader_body}>
                                 <div className={`${s.downloader_svg} ${isPassport ? s.active : ''}`}>
                                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,12 +69,12 @@ const Profile = () => {
                                         </g>
                                     </svg>
                                 </div>
-                                <span >Фото паспорта</span>
+                                <span >{t("settings.Passport_photo")}</span>
                                 <img src={downloadImg} alt="downloadImg" />
                             </label>
                         </div>
                         <div className={s.downloader}>
-                            <input type="file" id="propiska" className={s.downloader_button} onChange={()=>setisPropiska(true)}/>
+                            <input type="file" id="propiska" className={s.downloader_button} onChange={() => setisPropiska(true)} />
                             <label for="propiska" className={s.downloader_body}>
                                 <div className={`${s.downloader_svg} ${isPropiska ? s.active : ''}`}>
                                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,12 +83,12 @@ const Profile = () => {
                                         </g>
                                     </svg>
                                 </div>
-                                <span>Фото прописки</span>
+                                <span>{t("settings.Residence_permit")}</span>
                                 <img src={downloadImg} alt="downloadImg" />
                             </label>
                         </div>
                         <div className={s.downloader}>
-                            <input type="file" id="selfie" className={s.downloader_button} onChange={()=>setisSelfie(true)} />
+                            <input type="file" id="selfie" className={s.downloader_button} onChange={() => setisSelfie(true)} />
                             <label for="selfie" className={s.downloader_body}>
                                 <div className={`${s.downloader_svg} ${isSelfie ? s.active : ''}`}>
                                     <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,12 +97,12 @@ const Profile = () => {
                                         </g>
                                     </svg>
                                 </div>
-                                <span>Селфи с паспортом</span>
+                                <span>{t("settings.Selfie")}</span>
                                 <img src={downloadImg} alt="downloadImg" />
                             </label>
                         </div>
                     </div>
-                    <BlueButton title="Отправить" isFill="true" />
+                    <BlueButton title={t("settings.Send")} isFill="true" />
                 </div>
             </div>
         </div>

@@ -46,9 +46,14 @@ const Partners = () => {
                         <img src={bg} alt="partners-bg" />
                     </div>}
                 <div className={s.header_main}>
-                    <div className={s.text}>
-                        {t("partners.content")}
-                    </div>
+                    {!isInfo
+                        ? <div className={s.text}>
+                            {t("partners.content")}
+                        </div>
+                        : <div className={s.text}>
+                            {t("partners.content2")}
+                        </div>
+                    }
                 </div>
             </div>
             {isInfo && <div className={s.tables}>

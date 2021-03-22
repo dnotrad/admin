@@ -131,6 +131,7 @@
         "my_career": "Моя карьера",
         "info": "Информация",
         "content": "Здесь вы можете более подробно ознакомиться со своей структурой, следить за развитием своих структурных веток и партнеров.",
+        "content2": "Для наших партнеров предусмотрена партнерская программа с возможностью получения токенов за приглашение новых партнеров, вознаграждения за закрытие партнерских рангов и фиксированный процентный ежедневный платеж зависящий от ранга и общей структурной прибыли.Всего представлено 17 статусов для закрытия которых необходим определенный компанией личный депозит и общий оборот партнерской структуры.",
         "Current_rank": "Текущий ранг",
         "Next_rank": "Следующий ранг",
         "Rang": "Ранг",
@@ -143,6 +144,27 @@
         "Partner_ID": "ID партнера",
         "Line": "линия",
         "Number_partners": "Кол-во партнеров"
+    },
+    "settings": {
+        "Profile_photo": "Фото профиля",
+        "Download": "Загрузить",
+        "Delete": "Удалить",
+        "Personal_data": "Персональные данные",
+        "First_name": "Имя",
+        "Last_name": "Фамилия",
+        "Phone": "Телефон",
+        "E_mail": "E-mail",
+        "Payment_data": "Платежные данные",
+        "Verification": "Верификация",
+        "Passport_photo": "Фото паспорта",
+        "Residence_permit": "Фото пропипски",
+        "Selfie": "Селфи с паспортом",
+        "Send": "Отправить"
+    },
+    "docs": {
+        "title": "Документы",
+        "content": "Ниже представлены все документы которые предоставляет компания.",
+        "More_detailed": "Подробнее"
     },
     "faq": {
         "title": "Часто задаваемые вопросы",
@@ -157,6 +179,42 @@
         "3": {
             "title": "Как мне верифицировать мой профиль?",
             "content": "В Личном Кабинете откройте 'НАСТРОЙКИ'.Найдите раздел 'ВЕРИФИКАЦИЯ' и загрузите все необходимые документы."
+        },
+        "4": {
+            "title": "Какая минимальная сумма для открытия тарифного плана?",
+            "content": "Минимальная сумма для открытия депозита 50 токенов DTN ($ 50 US)."
+        },
+        "5": {
+            "title": "Как мне пополнить свой кошелек?",
+            "content": "В личном кабинете откройте 'КОШЕЛЬКИ'. Выберете кошелек в зависимости от валюты или криптовалюты, которая будет использована для пополнения. Укажите сумму и платежный сервис. Следуйте дальнейшим инструкциям выбранного платежного сервиса."
+        },
+        "6": {
+            "title": "Как мне купить/продать токен DTN?",
+            "content": "В Личном Кабинете откройте 'КОШЕЛЬКИ'. Найдите кошелек DTN или другой валюты или криптовалюты. Нажмите 'КУПИТЬ' и укажите сумму и ваш другой кошелек с которого будет совершена покупка."
+        },
+        "7": {
+            "title": "Какая минимальная сумма для вывода средств?",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum felis eu quam accumsan eleifend et non eros. Donec finibus eros et tortor ultrices, sed interdum orci maximus. Vivamus eget pretium velit. Donec quis imperdiet lectus. Maecenas et nibh quis lacus euismod molestie id et lorem. Vestibulum ac commodo felis. Sed pharetra dignissim convallis. Quisque rhoncus, ante ac venenatis ultrices, sem massa pellentesque magna, nec porta mi lacus eget augue. Duis eget rutrum eros. Pellentesque fermentum, arcu id congue lacinia, est nibh ultricies orci, eu efficitur leo libero eget dolor. Pellentesque dignissim, nibh a ornare tristique, justo tortor ornare risus, eu cursus ex mi nec ex. Aenean commodo id leo eu pretium."
+        },
+        "8": {
+            "title": "Какие есть комисии в ...... ?",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum felis eu quam accumsan eleifend et non eros. Donec finibus eros et tortor ultrices, sed interdum orci maximus. Vivamus eget pretium velit. Donec quis imperdiet lectus. Maecenas et nibh quis lacus euismod molestie id et lorem. Vestibulum ac commodo felis. Sed pharetra dignissim convallis. Quisque rhoncus, ante ac venenatis ultrices, sem massa pellentesque magna, nec porta mi lacus eget augue. Duis eget rutrum eros. Pellentesque fermentum, arcu id congue lacinia, est nibh ultricies orci, eu efficitur leo libero eget dolor. Pellentesque dignissim, nibh a ornare tristique, justo tortor ornare risus, eu cursus ex mi nec ex. Aenean commodo id leo eu pretium."
+        },
+        "9": {
+            "title": "Какие платежные системы доступны для пополнения и вывода средств?",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum felis eu quam accumsan eleifend et non eros. Donec finibus eros et tortor ultrices, sed interdum orci maximus. Vivamus eget pretium velit. Donec quis imperdiet lectus. Maecenas et nibh quis lacus euismod molestie id et lorem. Vestibulum ac commodo felis. Sed pharetra dignissim convallis. Quisque rhoncus, ante ac venenatis ultrices, sem massa pellentesque magna, nec porta mi lacus eget augue. Duis eget rutrum eros. Pellentesque fermentum, arcu id congue lacinia, est nibh ultricies orci, eu efficitur leo libero eget dolor. Pellentesque dignissim, nibh a ornare tristique, justo tortor ornare risus, eu cursus ex mi nec ex. Aenean commodo id leo eu pretium.F"
+        },
+        "10": {
+            "title": "Сколько времени требуется для обработки заявок на пополнение и вывод средств?",
+            "content": "Заявки на пополнение средств обрабатываются по регламентам выбранного платежного сервиса. Заявки на вывод средств обрабатываются от 15 мин до 72 часов."
+        },
+        "11": {
+            "title": "Как мне вывести средства со своего кошелька ?",
+            "content": "В Личном Кабинете откройте 'КОШЕЛЬКИ'. Обменяйте токен DTN на валюту или криптовалюту которая будет использована для вывода средств. Нажмите на кнопу 'ВЫВЕСТИ' в выбранном кошельке. Укажите сумму и платежную систему."
+        },
+        "12": {
+            "title": "Где я могу изменить данные своего аккаунта?",
+            "content": "В личном кабинете в разделе 'НАСТРОЙКИ'."
         }
     }
 }

@@ -3,9 +3,10 @@ import s from "./Documents.module.css";
 import pdfImg from "../../assets/icons/pdf.svg";
 import arrowRight from "../../assets/icons/arrow-to-right.svg";
 import docImg from "../../assets/img/doc.jpg";
-
+import { useTranslation } from "react-i18next";
 
 const Block = (props) => {
+    const { t, i18n } = useTranslation(); //хук для смены языка
     return (
         <div className={`${s.block} ${s[`block_${props.nubmer}`]} `}>
             <div className={s.inner}>
@@ -15,7 +16,7 @@ const Block = (props) => {
                 <div className={s.block_info}>
                     <div className={s.info_title}>{props.title}</div>
                     <div className={s.info_more}>
-                        <div className={s.more_text}>Подробнее</div>
+                        <div className={s.more_text}>{t("docs.More_detailed")}</div>
                         <div className={s.more_button}>
                             <img src={arrowRight} alt="arrowRight" />
                         </div>
@@ -36,13 +37,14 @@ const data = [
 ]
 
 const Documents = () => {
+    const { t, i18n } = useTranslation(); //хук для смены языка
     return (
         <div className={s.documents}>
             <div className={`${s.block} ${s.header}`}>
                 <div className={s.title}>
-                    Documents
+                    {t("docs.title")}
                 </div>
-                <div className={s.text}>В Портфолио вы можете просмотреть всю интересующую вас информацию о ваших работающих депозитах, а так же  посмотреть историю начислений и пополнений,  установить желаемое значение Авто-реинвеста, воспользоваться функцией Ребалансировки и Реинвестирования.</div>
+                <div className={s.text}>{t("docs.content")}.</div>
             </div>
             <div className={s.wrapper}>
                 <div className={`${s.block} ${s.big_pdf}`}>
