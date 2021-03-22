@@ -54,6 +54,8 @@
     /* убрать маргин сделать флекс */
     margin-right: 40px;
     cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
 }
 
 .user {

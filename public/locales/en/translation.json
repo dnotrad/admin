@@ -96,6 +96,37 @@
     "dnya": "days",
     "den": "days"
   },
+  "calc": {
+    "title": "Calculator",
+    "content": "The profit calculator will help you calculate the daily accrual and profit for any selected tariff plan.",
+    "Profit_calculator": "Profit calculator",
+    "Direction": "Direction",
+    "Tariff_plan": "Tariff plan",
+    "Amount": "Amount",
+    "AUTOREINVEST": "Autoreinvest",
+    "Minimum_accrual": "Minimum accrual",
+    "Maximum_accrual": "Maximum accrual",
+    "Minimum_profit": "Minimum profit for the whole period",
+    "Maximum_profit": "Maximum profit for the whole period",
+    "Not_selected": "Not selected"
+  },
+  "garant": {
+    "title": "Garant service",
+    "content": "Garant Service provides security in making joint deals within the company. You can request a deal from any partner of the company to open a joint tariff plan inside their cabinet. Your dividends and the transaction amount are automatically transferred to your wallet as soon as they are available for withdrawal.The services of the Garant Service apply only to PLATINUM tariffs.",
+    "Active_request": "Active request",
+    "Deal_amount": "Deal amount",
+    "Confirm": "Confirm",
+    "Deal_request": "Deal request",
+    "Amount": "Amount",
+    "Request": "Request",
+    "Deals_history": "Deals history",
+    "User_ID": "User ID",
+    "Start_date": "Start date",
+    "Completion_date": "Completion date",
+    "Days_left": "Days left",
+    "Amount _deposited": "Amount deposited",
+    "Earned": "Earned"
+  },
   "faq": {
     "title": "Frequently Asked Questions",
     "1": {

@@ -1,10 +1,13 @@
 import React from 'react';
 import s from "./Calc.module.css";
 import moreImg from "../../assets/icons/more.svg";
+import { useTranslation } from "react-i18next";
+
 
 const Selector = (props) => {
+    const { t, i18n } = useTranslation(); //хук для смены языка
     const [isActive, setisActive] = React.useState(false);
-    const [current, setCurrent] = React.useState("Не выбрана");
+    const [current, setCurrent] = React.useState(t("calc.Not_selected"));
     return (
         <div className={s.selector}>
             <div className={s.selector_title}>{props.title}:</div>
@@ -36,11 +39,11 @@ const Radio = (props) => {
 }
 
 const Reinvest = (props) => {
+    const { t, i18n } = useTranslation(); //хук для смены языка
     return (
         <div className={s.reinvest}>
-            <div className={s.selector_title}>Авто реинвест:</div>
+            <div className={s.selector_title}>{t("calc.AUTOREINVEST")}:</div>
             <div className={s.reinvest_buttons}>
-
                 <Radio setReinvest={props.setReinvest} value={100} id={"reinvest1"} />
                 <Radio setReinvest={props.setReinvest} value={75} id={"reinvest2"} />
                 <Radio setReinvest={props.setReinvest} value={50} id={"reinvest3"} />
@@ -126,6 +129,7 @@ const marketsInfo = {
     }
 }
 const Calc = () => {
+    const { t, i18n } = useTranslation(); //хук для смены языка
     const [branch, setBranch] = React.useState(null);
     const [plan, setPlan] = React.useState(null);
     const [invest, setInvest] = React.useState(null);
@@ -161,37 +165,37 @@ const Calc = () => {
         <div className={s.calc}>
             <div className={`${s.block} ${s.top}`}>
                 <div className={s.title}>
-                    Калькулятор
+                    {t("calc.title")}
               </div>
                 <div className={s.text}>
-                    Калькулятор прибыли поможет вам рассчитать ежедневное начисление и прибыль по любому выбранному тарифному плану.
+                {t("calc.content")}
               </div>
             </div>
             <div className={s.main}>
                 <div className={`${s.block} ${s.calcul}`}>
-                    <div className={s.title}>Калькулятор прибыли</div>
+                    <div className={s.title}> {t("calc.Profit_calculator")}</div>
                     <div className={s.calc_main}>
                         <Selector
                             setInfo={setBranch}
-                            title="Выберите отрасль"
+                            title={t("calc.Direction")}
                             data={
                                 [
-                                    { name: "crypto", title: "Криптовалюта" },
-                                    { name: "goods", title: "Товарно-сырьевой рынок" },
-                                    { name: "fonds", title: "Фондовый рынок" }
+                                    { name: "crypto", title: t("invest.Cryptocurrency_market")},
+                                    { name: "goods", title: t("invest.Commodity_market") },
+                                    { name: "fonds", title: t("invest.Stock_market") }
                                 ]} />
                         <Selector
                             setInfo={setPlan}
-                            title="Тарифный план"
+                            title={t("calc.Tariff_plan")}
                             data={
                                 [
-                                    { name: "silver", title: "Серебро" },
-                                    { name: "gold", title: "Золото" },
-                                    { name: "platinum", title: "Платина" }
+                                    { name: "silver", title: "SILVER" },
+                                    { name: "gold", title: "GOLD" },
+                                    { name: "platinum", title: "PLATINUM" }
                                 ]
                             } />
                         <div className={s.input_wrap}>
-                            <div className={s.selector_title}>Сумма инвест.:</div>
+                            <div className={s.selector_title}>{t("calc.Amount")}:</div>
                             <div className={s.selector_active}>
                                 <input
                                     type="number"
@@ -206,19 +210,19 @@ const Calc = () => {
                 </div>
                 <div className={`${s.block} ${s.min}`}>
                     <div className={s.money}>{min} TKN</div>
-                    <div className={s.subtitle}>Минимальное начисление</div>
+                    <div className={s.subtitle}>{t("calc.Minimum_accrual")}</div>
                 </div>
                 <div className={`${s.block} ${s.max}`}>
                     <div className={s.money}>{max} TKN</div>
-                    <div className={s.subtitle}>Максимальное начисление</div>
+                    <div className={s.subtitle}>{t("calc.Maximum_accrual")}</div>
                 </div>
                 <div className={`${s.block} ${s.min_year}`}>
                     <div className={s.money}>{min_time} TKN</div>
-                    <div className={s.subtitle}>Минимальная прибыль за весь период</div>
+                    <div className={s.subtitle}>{t("calc.Minimum_profit")}</div>
                 </div>
                 <div className={`${s.block} ${s.max_year}`}>
                     <div className={s.money}>{max_time} TKN</div>
-                    <div className={s.subtitle}>Максимальная прибыль за весь период</div>
+                    <div className={s.subtitle}>{t("calc.Maximum_profit")}</div>
                 </div>
             </div>
         </div>
