@@ -22,12 +22,13 @@ const Header = (props) => {
         i18n.changeLanguage(language);
     };
     const [currentLang, setCurrentLang] = React.useState(i18n.language);
-    
+
     // смена языка в шапке
     React.useEffect(() => {
-        setCurrentLang(i18n.language);
+        if (i18n.language == "ru") setCurrentLang("RUS");
+        else setCurrentLang("ENG");
     }, [i18n.language]);
-    
+
     return (
         <div className={s.header}>
             <div className={s.left}>
@@ -46,7 +47,15 @@ const Header = (props) => {
                 </div>
             </div>
             <div className={s.right}>
-                <div className={s.language} onClick={() => changeLanguage("ru")}>{currentLang}</div>
+                {currentLang == "RUS"
+                    ? <div className={s.language} onClick={() => changeLanguage("en")}>
+                        {currentLang}
+                    </div>
+                    : <div className={s.language} onClick={() => changeLanguage("ru")}>
+                        {currentLang}
+                    </div>
+                }
+
                 <div className={s.user}>
                     <div className={s.user_img}>
                         <img src={userImg} alt="userImg" />
