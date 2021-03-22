@@ -72,6 +72,24 @@
     "Receiving": "Receiving",
     "Transfer": "Transfer"
   },
+  "invest": {
+    "content": "The investments tab provides information about the tariff plans offered by the company.You have the opportunity to invest in any of the three directions in each of which there are three tariff plans. There is no limit on the number of open tariff plans.",
+    "Cryptocurrency_market": "Cryptocurrency market",
+    "Commodity_market": "Commodity market",
+    "Stock_market": "Stock market",
+
+    "days": "days",
+    "Tariff_plan": "Tariff plan",
+    "in_day": "per day",
+    "from": "from",
+    "to": "to",
+    "Invest": "Invest",
+    "More_detailed": "More detailed",
+    "once_a_week": "Accruals once a week",
+    "once_a_day": "Accruals once a day",
+    "once_a_month": "Accruals once a month",
+    "withdrawal": "Withdrawal after the termination of this tariff plan."
+  },
   "faq": {
     "title": "Frequently Asked Questions",
     "1": {
