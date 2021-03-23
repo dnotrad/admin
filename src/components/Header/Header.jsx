@@ -4,6 +4,7 @@ import clockImg from "../../assets/icons/clock.svg";
 import walletImg from "../../assets/icons/wallet.svg";
 import userImg from "../../assets/img/user.jpg";
 import { useTranslation } from "react-i18next";
+import { useSelector } from 'react-redux';
 // propsExaple
 
 const propsEx = {
@@ -16,7 +17,7 @@ const propsEx = {
     userBalance: "T 5 438.00",
 }
 const Header = (props) => {
-
+    const data = useSelector(state=>state.profile);
     const { t, i18n } = useTranslation(); //хук для смены языка
     const changeLanguage = (language) => { // меняет язык, принимает "ru" или "en"
         i18n.changeLanguage(language);
@@ -27,7 +28,7 @@ const Header = (props) => {
     React.useEffect(() => {
         setCurrentLang(i18n.language);
     }, [i18n.language]);
-    
+
     return (
         <div className={s.header}>
             <div className={s.left}>
@@ -62,7 +63,7 @@ const Header = (props) => {
                     </div>
                     <div className={s.wallet_info}>
                         <div className={s.wallet_title}>{t("header.balance")}</div>
-                        <div className={s.wallet_money}>{propsEx.userBalance}</div>
+                        <div className={s.wallet_money}>T {data.money.toFixed(2)}</div>
                     </div>
                 </div>
                 <div className={s.burger}></div>

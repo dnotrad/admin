@@ -1,0 +1,237 @@
+.wrapper {
+    width: 350px;
+    height: 500px;
+}
+
+.body {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 4fr 2fr 2fr;
+    grid-gap: 10px;
+    grid-template-areas: "title" "body" "invest" "btn";
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.header {
+    grid-area: title;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title_main {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 113.19%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+.sub_main {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: rgba(95, 97, 117, 0.75);
+}
+
+.check {
+    grid-area: body;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "garant" "balances" "canBuy";
+}
+
+.garant {
+    grid-area: garant;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    grid-template-areas: "garantTitle garantMain";
+    background: #FBFBFD;
+    border: 1px dashed rgba(140, 147, 214, 0.35);
+}
+
+.garant_subtitle {
+    grid-area: garantTitle;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: rgba(29, 32, 56, 0.75);
+    padding: 5px;
+}
+
+.garant_info {
+    grid-area: garantMain;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 5px;
+}
+
+.id {
+    flex: 0 0 32%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: #4F5377;
+}
+
+.invest {
+    flex: 0 0 32%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: #8C93D6;
+}
+
+.time {
+    flex: 0 0 32%;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.428571px;
+    color: #E16767;
+}
+
+.balance {
+    grid-area: balances;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "subtitle" "mainInfo";
+    align-items: center;
+}
+
+.subtitle {
+    grid-area: subtitle;
+    padding: 5px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: rgba(29, 32, 56, 0.75);
+}
+
+.info{
+    grid-area: mainInfo;
+    padding: 5px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: #8C93D6;
+}
+
+.can_invest{
+    grid-area: canBuy;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "subtitle" "mainInfo";
+    align-items: center;
+}
+
+.input_value{
+    grid-area: invest;
+}
+
+.currency_body {
+    grid-area: input;
+    background: #FBFBFD;
+    position: relative;
+}
+
+.currency_body input {
+    background: #FBFBFD;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 0.428571px;
+    color: rgba(80, 77, 133, 0.75);
+}
+
+.currency_body svg {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    cursor: pointer;
+}
+
+.currency_body_options{
+    width: 100%;
+    position: absolute;
+    top: 35px;
+    transform: translate(-50%, 0);
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform-origin: top;
+    transform: scale(0);
+    transition: var(--transition);
+    background: #FBFBFD;
+    border-radius: 0 0 10px 10px;
+    padding: 5px;
+}
+
+.currency_body_options span{
+    cursor: pointer;
+}
+
+
+.currency_body_options.active{
+    transform: scale(1);
+}
+
+.btn {
+    grid-area: btn;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_body {
+    width: 100%;
+    height: 80%;
+    background: #8C93D6;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.428571px;
+    color: #FFFFFF;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn_body:hover {
+    filter: hue-rotate(90deg);
+}

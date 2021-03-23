@@ -1,4 +1,5 @@
 import React from 'react';
+import s from './SemiCircleProgress.module.css';
 
 function toXY(centerX, centerY, radius, angleInDegrees) {
     let angleInRadians = (angleInDegrees - 180) * Math.PI / 180;
@@ -9,7 +10,7 @@ function toXY(centerX, centerY, radius, angleInDegrees) {
     };
 }
 
-function DrawSemiCircle(x, y , radius , startAngle , endAngle ) {
+function DrawSemiCircle(x, y, radius, startAngle, endAngle) {
 
     let start = toXY(x, y, radius, endAngle);
     let end = toXY(x, y, radius, startAngle);
@@ -26,11 +27,14 @@ function DrawSemiCircle(x, y , radius , startAngle , endAngle ) {
 
 export default function SemiCircleProgress(props) {
     return (
-        <svg>
-            {props.children}
-            <path id="arc1" fill="none" d={DrawSemiCircle(props.centerX, props.centerY, props.radius, props.startAngle, props.endAngle)} stroke={props.colourBack} stroke-width={props.width} stroke-linecap={props.shape} />
-            <path id="arc2" fill="none" d={DrawSemiCircle(props.centerX, props.centerY, props.radius, props.startAngle, props.endAngle)} stroke={props.colourProgress} stroke-width={props.width} stroke-linecap={props.shape} />
-        </svg>
+        <div className={s.wrapper}>
+            <svg viewBox={`0 0 ${props.radius*2} ${props.radius+10}`} width={props.radius*2}
+            height={props.radius}>
+                {props.children}
+                <path id="arc1" fill="none" d={DrawSemiCircle(props.centerX, props.centerY, props.radius, props.startAngle, 180)} stroke={props.colourBack} stroke-width={props.width} stroke-linecap={props.shape} />
+                <path id="arc2" fill="none" d={DrawSemiCircle(props.centerX, props.centerY, props.radius, props.startAngle, props.endAngle)} stroke={props.colourProgress} stroke-width={props.width} stroke-linecap={props.shape} />
+            </svg>
+        </div>
     )
 }
 

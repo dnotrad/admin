@@ -7,8 +7,10 @@ import calendare from '../../assets/icons/calendare.svg';
 import wallet from '../../assets/icons/purple-wallet.svg';
 import graph from '../../assets/icons/purple-graph.svg';
 import bank from '../../assets/icons/purple-bank.svg';
+import PopUp from '../modals/Modal';
 
 function OptionItem(props) {
+    console.log(props);
     return (
         <div className={s.item_wrapper}>
             <div className={s.item_body}>
@@ -29,7 +31,7 @@ function OptionItem(props) {
                 </div>
                 <div className={s.item_percent}>
                     <img src={graph} alt=""/>
-                    <span>{props.item.percent_min}% - {props.item.percent_max}% в день</span>
+                    <span>{props.item.percent_min}% - {props.item.percent_max}% в {props.i===0 ? "день" : props.i===1 ? "неделю" : "месяц"}</span>
                 </div>
                 <div className={s.item_pay}>
                     <img src={bank} alt=""/>
@@ -97,10 +99,17 @@ const options = {
     }],
 }
 
-export function Invest() {
+export default function Invest() {
     const [activeState, setActiveState] = React.useState(0);
+    const [open, setOpen] = React.useState(false);
+    const [popUpData, setPopUpData] = React.useState({
+        
+    });
     return (
         <section className={s.Invest_wrapper}>
+            <PopUp open={open} blur={10}>
+
+            </PopUp>
             <div className={s.Invest_body}>
                 <div className={s.Invest_header}>
                     <div className={s.Invest_header_btns}>
@@ -122,7 +131,7 @@ export function Invest() {
                     </div>
                 </div>
                 <div className={s.Invest_options}>
-                {(activeState === 0 ? options.Cryptocurrency.map((item, key)=><OptionItem item={item} key={key}/>) : activeState === 1 ? options.Commodity.map((item, key)=><OptionItem item={item} key={key}/>) : options.stock.map((item, key)=><OptionItem item={item} key={key}/>))}
+                {(activeState === 0 ? options.Cryptocurrency.map((item, key)=><OptionItem item={item} key={key} i={activeState}/>) : activeState === 1 ? options.Commodity.map((item, key)=><OptionItem item={item} key={key} i={activeState}/>) : options.stock.map((item, key)=><OptionItem item={item} key={key} i={activeState}/>))}
                 </div>
             </div>
         </section>

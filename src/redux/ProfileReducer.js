@@ -2,6 +2,9 @@ import silver from '../assets/icons/silver.svg';
 import gold from '../assets/icons/gold.svg';
 import platinum from '../assets/icons/platinum.svg';
 const SET_STATISTIC = 'SET_STATISTIC';
+const SET_REINVEST = 'SET_REINVEST';
+const SET_MONEY = 'SET_MONEY';
+const SET_INVEST = 'SET_INVEST'; 
 
 let initialState = {
     money: 58340,
@@ -61,7 +64,7 @@ let initialState = {
     ],
     history: {
         active: [{
-            icon: silver, name: "Silver", timing: 204, id:1, history: {
+            icon: silver, name: "Silver", timing: 204, id: 1, history: {
                 invest: 67,
                 profit: 23.49,
                 reinvest: 0,
@@ -69,7 +72,7 @@ let initialState = {
                 history_replenishments: [{ "Сумма": 56704.003, "Статус": 1, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": -1, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": 0, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": 0, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": -1, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": 0, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": 1, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": 0, "Дата": "16.04.2020" }]
             },
         }, {
-            icon: gold, name: "Gold", timing: 101, id:2, history: {
+            icon: gold, name: "Gold", timing: 101, id: 2, history: {
                 invest: 67,
                 profit: 23.49,
                 reinvest: 0,
@@ -78,7 +81,7 @@ let initialState = {
             }
         }],
         disactive: [{
-            icon: silver, name: "Silver", timing: 0, id:3, history: {
+            icon: silver, name: "Silver", timing: 0, id: 3, history: {
                 invest: 67,
                 profit: 23.49,
                 reinvest: 0,
@@ -86,7 +89,7 @@ let initialState = {
                 history_replenishments: [{ "Сумма": 56704.003, "Статус": 1, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": -1, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": 0, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": 0, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": -1, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": 0, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": 1, "Дата": "16.04.2020" }, { "Сумма": 56704.003, "Статус": 0, "Дата": "16.04.2020" }]
             },
         }, {
-            icon: platinum, name: "Platinum", timing: 0, id:4, history: {
+            icon: platinum, name: "Platinum", timing: 0, id: 4, history: {
                 invest: 67,
                 profit: 23.49,
                 reinvest: 0,
@@ -106,6 +109,39 @@ const ProfileReducer = (state = initialState, action) => {
                 ...state, show_statistic: action.payload
             }
         }
+        case SET_REINVEST: {
+            let new_history = {};
+            let new_obj = {};
+            let new_subobj = {};
+            for(let item in state.history){
+                for(let item2 in state.history[item]){
+                    new_obj = state.history[item].map((i)=>{
+                        new_subobj = i;
+                        if(i.id === action.id){
+                            new_subobj.history.reinvest = action.payload
+                        }
+                        return new_subobj;
+                    })
+                }
+                new_history[item] = new_obj;
+                new_obj = {};
+            }
+
+            return {
+                ...state, history: new_history
+            }
+        }
+        case SET_MONEY:{
+            console.log(action.payload);
+            return {
+                ...state, money: action.payload
+            }
+        }
+        case SET_INVEST:{
+            return {
+                ...state, invest: action.payload
+            }
+        }
         default:
             return state
     }
@@ -113,6 +149,18 @@ const ProfileReducer = (state = initialState, action) => {
 
 export const setShowStatistic = (data) => ({
     type: SET_STATISTIC, payload: data
+})
+
+export const setReinvest = (data, id) => ({
+    type: SET_REINVEST, payload: data, id
+})
+
+export const setMoney = (data) => ({
+    type: SET_MONEY, payload: data
+})
+
+export const setInvest = (data) => ({
+    type: SET_INVEST, payload: data
 })
 
 export default ProfileReducer;

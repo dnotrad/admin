@@ -162,13 +162,8 @@ function CurrencyItem(props) {
                 </div>
                 <div className={s.currency_item_right}>
                     <div className={s.currency_item_right_row}>
-<<<<<<< HEAD
-                        <span className={s.currency_item_right_money}>{props.data.isToken ? "T " : "$ "}{props.data.cost.toFixed(2)}</span>
-                        <span className={s.currency_item_right_buy}> Can buy: {Math.floor(props.money / props.data.cost)}</span>
-=======
                         <span className={s.currency_item_right_money}>{props.data.isToken ? "T " : "$ "}{(props.data.cost).toFixed(2)}</span>
                         <span className={s.currency_item_right_buy}> Can buy: {Math.floor(props.money / props.data.cost).toFixed(2)}</span>
->>>>>>> eca93c4a90e0ab5e11a427718a3a95f06d2a40a3
                     </div>
                     <NavLink to={`/Wallets`} className={s.navlink}>
                         <span></span>
