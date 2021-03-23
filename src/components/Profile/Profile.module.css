@@ -1,111 +1,162 @@
 .profile {
-    padding: 20px;
+  padding: 20px;
 }
 
 .card {
-    background-color: #fff;
-    border-radius: 10px;
-    width: 100%;
-    box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
-    padding: 30px;
-    margin-bottom: 25px;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+  padding: 30px;
+  margin-bottom: 25px;
 }
 
 .card_title {
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 30px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 30px;
 }
 
 .card__inner {
-    display: flex;
+  display: flex;
 }
 
 .card_main {
-    display: flex;
+  display: flex;
 }
 
 .inputs {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card_user {
-    width: 30%;
-    border-right: 1px solid rgba(235, 236, 242, 0.5);
-    margin-right: 30px;
-    text-align: center;
-    padding-right: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 30%;
+  border-right: 1px solid rgba(235, 236, 242, 0.5);
+  margin-right: 30px;
+  text-align: center;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card_user_title {
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .card_user_img {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 10px;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
 }
 
 .card_user_img img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .card_user_buttons {
-    display: flex;
+  display: flex;
 }
 
 /* download */
-.downloaders{
-    width: 90%;
-    display: flex;
+
+.downloaders {
+  width: 90%;
+  display: flex;
 }
+
 .downloader_button {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
 }
-.downloader{
-    width: 33%;
-    margin-right: 10px;
+
+.downloader {
+  width: 33%;
+  margin-right: 10px;
 }
 
 .downloader_body {
-    cursor: pointer;
-    border: 1px solid #F0F1F6;
-    border-radius: 8px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
+  cursor: pointer;
+  border: 1px solid #f0f1f6;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
 }
-.downloader_svg{
-    width: 36px;
-    height: 36px;
-    background-color: #F8F9FC;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
+
+.downloader_svg {
+  width: 36px;
+  height: 36px;
+  background-color: #f8f9fc;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
 }
-.downloader_svg.active g{
-    opacity: 1;
+
+.downloader_svg.active g {
+  opacity: 1;
 }
+
 .downloader_body span {
-    font-weight: 500;
-    font-size: 13px;
-    /* color: rgba(80, 77, 133, 0, 75); */
-    color:  #504D85;
-    opacity: .75;
-    flex-grow: 1;
+  font-weight: 500;
+  font-size: 13px;
+  /* color: rgba(80, 77, 133, 0, 75); */
+  color: #504d85;
+  opacity: 0.75;
+  flex-grow: 1;
+}
+
+@media (max-width: 1200px) {
+  .profile {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .card {
+    padding: 15px;
+  }
+  .card_title {
+    text-align: center;
+  }
+  .inputs_wrap {
+    padding-top: 25px;
+  }
+  .profile {
+    padding: 5px;
+  }
+  .card_main {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .card_user {
+    margin-right: 0;
+    padding-right: 0;
+  }
+  .inputs {
+    flex-wrap: wrap;
+  }
+}
+
+@media(max-width: 800px){
+  .downloaders{
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .downloader{
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
 }

@@ -14,18 +14,22 @@ import Garant from "./components/Garant/Garant";
 import Calc from "./components/Calc/Calc";
 import News from "./components/News/News";
 import { useTranslation } from "react-i18next";
+import { Lang } from "./components/Header/Header";
 function App() {
-
   const { t, i18n } = useTranslation(); //хук для смены языка
-  const changeLanguage = (language) => { // меняет язык, принимает "ru" или "en"
+  const changeLanguage = (language) => {
+    // меняет язык, принимает "ru" или "en"
     i18n.changeLanguage(language);
   };
-
 
   return (
     <div className="App">
       <header className="App-header">
         <Header />
+        <div className="extra">
+          21:35:59
+          <Lang />
+        </div>
       </header>
       <main className="App-main">
         <Switch>
