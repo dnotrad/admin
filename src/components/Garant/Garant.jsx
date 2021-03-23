@@ -20,39 +20,43 @@ const Garant = () => {
         <div className={s.block}>
           <div className={s.title}>{t("garant.Active_request")}</div>
           <div className={s.main}>
-            <div className={s.user}>
-              <div className={s.user_img}>
-                <img src={userImg} alt="userImg" />
+            <div className={s.block_wrap}>
+              <div className={s.user}>
+                <div className={s.user_img}>
+                  <img src={userImg} alt="userImg" />
+                </div>
+                <div className={s.user_info}>
+                  <div className={s.user_name}>Username</div>
+                  <div className={s.user_id}>ID 785645</div>
+                </div>
               </div>
-              <div className={s.user_info}>
-                <div className={s.user_name}>Username</div>
-                <div className={s.user_id}>ID 785645</div>
+              <div className={s.deal}>
+                <div className={s.deal_img}>
+                  <img src={DTNIcon} alt="DTNIcon" />
+                </div>
+                <div className={s.deal_info}>
+                  <div className={s.deal_title}>{t("garant.Deal_amount")}</div>
+                  <div className={s.deal_count}>67.00 TKN</div>
+                </div>
               </div>
             </div>
-            <div className={s.deal}>
-              <div className={s.deal_img}>
-                <img src={DTNIcon} alt="DTNIcon" />
-              </div>
-              <div className={s.deal_info}>
-                <div className={s.deal_title}>{t("garant.Deal_amount")}</div>
-                <div className={s.deal_count}>67.00 TKN</div>
-              </div>
-            </div>
+
             <Button img={acceptImg} title={t("garant.Confirm")} />
           </div>
         </div>
         <div className={s.block}>
           <div className={s.title}>{t("garant.Deal_request")}</div>
           <div className={s.main}>
-            <div className={s.input}>
-              <div className={s.input_title}>ID:</div>
-              <input type="text" pattern="\d[0-9]" placeholder="00-00-00" />
+            <div className={s.block_wrap}>
+              <div className={s.input}>
+                <div className={s.input_title}>ID:</div>
+                <input type="text" pattern="\d[0-9]" placeholder="00-00-00" />
+              </div>
+              <div className={s.input}>
+                <div className={s.input_title}>{t("garant.Amount")}:</div>
+                <input type="text" placeholder="67.00 TKN" />
+              </div>
             </div>
-            <div className={s.input}>
-              <div className={s.input_title}>{t("garant.Amount")}:</div>
-              <input type="text" placeholder="67.00 TKN" />
-            </div>
-
             <Button img={requestImg} title={t("garant.Request")} />
           </div>
         </div>

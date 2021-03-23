@@ -5,8 +5,11 @@ import Table from "./Tabel/Tabel";
 import { Pie, Cell, PieChart, ResponsiveContainer } from "recharts";
 import Circle from "./Circle";
 import ProfitItem from "./../ProfitItem/ProfitItem";
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+import { useTranslation } from "react-i18next";
+import ReferalTable from "./ReferalTable/ReferalTable";
 
 // imgs
 import invest from "./../../assets/icons/invests.svg";
@@ -14,8 +17,7 @@ import oborot from "./../../assets/icons/oborot.svg";
 import partners from "./../../assets/icons/partners.svg";
 import left from "./../../assets/icons/left-branch.svg";
 import right from "./../../assets/icons/right-branch.svg";
-import ReferalTable from "./ReferalTable/ReferalTable";
-import { useTranslation } from "react-i18next";
+import arrowLeft from "./../../assets/icons/arrow-left.svg";
 
 const Partners = () => {
   const { t, i18n } = useTranslation(); //хук для смены языка
@@ -141,12 +143,10 @@ const Partners = () => {
             </div>
             <div className={`${s.referals_info_main} ${s.referals_card}`}>
               <div className={s.swiper_wrap}>
-                <Swiper
-                  spaceBetween={0}
-                  slidesPerView={1}
-                  onSlideChange={() => console.log("slide change")}
-                  onSwiper={(swiper) => console.log(swiper)}
-                >
+                <div className={s.arrow_left}>
+                  <img src={arrowLeft} alt="arrowLeft" />
+                </div>
+                <Swiper loop={true} spaceBetween={0} slidesPerView={1}>
                   <SwiperSlide>
                     <ProfitItem
                       img={invest}
@@ -183,33 +183,38 @@ const Partners = () => {
                     />
                   </SwiperSlide>
                 </Swiper>
+                <div className={s.arrow_right}>
+                  <img src={arrowLeft} alt="arrowLeft" />
+                </div>
+                <button className={s.ref_link}>Реф. ссылка</button>
               </div>
               <div className={s.profits}>
                 <ProfitItem
                   img={invest}
                   title={`${t("partners.Invested")}:`}
                   content={"6 957.00 TKN"}
-                />{" "}
+                />
                 <ProfitItem
-                  img={invest}
-                  title={`${t("partners.Invested")}:`}
-                  content={"6 957.00 TKN"}
-                />{" "}
-                <ProfitItem
-                  img={invest}
-                  title={`${t("partners.Invested")}:`}
-                  content={"6 957.00 TKN"}
-                />{" "}
-                <ProfitItem
-                  img={invest}
-                  title={`${t("partners.Invested")}:`}
-                  content={"6 957.00 TKN"}
-                />{" "}
-                <ProfitItem
-                  img={invest}
-                  title={`${t("partners.Invested")}:`}
+                  img={oborot}
+                  title={`${t("partners.Total_turnover")}:`}
                   content={"6 957.00 TKN"}
                 />
+                <ProfitItem
+                  img={partners}
+                  title={`${t("partners.Partners")}:`}
+                  content={"147"}
+                />
+                <ProfitItem
+                  img={left}
+                  title={`${t("partners.Right_turnover")}:`}
+                  content={"467 957.49 TKN"}
+                />
+                <ProfitItem
+                  img={right}
+                  title={`${t("partners.Left_turnover")}:`}
+                  content={"467 957.49 TKN"}
+                />
+                <button className={s.ref_link}>Реф. ссылка</button>
               </div>
             </div>
           </div>
