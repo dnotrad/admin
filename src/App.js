@@ -8,11 +8,13 @@ import Partners from "./components/Partners/Partners";
 import Wallets from "./components/Wallets/Wallets";
 import { Switch, Route } from "react-router-dom";
 import Documents from "./components/Documents/Documents";
-import { Invest } from "./components/Invest/Invest";
-import { Portfolio } from "./components/Portfolio/Portfolio";
 import Garant from "./components/Garant/Garant";
 import Calc from "./components/Calc/Calc";
 import News from "./components/News/News";
+import Invest from "./components/Invest/Invest";
+import Portfolio from "./components/Portfolio/Portfolio";
+
+
 import { useTranslation } from "react-i18next";
 import { Lang } from "./components/Header/Header";
 function App() {
@@ -36,6 +38,8 @@ function App() {
           <Route exact path="/" component={Dashboard} />
           <Route path="/Wallets" component={Wallets} />
           <Route path="/settings" component={Profile} />
+          <Route path="/Investments" component={Invest} />
+          <Route path="/Portfolio" component={Portfolio} />
           <Route path="/faq" component={FAQ} />
           <Route path="/Partners" component={Partners} />
           <Route path="/Documents" component={Documents} />
