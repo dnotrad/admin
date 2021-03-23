@@ -12,8 +12,10 @@ import close from '../../assets/icons/close.svg';
 import { setReinvest } from '../../redux/ProfileReducer';
 import SemiCircleProgress from '../circleProgress/SemiCircleProgress';
 import { Table } from '../table/Table'
+import { useTranslation } from 'react-i18next';
 
 function PortfolioItem(props) {
+    const { t, i18n } = useTranslation();
     return (
         <div className={s.item_invest_wrapper}>
             <div className={`${s.item_invest_body} ${props.i === 1 && s.disabled}`} >
@@ -24,7 +26,7 @@ function PortfolioItem(props) {
                         </div>
                         <div className={s.item_invest_left_top_title}>
                             <span className={s.item_title}>{props.data.name}</span>
-                            <span className={s.item_subtitle}>Тарифный план</span>
+                            <span className={s.item_subtitle}>{t("invest.Tariff_plan")}</span>
                         </div>
                         <div className={s.item_invest_left_top_money}>
                             <span className={s.item_title_money}>{props.data.history.invest}</span>
@@ -34,7 +36,7 @@ function PortfolioItem(props) {
                     <div className={s.item_invest_left_bottom} onClick={() => props.setDraw(props.data.id)}>
                         <div className={s.item_invest_left_bottom_icon}>
                             <img src={statistic} alt="" />
-                            <span> Открыть отчет </span>
+                            <span> {t("portfolio.open_report")} </span>
                         </div>
                         <div className={s.item_invest_left_bottom_arrow}>
                             <img src={arrow} alt="" />
@@ -52,7 +54,7 @@ function PortfolioItem(props) {
                     </CircularProgress>
                     <div className={s.circle_data}>
                         <span className={s.item_title_money}>{props.data.timing}</span>
-                        <span className={s.item_subtitle_money}>{parseInt(props.data.timing.toString().slice(-1)) === 1 ? "день" : parseInt(props.data.timing.toString().slice(-1)) > 1 && parseInt(props.data.timing.toString().slice(-1)) < 5 ? "дня" : "дней"}</span>
+                        <span className={s.item_subtitle_money}>{parseInt(props.data.timing.toString().slice(-1)) === 1 ? t("portfolio.den") : parseInt(props.data.timing.toString().slice(-1)) > 1 && parseInt(props.data.timing.toString().slice(-1)) < 5 ? t("portfolio.dnya") : t("invest.days")}</span>
                     </div>
                 </div>
             </div>
@@ -317,15 +319,15 @@ function makeArr(data) {
 }
 
 function PortfolioMain(props) {
-
+    const { t, i18n } = useTranslation(); //хук для смены языка
     return (
         <>
             <div className={s.Portfolio_header}>
                 <div className={s.Portfolio_header_title}>
-                    <span>Portfolio</span>
+                    <span>{t("portfolio.title")}</span>
                 </div>
                 <div className={s.Portfolio_header_subscription}>
-                    <span>В Портфолио вы можете просмотреть всю интересующую вас информацию о ваших работающих тарифных планах, а также посмотреть историю начислений и пополнений,  установить желаемое значение Автореинвеста, воспользоваться функцией Ребалансировки и Реинвестирования.</span>
+                    <span>{t("portfolio.content")}</span>
                 </div>
             </div>
             <div className={s.Portfolio_invest}>

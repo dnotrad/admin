@@ -103,12 +103,11 @@ export default function Invest() {
     const [activeState, setActiveState] = React.useState(0);
     const [open, setOpen] = React.useState(false);
     const [popUpData, setPopUpData] = React.useState({
-        
     });
     return (
         <section className={s.Invest_wrapper}>
             <PopUp open={open} blur={10}>
-
+                
             </PopUp>
             <div className={s.Invest_body}>
                 <div className={s.Invest_header}>

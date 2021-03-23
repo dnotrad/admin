@@ -8,30 +8,39 @@
   border: 0;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-:focus, :active {
+:focus,
+:active {
   outline: none;
 }
 
-a:focus, a:active {
+a:focus,
+a:active {
   outline: none;
 }
 
-nav, footer, header, aside {
+nav,
+footer,
+header,
+aside {
   display: block;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   font-size: 100%;
@@ -42,7 +51,9 @@ html, body {
   -webkit-text-size-adjust: 100%;
 }
 
-input, button, textarea {
+input,
+button,
+textarea {
   font-family: inherit;
 }
 
@@ -59,7 +70,8 @@ button::-moz-focus-inner {
   border: 0;
 }
 
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
   color: inherit;
 }
@@ -80,7 +92,12 @@ img {
   vertical-align: top;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: inherit;
   font-weight: 400;
 }
@@ -88,22 +105,27 @@ h1, h2, h3, h4, h5, h6 {
 /* конец обнуления */
 
 :root {
-  --bg-color: #F0F1F6;
-  --grey-main: #F8F9FC;
-  --black: #1D2038;
+  --bg-color: #f0f1f6;
+  --grey-main: #f8f9fc;
+  --black: #1d2038;
   --grey: rgba(95, 97, 117, 0.75);
-  --user-status: #8C93D6;
+  --user-status: #8c93d6;
   --main-color: #fff;
-  --transition: .4s ease;
-  --green: #84BDB3;
-  --red: #E16767;
-  --yellow: #F5A623;
+  --transition: 0.4s ease;
+  --green: #84bdb3;
+  --red: #e16767;
+  --yellow: #f5a623;
 }
 
 body {
   overflow: hidden;
-  background: linear-gradient(0deg, rgba(197, 201, 234, 0.12), rgba(197, 201, 234, 0.12)), #FFFFFF;
-  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(
+      0deg,
+      rgba(197, 201, 234, 0.12),
+      rgba(197, 201, 234, 0.12)
+    ),
+    #ffffff;
+  font-family: "Roboto", sans-serif;
   color: var(--black);
 }
 
@@ -134,10 +156,30 @@ body {
   grid-area: nav;
   height: 100%;
 }
-
+.extra {
+  display: none;
+  padding: 15px;
+}
+@media (max-width: 1200px) {
+  .App {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr minmax(0, 20fr);
+    grid-template-areas: "header header" "main main";
+  }
+  .App-nav {
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .extra {
+    display: flex;
+    justify-content: space-between;
+  }
+}
 /* scroll */
 
 ::-webkit-scrollbar {
+  height: 15px;
   width: 5px;
 }
 

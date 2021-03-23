@@ -1,4 +1,4 @@
-import React   from "react";
+import React from "react";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Header from "./components/Header/Header";
 import Navigation from "./components/Navigation/Navigation";
@@ -10,17 +10,17 @@ import { Switch, Route } from "react-router-dom";
 import Documents from "./components/Documents/Documents";
 import Garant from "./components/Garant/Garant";
 import Calc from "./components/Calc/Calc";
-
-import { useTranslation } from "react-i18next";
 import News from "./components/News/News";
 import Invest from "./components/Invest/Invest";
 import Portfolio from "./components/Portfolio/Portfolio";
 
 
+import { useTranslation } from "react-i18next";
+import { Lang } from "./components/Header/Header";
 function App() {
-
   const { t, i18n } = useTranslation(); //хук для смены языка
-  const changeLanguage = (language) => { // меняет язык, принимает "ru" или "en"
+  const changeLanguage = (language) => {
+    // меняет язык, принимает "ru" или "en"
     i18n.changeLanguage(language);
   };
 
@@ -28,6 +28,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Header />
+        <div className="extra">
+          21:35:59
+          <Lang />
+        </div>
       </header>
       <main className="App-main">
         <Switch>
@@ -42,6 +46,8 @@ function App() {
           <Route path="/Garant" component={Garant} />
           <Route path="/Profit" component={Calc} />
           <Route path="/News" component={News} />
+          <Route path="/Investments" component={Invest} />
+          <Route path="/Portfolio" component={Portfolio} />
         </Switch>
       </main>
       <nav className="App-nav">

@@ -1,5 +1,5 @@
 .faq{
-    padding: 20px;
+    padding: 10px;
 }
 .title {
     font-weight: 500;
@@ -56,4 +56,19 @@
 }
 .card_arrow.active{
     transform: rotate(180deg);
+}
+
+@media (max-width: 800px) {
+    .card{
+        padding: 15px;
+    }
+
+    .title{
+        font-size: 18px;
+    }
+    .card_title{
+        font-size: 13px;
+        line-height: 1.5;
+        text-transform: none;
+    }
 }
