@@ -7,6 +7,7 @@ const SET_MONEY = 'SET_MONEY';
 const SET_INVEST = 'SET_INVEST'; 
 
 let initialState = {
+    id: 123456,
     money: 58340,
     invest: 55438,
     profit: 5438,

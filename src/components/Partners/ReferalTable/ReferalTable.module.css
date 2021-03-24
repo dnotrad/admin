@@ -20,3 +20,23 @@
 .header_id {
     justify-content: flex-start;
 }
+
+.header_info {
+    padding: 5px;
+}
+
+.header_btn {
+    border: 2px solid #C5C9EA;
+    display: flex;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.428571px;
+    color: #504D85;
+}
+
+.header_btn img {
+    margin-right: 7px;
+}

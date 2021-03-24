@@ -40,7 +40,7 @@ z-index: 50;
 top:0;
 left: 0;
 transition: var(--transition);
-transform: scale(${props => props.open ? "1" : "0"});
+transform: scale(${props => props.open ? "1" : "0"}) translate(0, ${props => props.open ? "0" : "-200"}%);
 transform-origin: top;
 }
 `

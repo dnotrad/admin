@@ -8,9 +8,13 @@ import wallet from '../../assets/icons/purple-wallet.svg';
 import graph from '../../assets/icons/purple-graph.svg';
 import bank from '../../assets/icons/purple-bank.svg';
 import PopUp from '../modals/Modal';
+import PopUpUnvestments from '../modals/PopUps/PopUpsInvestments/PopUpInvesttments';
+import { useSelector } from 'react-redux';
+import PopUpMore from '../modals/PopUps/PopUpsInvestments/PopUpMore';
 
 function OptionItem(props) {
-    console.log(props);
+    const profile = useSelector(state => state.profile);
+
     return (
         <div className={s.item_wrapper}>
             <div className={s.item_body}>
@@ -30,18 +34,25 @@ function OptionItem(props) {
                     <span>{props.item.profit_min === props.item.profit_max ? `от ${props.item.profit_max} DTN` : `от ${props.item.profit_min} до ${props.item.profit_max} DTN`}</span>
                 </div>
                 <div className={s.item_percent}>
-                    <img src={graph} alt=""/>
-                    <span>{props.item.percent_min}% - {props.item.percent_max}% в {props.i===0 ? "день" : props.i===1 ? "неделю" : "месяц"}</span>
+                    <img src={graph} alt="" />
+                    <span>{props.item.percent_min}% - {props.item.percent_max}% в {props.i === 0 ? "день" : props.i === 1 ? "неделю" : "месяц"}</span>
                 </div>
                 <div className={s.item_pay}>
-                    <img src={bank} alt=""/>
+                    <img src={bank} alt="" />
                     <span>{props.item.whenPay}</span>
                 </div>
                 <div className={s.item_btns}>
-                    <button className={`${s.btn} ${s.invest_btn}`} disabled={!props.item.canUse}>
+                    <button className={`${s.btn} ${s.invest_btn}`} disabled={!props.item.canUse} onClick={() => {
+                        props.setPopUpData({ tariff: props.item.name, diversity: props.i === 0 ? "Cryptocurrency" : props.i === 1 ? "Commodity" : "Stock Market", id: profile.id, time: `${new Date().getHours()}.${new Date().getMinutes()}.${new Date().getSeconds()} `, invest: profile.invest, money: profile.money });
+                        props.setOpen(true)
+                    }}>
                         Инвестеировать
                     </button>
-                    <button className={`${s.btn} ${s.show_btn}`}>
+                    <button className={`${s.btn} ${s.show_btn}`} onClick={() => {
+                        props.setPopUpData({ tariff: props.item.name, diversity: props.i === 0 ? "Cryptocurrency" : props.i === 1 ? "Commodity" : "Stock Market", id: profile.id, time: `${new Date().getHours()}.${new Date().getMinutes()}.${new Date().getSeconds()} `, invest: profile.invest, money: profile.money })
+                        props.setPopUpData2({ title: props.i === 0 ? "Cryptocurrency" : props.i === 1 ? "Commodity" : "Stock Market", text: props.item.more, })
+                        props.setOpen2(true);
+                    }}>
                         Подробнее
                     </button>
                 </div>
@@ -102,12 +113,16 @@ const options = {
 export default function Invest() {
     const [activeState, setActiveState] = React.useState(0);
     const [open, setOpen] = React.useState(false);
-    const [popUpData, setPopUpData] = React.useState({
-    });
+    const [open2, setOpen2] = React.useState(false);
+    const [popUpData, setPopUpData] = React.useState({});
+    const [popUpData2, setPopUpData2] = React.useState({});
     return (
         <section className={s.Invest_wrapper}>
             <PopUp open={open} blur={10}>
-                
+                <PopUpUnvestments setOpen={setOpen} popUpData={popUpData} />
+            </PopUp>
+            <PopUp  open={open2} blur={10}>
+                <PopUpMore setOpen2={setOpen2} setOpen={setOpen} popUpData={popUpData2} />
             </PopUp>
             <div className={s.Invest_body}>
                 <div className={s.Invest_header}>
@@ -130,7 +145,7 @@ export default function Invest() {
                     </div>
                 </div>
                 <div className={s.Invest_options}>
-                {(activeState === 0 ? options.Cryptocurrency.map((item, key)=><OptionItem item={item} key={key} i={activeState}/>) : activeState === 1 ? options.Commodity.map((item, key)=><OptionItem item={item} key={key} i={activeState}/>) : options.stock.map((item, key)=><OptionItem item={item} key={key} i={activeState}/>))}
+                    {(activeState === 0 ? options.Cryptocurrency.map((item, key) => <OptionItem setOpen2={setOpen2} setOpen={setOpen} setPopUpData={setPopUpData} setPopUpData2={setPopUpData2} item={item} key={key} i={activeState} />) : activeState === 1 ? options.Commodity.map((item, key) => <OptionItem setPopUpData2={setPopUpData2} setOpen2={setOpen2} setOpen={setOpen} setPopUpData={setPopUpData} item={item} key={key} i={activeState} />) : options.stock.map((item, key) => <OptionItem setPopUpData2={setPopUpData2} setOpen2={setOpen2} setPopUpData={setPopUpData} setOpen={setOpen} item={item} key={key} i={activeState} />))}
                 </div>
             </div>
         </section>

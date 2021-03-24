@@ -1,6 +1,6 @@
 .wrapper {
     width: 350px;
-    height: 500px;
+    height: 350px;
 }
 
 .body {
@@ -8,7 +8,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 4fr 2fr 2fr;
+    grid-template-rows: 1fr 6fr 2fr 2fr;
     grid-gap: 10px;
     grid-template-areas: "title" "body" "invest" "btn";
     background: #FFFFFF;
@@ -47,11 +47,18 @@
     color: rgba(95, 97, 117, 0.75);
 }
 
+.close{
+    cursor: pointer;
+}
+
 .check {
     grid-area: body;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-template-areas: "garant" "balances" "canBuy";
+    background: #FBFBFD;
+    border: 1px dashed rgba(140, 147, 214, 0.35);
+    padding: 5px;
 }
 
 .garant {
@@ -59,8 +66,7 @@
     display: grid;
     grid-template-columns: 2fr 5fr;
     grid-template-areas: "garantTitle garantMain";
-    background: #FBFBFD;
-    border: 1px dashed rgba(140, 147, 214, 0.35);
+    
 }
 
 .garant_subtitle {
@@ -72,6 +78,8 @@
     letter-spacing: 0.428571px;
     color: rgba(29, 32, 56, 0.75);
     padding: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .garant_info {
@@ -83,7 +91,7 @@
 }
 
 .id {
-    flex: 0 0 32%;
+    flex: 0 0 28%;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -93,13 +101,14 @@
 }
 
 .invest {
-    flex: 0 0 32%;
+    flex: 0 0 34%;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
     line-height: 15px;
     letter-spacing: 0.428571px;
     color: #8C93D6;
+    
 }
 
 .time {
@@ -118,7 +127,7 @@
     grid-area: balances;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "subtitle" "mainInfo";
+    grid-template-areas: "subtitle mainInfo";
     align-items: center;
 }
 
@@ -146,7 +155,7 @@
     grid-area: canBuy;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "subtitle" "mainInfo";
+    grid-template-areas: "subtitle mainInfo";
     align-items: center;
 }
 
