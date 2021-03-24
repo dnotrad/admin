@@ -179,7 +179,7 @@ body {
 /* scroll */
 
 ::-webkit-scrollbar {
-  height: 15px;
+  height: 5px;
   width: 5px;
 }
 

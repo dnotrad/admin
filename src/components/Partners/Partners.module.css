@@ -162,9 +162,32 @@
 .profits {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 .swiper-container {
   width: 500px;
+}
+.ref_link {
+  width: 33%;
+  background: #ffffff;
+  border: 2px solid #c5c9ea;
+  border-radius: 8px;
+  padding: 13px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #504d85;
+  height: 42px;
+}
+.arrow_left{
+  position: absolute;
+  left: -25px;
+  top: 15px;
+}
+.arrow_right{
+  position: absolute;
+  right: -25px;
+  top: 15px;
+  transform: rotate(180deg);
 }
 @media (max-width: 1600px) {
   .referals_info {
@@ -178,6 +201,9 @@
   .partners {
     padding: 5px;
   }
+  .referals_table{
+    overflow-x: scroll;
+  }
 }
 @media (max-width: 500px) {
   .profits {
@@ -187,8 +213,15 @@
     display: block;
     width: 100%;
     max-width: 400px;
+    position: relative;
   }
   .referals_info_main {
     width: 100%;
+    min-height: 0;
+  }
+  .ref_link{
+      margin-top: 20px;
+      width: 100%;
+      text-align: center;
   }
 }

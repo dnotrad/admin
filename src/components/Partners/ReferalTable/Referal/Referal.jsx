@@ -40,7 +40,7 @@ const Referal = (props) => {
                 </Wrapper>
                 <div className={s.line}><Circle color="#E16767" /><span>{props.line} {t("partners.Line")}</span></div>
                 <div className={s.line}>134 {t("partners.Partners")}</div>
-                <div className={s.line}>{props.padd* 20}</div>
+                <div className={s.line}><button className={s.ref_link}>{t("partners.info")}</button></div>
             </div>
 
             {isOpen && (props.refs.length > 0) ? props.refs.map((ref) =>
