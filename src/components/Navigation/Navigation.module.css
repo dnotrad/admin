@@ -242,3 +242,21 @@
         width: 3px;
     }
 }
+
+@media(max-width: 1024px){
+    .item_name{
+        font-size: 32px;
+    }
+    .item_icon{
+        width: 32px;
+    }
+}
+
+@media(max-width: 540px){
+    .item_name{
+        font-size: 20px;
+    }
+    .item_icon{
+        width: 32px;
+    }
+}
