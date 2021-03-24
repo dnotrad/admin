@@ -12,7 +12,10 @@ export function CircularProgress(props) {
             width={props.sqSize}
             height={props.sqSize}
             viewBox={viewBox}>
-                {props.children}
+            <svg x="10%"
+                y="10%">
+            {props.children}
+            </svg>
             <circle
                 fill="none"
                 stroke={`${props.colourBack}`}
@@ -53,5 +56,5 @@ CircularProgress.defaultProps = {
     strokeWidth: 10,
     colourProgress: "red",
     colourBack: "#ddd",
-    showText:false
+    showText: false
 }

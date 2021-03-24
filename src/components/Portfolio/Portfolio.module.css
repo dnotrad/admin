@@ -15,7 +15,7 @@
     position: relative;
 }
 
-.back{
+.back {
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -25,6 +25,7 @@
     right: 40px;
     width: 50px;
     height: 50px;
+    z-index: 49;
     border-radius: 50%;
     background: linear-gradient(45deg, rgba(140, 147, 214, 1) 0%, rgba(132, 189, 179, 1) 100%);
     transform: rotate(180deg);
@@ -222,6 +223,10 @@
     padding: 10px;
     grid-area: invest_graph;
     position: relative;
+}
+
+.item_invest_right svg {
+    transform: rotate(-90deg);
 }
 
 .item_invest_left_bottom_arrow img {
@@ -454,6 +459,7 @@
     width: 400px;
     position: absolute;
     display: grid;
+    z-index: 49;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr 1fr;
     grid-template-areas: "header" "options" "save";
@@ -741,12 +747,12 @@
     color: var(--black);
 }
 
-.history_profit_table{
+.history_profit_table {
     grid-area: profitTable;
     border-top: 1px solid rgba(140, 147, 214, 0.2);
 }
 
-.history_payments{
+.history_payments {
     padding: 20px;
     background: #FFFFFF;
     box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
@@ -769,7 +775,172 @@
     color: var(--black);
 }
 
-.history_payments_table{
+.history_payments_table {
     grid-area: paymentsTable;
     border-top: 1px solid rgba(140, 147, 214, 0.2);
+}
+
+.history_details_items_wrapper_mobile {
+    display: none;
+}
+
+@media(max-width: 1024px) {
+    .item_invest_wrapper {
+        flex: 0 0 100%;
+    }
+    .item_title {
+        font-size: 30px;
+    }
+    .item_invest_left_top_icon {
+        display: flex;
+        justify-content: center;
+    }
+    .item_subtitle {
+        font-size: 24px;
+        line-height: 26px;
+    }
+    .item_title_money {
+        font-size: 34px;
+        line-height: 36px;
+    }
+    .item_subtitle_money {
+        font-size: 20px;
+        line-height: 22px;
+    }
+    .item_invest_left_bottom_icon span {
+        font-size: 20px;
+    }
+    .item_invest_left_bottom_icon img {
+        margin-right: 10px;
+    }
+    .Portfolio_header_title {
+        font-size: 36px;
+    }
+    .Portfolio_header_subscription {
+        font-size: 30px;
+        line-height: 32px;
+    }
+}
+
+@media(max-width: 540px) {
+    .item_title {
+        font-size: 16px;
+    }
+    .item_invest_body{
+        padding: 5px;
+        grid-template-columns: 9fr 4fr;
+    }
+    .item_invest_left_top_icon {
+        display: flex;
+        justify-content: center;
+    }
+    .item_subtitle {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .item_title_money {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .item_subtitle_money {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .item_invest_left_bottom_icon span {
+        font-size: 16px;
+    }
+    .item_invest_left_bottom_icon img {
+        margin-right: 10px;
+    }
+    .Portfolio_header_title {
+        font-size: 20px;
+    }
+    .Portfolio_header_subscription {
+        font-size: 20px;
+        line-height: 22px;
+    }
+    .Portfolio_body {
+        padding: 5px;
+    }
+    .history_body {
+        grid-gap: 10px;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: 1fr 1fr 1fr 4fr 4fr;
+        grid-template-areas: "details" "rebalance" "reinvest" "profit" "payments"
+    }
+    .history_details_items_wrapper {
+        display: none;
+    }
+    .history_details_items_wrapper_mobile {
+        display: flex;
+        max-width: 300px;
+    }
+    .history_details_item_body {
+        flex: 0 0 100%;
+        max-width: 300px;
+    }
+    .semi_circle {
+        display: none;
+    }
+    .history_details {
+        padding: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "data";
+    }
+    .history_details_lower {
+        grid-template-rows: 3fr 2fr;
+        place-items: center;
+        grid-template-areas: "functions"" btn_reinvest";
+    }
+    .history_details_upper {
+        justify-content: center;
+    }
+    .popup_autoreinvest_body {
+        top: 75px;
+        left: -80px;
+        padding: 20px;
+        width: 300px;
+        position: absolute;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+        grid-template-areas: "header" "options" "save";
+        grid-gap: 10px;
+        background: var(--main-color);
+        border-radius: 10px;
+        box-shadow: 30px 45px 95px rgba(126, 123, 160, 0.13);
+    }
+    .history_rebalance_title {
+        display: flex;
+        justify-content: center;
+    }
+    .history_rebalance_body {
+        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 2fr 2fr;
+        place-items: center;
+        grid-template-areas: "tariff tariff" "selectTariff selectDivision" "rebalanceBtn rebalanceBtn";
+    }
+    .history_reinvest_title {
+        display: flex;
+        justify-content: center;
+    }
+    .history_reinvest_body {
+        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        place-items: center;
+        grid-template-areas: "sum input" 
+    "rebalanceBtn rebalanceBtn";
+    }
+    .history_payments_title,
+    .history_profit_title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .history_profit_table{
+        overflow-x: auto;
+    }
 }

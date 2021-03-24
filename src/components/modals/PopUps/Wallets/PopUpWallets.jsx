@@ -29,7 +29,7 @@ export default function PopUpWallets(props) {
     }
     return (
         <div className={s.popUp_wrapper}>
-            <Alerts setOpen={setOpen} error={alertData.error} msg={alertData.msg} open={open} />
+            <Alerts mobile={document.documentElement.clientWidth <= 540 ? true : false} close={props.close} setOpen={setOpen} error={alertData.error} msg={alertData.msg} open={open} />
             <div className={s.popUp_body}>
                 <div className={s.popUp_header}>
                     <span>{props.title}</span>

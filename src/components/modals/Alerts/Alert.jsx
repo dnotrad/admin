@@ -36,19 +36,19 @@ width:100vw;
 height: 100vh;
     position: fixed;
     top: 0;
-    left: 0;
+    right: ${props => props.open ? (props.mobile ? -7 : -75) : -200}%;
     z-index: 51;
     transition: var(--transition);
     transform: scale(${props => props.open ? 1 : 0});
 `
 
 const StyedBody = styled.div`
-    width: 400px;
+    width: 320px;
     height: 73px;
     position: absolute;
     top: 15%;
     transition: var(--transition);
-    right: ${props => props.open ? 0 : -50}%;
+    
     transform: translate(-5%, -10%);
     background: #FFFFFF;
     border-radius: 10px;
@@ -60,8 +60,13 @@ const StyedBody = styled.div`
 
 export default function Alerts(props) {
     return (
-        <Modals>
-            <StyledWrapper open={props.open}>
+        <Modals >
+            <StyledWrapper mobile={props.mobile} open={props.open} onClick={()=>{
+                if(props.mobile){
+                    props.setOpen(false)
+                } else {
+                props.close(false)
+                props.setOpen(false)}}}>
                 <StyedBody open={props.open}>
                     <div className={s.icon}>
                         <img src={props.error ? error : ok} alt="" />

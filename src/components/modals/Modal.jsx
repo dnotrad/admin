@@ -61,7 +61,7 @@ export default function PopUp(props) {
     return (
         <Modal>
             <StyledWrapper open={props.open}>
-                <StyledBack withBackground={props.withBackground} color={props.colourBackground} opacity={props.opacity} blur={props.blur}>
+                <StyledBack onClick={()=>props.close(false)} withBackground={props.withBackground} color={props.colourBackground} opacity={props.opacity} blur={props.blur}>
                 </StyledBack>
                 <div className={s.item}>
                     {props.children}

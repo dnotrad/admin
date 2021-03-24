@@ -2,6 +2,8 @@ import React from 'react';
 import Referal from './Referal/Referal';
 import s from "./ReferalTable.module.css";
 import { useTranslation } from "react-i18next";
+import PopUp from '../../modals/Modal';
+import PopUpPartners from '../../modals/PopUps/PopUpPartners/PopUpPartners';
 const ReferalTable = () => {
     const { t, i18n } = useTranslation(); //хук для смены языка
     const user14 = {
@@ -83,9 +85,13 @@ const ReferalTable = () => {
     }
 
     const [line, setLine] = React.useState(1);
-
+    const [open, setOpen] = React.useState(false);
+    const [popUpData, setPopUpData] = React.useState({});
     return (
         <div className={s.table}>
+             <PopUp open={open} blur={10} close={setOpen}>
+                <PopUpPartners setOpen={setOpen} popUpData={popUpData} />
+            </PopUp>
             <div className={s.header}>
                 <div className={s.header_id}>{t("partners.Partner_ID")}</div>
                 <div className={s.header_line}>{t("partners.Line")}</div>
@@ -93,7 +99,7 @@ const ReferalTable = () => {
                 <div className={s.header_info}>{t("partners.info")}</div>
             </div>
             <div className={s.referals}>
-                {currentUser.referals.map((ref) => <Referal isFirst={true} line={1} padd={0} name={ref.userName} id={ref.userId} refs={ref.referals} />)}
+                {currentUser.referals.map((ref) => <Referal isFirst={true} line={1} padd={0} setOpen={setOpen} name={ref.userName} id={ref.userId} refs={ref.referals} />)}
             </div>
         </div>
     );

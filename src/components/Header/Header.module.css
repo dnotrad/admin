@@ -121,6 +121,8 @@
   display: none;
   width: 25px;
   height: 16px;
+  position: relative;
+
 }
 
 .burger_line {
@@ -132,6 +134,7 @@
   width: 100%;
   border-radius: 10px;
   transition: 0.4s ease;
+  z-index: 51;
 }
 
 .burger_line::after,
@@ -160,6 +163,16 @@
   transform: translateY(-5px) rotate(-135deg);
 }
 
+.nav{
+  position: fixed;
+  top:0;
+  right: -200%;
+  height: 100vh;
+  width: 100vw;
+  transition: var(--transition);
+  z-index: 50;
+}
+
 @media (max-width: 1200px) {
   .logo {
     display: inline-block;
@@ -170,6 +183,9 @@
   }
   .burger {
     display: inline-block;
+  }
+  .burger.active .nav{
+    right: 0%;
   }
 }
 

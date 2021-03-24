@@ -21,7 +21,7 @@ function DrawSemiCircle(x, y, radius, startAngle, endAngle) {
         "M", start.x, start.y,
         "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
     ].join(" ");
-
+    
     return d;
 }
 

@@ -389,3 +389,49 @@
         flex: 0 0 49.5%;
     }
 }
+
+@media(max-width:1024px){
+    .wallets_currency_body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-evenly;
+    }
+    
+    .currency_item_body {
+        flex: 0 0 48%;
+        max-height: 140px;
+    }
+    .wallets_body {
+        grid-template-rows: 1fr 3.5fr 3fr;
+        grid-template-areas: "title" "currencies" "history";
+        padding: 20px;
+    }
+}
+
+@media(max-width:540px){
+    .wallets_body {
+        grid-template-rows: 1fr 3.5fr 3fr;
+        grid-template-areas: "title" "currencies" "history";
+        padding: 5px;
+    }
+    .currency_item_body {
+        flex: 0 0 100%;
+        max-height: 140px;
+    }
+    .history_table {
+        position: relative;
+        padding: 5px 10px;
+        grid-area: table;
+        overflow-x: auto;
+    }
+    .select_item{
+        font-size: 10px;
+        text-align: center;
+    }
+    .currency_item_center{
+        flex: 0 0 30%;
+    }
+}

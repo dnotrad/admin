@@ -13,6 +13,9 @@ import { setReinvest } from '../../redux/ProfileReducer';
 import SemiCircleProgress from '../circleProgress/SemiCircleProgress';
 import { Table } from '../table/Table'
 import { useTranslation } from 'react-i18next';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 
 function PortfolioItem(props) {
     const { t, i18n } = useTranslation();
@@ -138,7 +141,8 @@ function PortfolioHistory(props) {
 
     useEffect(() => {
         setTariff(props.data.name === "Silver" ? 0 : props.data.name === "Gold" ? 1 : 2);
-        setInputSec(props.data.history.invest.toFixed(2))}, [])
+        setInputSec(props.data.history.invest.toFixed(2))
+    }, [])
 
     function handler(e) {
         e.preventDefault();
@@ -148,7 +152,7 @@ function PortfolioHistory(props) {
     return (
         <div className={s.history_wrapper}>
             <div className={s.history_body}>'
-                <div className={s.back} onClick={()=>props.setDraw(0)}>
+                <div className={s.back} onClick={() => props.setDraw(0)}>
                     <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9.72508 10.2175C9.43258 9.92501 9.43258 9.45251 9.72508 9.16001L12.6276 6.25001L1.25008 6.25001C0.837583 6.25001 0.500082 5.91252 0.500082 5.50002C0.500082 5.08751 0.837583 4.75002 1.25008 4.75002L12.6276 4.75002L9.71758 1.84002C9.42508 1.54752 9.42508 1.07502 9.71758 0.782516C10.0101 0.490015 10.4826 0.490015 10.7751 0.782516L14.9751 4.97502C15.2676 5.26752 15.2676 5.74002 14.9751 6.03252L10.7826 10.2175C10.4901 10.51 10.0101 10.51 9.72508 10.2175Z" fill="#FFFFFF" fill-opacity="1" />
                     </svg>
@@ -159,8 +163,13 @@ function PortfolioHistory(props) {
                             <span className={s.history_details_title}>Подробная отчетность</span>
                         </div>
                         <div className={s.history_details_lower}>
+                            <div className={s.history_details_items_wrapper_mobile}>
+                                <Swiper loop={true} spaceBetween={0} slidesPerView={1}>
+                                    {[{ icon: invest, title: "Инвестированно", subtitle: props.data.history.invest + " DTN" }, { icon: calendare, title: "Заработано", subtitle: props.data.history.profit + " DTN" }, { icon: bank, title: "Автореинвест", subtitle: props.data.history.reinvest + "%" }].map((item, key) => <SwiperSlide><DetailsItem data={item} key={key} /></SwiperSlide>)}
+                                </Swiper>
+                            </div>
                             <div className={s.history_details_items_wrapper}>
-                                {[{ icon: invest, title: "Инвестированно", subtitle: props.data.history.invest + " DTN" }, { icon: calendare, title: "Заработано", subtitle: props.data.history.profit + " DTN" }, { icon: bank, title: "Автореинвест", subtitle: props.data.history.reinvest + "%" }].map((item, key) => <DetailsItem data={item} key={key} />)}
+                                {[{ icon: invest, title: "Инвестированно", subtitle: props.data.history.invest + " DTN" }, { icon: calendare, title: "Заработано", subtitle: props.data.history.profit + " DTN" }, { icon: bank, title: "Автореинвест", subtitle: props.data.history.reinvest + "%" }].map((item, key) =><DetailsItem data={item} key={key} />)}
                             </div>
                             <div className={s.history_details_btn_reinvest_wrapper}>
                                 <div className={s.btn_reinvest_row} >
@@ -293,7 +302,7 @@ function createPaymentsData(data) {
         new_data.push(new_item);
         new_item = {};
     })
-    console.log(new_data)
+
     return new_data
 }
 
@@ -320,6 +329,7 @@ function makeArr(data) {
 
 function PortfolioMain(props) {
     const { t, i18n } = useTranslation(); //хук для смены языка
+
     return (
         <>
             <div className={s.Portfolio_header}>
@@ -351,8 +361,6 @@ function detectData(data, state) {
 export default function Portfolio(props) {
     const data = useSelector(state => state.profile);
     const [draw, setDraw] = React.useState(0);
-
-    console.log(data)
     return (
         <section className={s.Portfolio_wrapper}>
             <div className={s.Portfolio_body}>

@@ -18,11 +18,12 @@ import partners from "./../../assets/icons/partners.svg";
 import left from "./../../assets/icons/left-branch.svg";
 import right from "./../../assets/icons/right-branch.svg";
 import arrowLeft from "./../../assets/icons/arrow-left.svg";
+import { CircularProgress } from "../circleProgress/CircleProgress";
 
 const Partners = () => {
   const { t, i18n } = useTranslation(); //хук для смены языка
   const [isInfo, setIsInfo] = React.useState(false);
-
+  const angle = 75;
   const data = [
     { name: "A", value: 25 },
     { name: "B", value: 75 },
@@ -78,6 +79,11 @@ const Partners = () => {
           <div className={s.referals_info}>
             <div className={`${s.next_rang} ${s.referals_card}`}>
               <div className={s.circles_wrapper}>
+                {/* <CircularProgress colourBack={"#F8F9FC"} strokeWidth={5} sqSize={100} colourProgress={"#F6AC32"} percentage={75}>
+                  <CircularProgress colourBack={"#F8F9FC"} strokeWidth={10} sqSize={80} colourProgress={"#989EDA"} percentage={75}>
+
+                  </CircularProgress>
+                </CircularProgress> */}
                 <PieChart width={114} height={114}>
                   <Pie
                     data={data}

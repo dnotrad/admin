@@ -6,6 +6,7 @@ import userImg from "../../assets/img/user.jpg";
 import logo from "../../assets/img/logo-main.svg";
 import { useTranslation } from "react-i18next";
 import { useSelector } from 'react-redux';
+import Navigation from "../Navigation/Navigation";
 // propsExaple
 
 export const Lang = () => {
@@ -92,6 +93,9 @@ const Header = (props) => {
           className={`${s.burger} ${isOpen ? s.active : ""}`}
           onClick={() => setIsOpen(!isOpen)}
         >
+          <div className={s.nav}>
+            <Navigation/>
+          </div>
           <div className={s.burger_line}></div>
         </div>
       </div>

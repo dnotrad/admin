@@ -43,13 +43,13 @@ function OptionItem(props) {
                 </div>
                 <div className={s.item_btns}>
                     <button className={`${s.btn} ${s.invest_btn}`} disabled={!props.item.canUse} onClick={() => {
-                        props.setPopUpData({ tariff: props.item.name, diversity: props.i === 0 ? "Cryptocurrency" : props.i === 1 ? "Commodity" : "Stock Market", id: profile.id, time: `${new Date().getHours()}.${new Date().getMinutes()}.${new Date().getSeconds()} `, invest: profile.invest, money: profile.money });
+                        props.setPopUpData({ tariff: props.item.name, diversity: props.i === 0 ? "Cryptocurrency" : props.i === 1 ? "Commodity" : "Stock Market", id: profile.id, time: `23.59.59`, invest: profile.invest, money: profile.money });
                         props.setOpen(true)
                     }}>
                         Инвестеировать
                     </button>
                     <button className={`${s.btn} ${s.show_btn}`} onClick={() => {
-                        props.setPopUpData({ tariff: props.item.name, diversity: props.i === 0 ? "Cryptocurrency" : props.i === 1 ? "Commodity" : "Stock Market", id: profile.id, time: `${new Date().getHours()}.${new Date().getMinutes()}.${new Date().getSeconds()} `, invest: profile.invest, money: profile.money })
+                        props.setPopUpData({ tariff: props.item.name, diversity: props.i === 0 ? "Cryptocurrency" : props.i === 1 ? "Commodity" : "Stock Market", id: profile.id, time: `23.59.59 `, invest: profile.invest, money: profile.money })
                         props.setPopUpData2({ title: props.i === 0 ? "Cryptocurrency" : props.i === 1 ? "Commodity" : "Stock Market", text: props.item.more, })
                         props.setOpen2(true);
                     }}>
@@ -118,10 +118,10 @@ export default function Invest() {
     const [popUpData2, setPopUpData2] = React.useState({});
     return (
         <section className={s.Invest_wrapper}>
-            <PopUp open={open} blur={10}>
-                <PopUpUnvestments setOpen={setOpen} popUpData={popUpData} />
+            <PopUp open={open} blur={10} close={setOpen}>
+                <PopUpUnvestments close={setOpen2} setOpen={setOpen} popUpData={popUpData} />
             </PopUp>
-            <PopUp  open={open2} blur={10}>
+            <PopUp  open={open2} blur={10} close={setOpen2}>
                 <PopUpMore setOpen2={setOpen2} setOpen={setOpen} popUpData={popUpData2} />
             </PopUp>
             <div className={s.Invest_body}>

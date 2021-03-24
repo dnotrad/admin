@@ -187,7 +187,7 @@ function Wallets(props) {
     const { t, i18n } = useTranslation(); //хук для смены языка
     return (
         <section className={s.wallets_wrapper}>
-            <PopUp open={open} blur={10}>
+            <PopUp open={open} blur={10} close={setOpen}>
                 <PopUpWallets money={popUpData.money} cost={popUpData.cost} invest={popUpData.invest} SOptionPlace={popUpData.SOptionPlace} currency={popUpData.currency} title={popUpData.title} close={setOpen} fOption={popUpData.fOption} SOption={popUpData.SOption} nameBtn={popUpData.nameBtn} />
             </PopUp>
             <div className={s.wallets_body}>
