@@ -789,36 +789,36 @@
         flex: 0 0 100%;
     }
     .item_title {
-        font-size: 30px;
+        font-size: 14px;
     }
     .item_invest_left_top_icon {
         display: flex;
         justify-content: center;
     }
     .item_subtitle {
-        font-size: 24px;
-        line-height: 26px;
+        font-size: 14px;
+        line-height: 1.5;
     }
     .item_title_money {
-        font-size: 34px;
-        line-height: 36px;
+        font-size: 15px;
+        line-height: 1.5;
     }
     .item_subtitle_money {
         font-size: 20px;
         line-height: 22px;
     }
     .item_invest_left_bottom_icon span {
-        font-size: 20px;
+        font-size: 13px;
     }
     .item_invest_left_bottom_icon img {
         margin-right: 10px;
     }
     .Portfolio_header_title {
-        font-size: 36px;
+        font-size: 14px;
     }
     .Portfolio_header_subscription {
-        font-size: 30px;
-        line-height: 32px;
+        font-size: 13px;
+        line-height: 1.5;
     }
 }
 
@@ -847,16 +847,16 @@
         line-height: 14px;
     }
     .item_invest_left_bottom_icon span {
-        font-size: 16px;
+        font-size: 13px;
     }
     .item_invest_left_bottom_icon img {
         margin-right: 10px;
     }
     .Portfolio_header_title {
-        font-size: 20px;
+        font-size: 14px;
     }
     .Portfolio_header_subscription {
-        font-size: 20px;
+        font-size: 13px;
         line-height: 22px;
     }
     .Portfolio_body {

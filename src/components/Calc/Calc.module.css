@@ -175,6 +175,7 @@
 .reinvest_buttons {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     flex-grow: 1;
 }
 
@@ -202,4 +203,28 @@ input[type="radio"]:checked+.radio_button {
 }
 .radio_button:last-child{
     margin-right: 0;
+}
+
+@media (max-width: 1024px){
+    .calc {
+        padding: 5px;
+    }
+    .main{
+        display: block;
+    }
+    .block{
+        margin-bottom: 25px;
+    }
+}
+
+@media(max-width: 600px){
+    .reinvest .selector_title{
+        margin-bottom: 15px;
+    }
+    .reinvest{
+        display: block;
+    }
+    .radio_button{
+        margin-bottom: 15px;
+    }
 }
