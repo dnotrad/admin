@@ -84,7 +84,6 @@ const ReferalTable = () => {
         referals: [user1, user2, user3, user4, user5]
     }
 
-    const [line, setLine] = React.useState(1);
     const [open, setOpen] = React.useState(false);
     const [popUpData, setPopUpData] = React.useState({});
     return (

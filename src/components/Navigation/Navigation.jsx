@@ -2,7 +2,6 @@ import React from 'react';
 import s from './Navigation.module.css';
 import logo from '../../assets/img/logo.svg';
 import { NavLink } from 'react-router-dom';
-import NavIcon from '../../assets/icons/nav-icon.svg'
 import RightArrow from '../../assets/icons/arrow-to-right.svg';
 import { useTranslation } from "react-i18next";
 

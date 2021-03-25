@@ -15,21 +15,9 @@ import star_up from '../../assets/icons/star-up.svg';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import SemiCircleProgress from '../circleProgress/SemiCircleProgress';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import left from "./../../assets/icons/left-branch.svg";
-import right from "./../../assets/icons/right-branch.svg";
 import arrowLeft from "./../../assets/icons/arrow-left.svg";
-
-const StyledProgress = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform-origin: bottom;
-    transition: .8s ease;
-    transform: rotate(-${props => 180 - props.deg}deg) scale(-1, 1);
-`
 
 export const StyledDot = styled.span`
     width: 9px;
@@ -71,14 +59,6 @@ const StyledProgressProfit = styled.div`
     opacity: ${props => props.active ? 1 : 0.8};
 `
 
-function graphCube() {
-    return (
-        <div style="backround: #F8F9FC; width:10px; heigth:4px">
-
-        </div>
-    )
-}
-
 function ProgressBarProfit(props) {
     const { t, i18n } = useTranslation(); //хук для смены языка
     return (
@@ -98,9 +78,9 @@ function ProgressBarProfit(props) {
 }
 
 const renderActiveShape = (props) => {
-    const RADIAN = Math.PI / 180;
-    const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
-    const sin = Math.sin(-RADIAN * midAngle);
+    /* const RADIAN = Math.PI / 180; */
+    const { cx, cy, /* midAngle, */ innerRadius, outerRadius, startAngle, endAngle, fill, /* payload, percent, value */ } = props;
+    /* const sin = Math.sin(-RADIAN * midAngle);
     const cos = Math.cos(-RADIAN * midAngle);
     const sx = cx + (outerRadius + 10) * cos;
     const sy = cy + (outerRadius + 10) * sin;
@@ -109,7 +89,7 @@ const renderActiveShape = (props) => {
     const ex = mx + (cos >= 0 ? 1 : -1) * 22;
     const ey = my;
     const textAnchor = cos >= 0 ? 'start' : 'end';
-
+ */
     return (
         <g>
             <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
@@ -285,7 +265,7 @@ function creatData(stack, timeline) {
     };
     if (min_lenght === 100000000) min_lenght = 0;
     for (let item in stack) {
-        if (item == timeline) {
+        if (item === timeline) {
             for (let i = 0; i < min_lenght; i++) {
                 for (let initem in stack[`${item}`]) {
                     new_obj["name"] = stack[`${item}`][`${initem}`][i].time

@@ -2,10 +2,9 @@ import React from "react";
 import s from "./Partners.module.css";
 import bg from "./../../assets/img/partners-bg.png";
 import Table from "./Tabel/Tabel";
-import { Pie, Cell, PieChart, ResponsiveContainer } from "recharts";
+import { Pie, Cell, PieChart } from "recharts";
 import Circle from "./Circle";
 import ProfitItem from "./../ProfitItem/ProfitItem";
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { useTranslation } from "react-i18next";
@@ -18,12 +17,10 @@ import partners from "./../../assets/icons/partners.svg";
 import left from "./../../assets/icons/left-branch.svg";
 import right from "./../../assets/icons/right-branch.svg";
 import arrowLeft from "./../../assets/icons/arrow-left.svg";
-import { CircularProgress } from "../circleProgress/CircleProgress";
 
 const Partners = () => {
   const { t, i18n } = useTranslation(); //хук для смены языка
   const [isInfo, setIsInfo] = React.useState(false);
-  const angle = 75;
   const data = [
     { name: "A", value: 25 },
     { name: "B", value: 75 },

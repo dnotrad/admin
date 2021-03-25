@@ -6,7 +6,6 @@ import acceptImg from "./../../assets/icons/accept.svg";
 import requestImg from "./../../assets/icons/request.svg";
 import DTNIcon from "./../../assets/icons/DTN-icon-small.svg";
 import Button from "../btns/BlueButton";
-import Input from "../Profile/Input/Input";
 import { useTranslation } from "react-i18next";
 const Garant = () => {
   const { t, i18n } = useTranslation(); //хук для смены языка

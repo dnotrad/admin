@@ -17,7 +17,6 @@ class Modal extends React.Component {
     }
 
     componentWillUnmount() {
-        console.log(this.el)
         modalRoot.removeChild(this.el);
     }
 

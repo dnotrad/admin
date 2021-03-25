@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./Documents.module.css";
 import pdfImg from "../../assets/icons/pdf.svg";
 import arrowRight from "../../assets/icons/arrow-to-right.svg";
 import docImg from "../../assets/img/doc.jpg";
 import { useTranslation } from "react-i18next";
+import Alerts from "../modals/Alerts/Alert";
 
 const Block = (props) => {
   const { t, i18n } = useTranslation(); //хук для смены языка
@@ -38,11 +39,13 @@ const data = [
 
 const Documents = () => {
   const { t, i18n } = useTranslation(); //хук для смены языка
+  const [open, setOpen] = useState(false);
   return (
     <div className={s.documents}>
+      <Alerts open={open} mobile={true} setOpen={setOpen}/>
       <div className={`${s.block} ${s.header}`}>
         <div className={s.title}>{t("docs.title")}</div>
-        <div className={s.text}>{t("docs.content")}.</div>
+        <div className={s.text} onClick={()=>{setOpen(true); let timer = setTimeout(()=>setOpen(false), 2000)}}>{t("docs.content")}.</div>
       </div>
       <div className={s.wrapper}>
         <div className={`${s.block} ${s.big_pdf}`}>
